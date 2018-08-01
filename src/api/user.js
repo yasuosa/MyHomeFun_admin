@@ -1,4 +1,4 @@
-import { userInfo, tableData } from '@/mock/user'
+import { userInfo } from '@/mock/user'
 import { menu } from '@/mock/menu'
 export const loginByUsername = (username, password, code, redomStr) => {
     console.log(username, password, code, redomStr);
@@ -30,12 +30,6 @@ export const getMenuAll = () => {
     })
 }
 
-export const getTableData = (page) => {
-    console.log(page);
-    return new Promise((resolve) => {
-        resolve({ data: tableData });
-    })
-}
 export const logout = () => {
     return new Promise((resolve) => {
         resolve();
