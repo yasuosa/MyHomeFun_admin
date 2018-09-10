@@ -2,7 +2,8 @@ const first = [{
     id: 33,
     label: "首页",
     href: '/wel/index',
-    icon: 'icon-biaoge',
+    icon: 'el-icon-menu',
     children: [],
 }]
-export const menu = [first];
+const second = []
+export const menu = [first, second];

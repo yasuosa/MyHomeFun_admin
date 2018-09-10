@@ -2,7 +2,7 @@ import { setToken, removeToken } from '@/util/auth'
 import { setStore, getStore } from '@/util/store'
 import { validatenull } from '@/util/validate'
 import { encryption } from '@/util/util'
-import { loginByUsername, getUserInfo, getMenu, logout, getMenuAll } from '@/api/user'
+import { loginByUsername, getUserInfo, getTableData, getMenu, logout, getMenuAll } from '@/api/user'
 const user = {
     state: {
         userInfo: {},
@@ -42,6 +42,14 @@ const user = {
                     commit('CLEAR_LOCK');
                     setToken(data);
                     resolve();
+                })
+            })
+        },
+        GetTableData(params, page) {
+            return new Promise((resolve) => {
+                getTableData(page).then(res => {
+                    const data = res.data;
+                    resolve(data);
                 })
             })
         },

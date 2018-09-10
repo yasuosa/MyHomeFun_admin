@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { resolveUrlPath } from "@/util/util";
 import { mapGetters } from "vuex";
 export default {
   name: "top-menu",
@@ -32,6 +31,12 @@ export default {
           icon: 'el-icon-menu',
           parentId: 0
         },
+        {
+          label: "文档",
+          icon: 'el-icon-document',
+          href: "https://www.kancloud.cn/smallwei/avue/",
+          parentId: 3
+        }
       ]
     };
   },
@@ -54,7 +59,10 @@ export default {
           }
         }
         this.$router.push({
-          path: resolveUrlPath(itemActive.href, itemActive.label)
+          path: this.$router.$avueRouter.getPath({
+            name: itemActive.label,
+            src: itemActive.href
+          })
         });
       });
     }

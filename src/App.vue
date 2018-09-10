@@ -11,9 +11,7 @@ export default {
     return {}
   },
   watch: {},
-  created () {
-
-  },
+  created () { },
   methods: {},
   computed: {}
 }

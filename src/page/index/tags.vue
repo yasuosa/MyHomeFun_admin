@@ -14,7 +14,7 @@
            @touchstart="hadelMousestart">
         <div ref="tagsPageOpened"
              class="tag-item"
-             :class="{'is-active':nowTagValue==item.value}"
+             :class="{'is-active':isObjectValueEqual(item,tag)}"
              :name="item.value"
              @contextmenu.prevent="openMenu(item,$event)"
              v-for="(item,index) in tagList"
@@ -47,8 +47,8 @@
   </div>
 </template>
 <script>
-import { resolveUrlPath, setUrlPath } from '@/util/util'
 import { mapGetters } from 'vuex'
+import { isObjectValueEqual } from '@/util/util';
 export default {
   name: 'tags',
   data () {
@@ -86,11 +86,11 @@ export default {
   },
   computed: {
     ...mapGetters(['tagWel', 'tagList', 'isCollapse', 'tag']),
-    nowTagValue: function () {
-      return setUrlPath(this.$route)
-    },
   },
   methods: {
+    isObjectValueEqual (a, b) {
+      return isObjectValueEqual(a, b)
+    },
     init () {
       this.refsTag = this.$refs.tagsPageOpened
       setTimeout(() => {
@@ -174,7 +174,9 @@ export default {
     closeAllTags () {
       this.$store.commit('DEL_ALL_TAG')
       this.$router.push({
-        path: resolveUrlPath(this.tagWel.value),
+        path: this.$router.$avueRouter.getPath({
+          src: this.tagWel.value
+        }),
         query: this.tagWel.query
       })
     },
@@ -199,24 +201,18 @@ export default {
     },
     openUrl (item) {
       this.$router.push({
-        path: resolveUrlPath(item.value, item.label),
+        path: this.$router.$avueRouter.getPath({
+          name: item.label,
+          src: item.value
+        }),
         query: item.query
       })
     },
-    eachTag (tag) {
-      for (var key in this.tagList) {
-        if (this.tagList[key].value == tag.value) {
-          return key
-        }
-      }
-      return -1
-    },
-    closeTag (item) {
-      const key = this.eachTag(item)
-      let tag
-      this.$store.commit('DEL_TAG', item)
-      if (item.value == this.tag.value) {
-        tag = this.tagList[key == 0 ? key : key - 1]
+    closeTag (tag) {
+      const key = this.tagList.findIndex(item => item.value === tag.value);
+      this.$store.commit('DEL_TAG', tag)
+      if (tag.value === this.tag.value) {
+        tag = this.tagList[key === 0 ? key : key - 1] //如果关闭本标签让前推一个
         this.openUrl(tag)
       }
     }

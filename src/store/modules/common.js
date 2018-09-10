@@ -23,7 +23,22 @@ const common = {
         }) || '',
         website: website,
     },
-    actions: {},
+    actions: {
+        //获取字典公用类
+        GetDic(params, dic) {
+            return new Promise((resolve) => {
+                if (dic instanceof Array) {
+                    Promise.all().then(data => {
+                        let result = {};
+                        dic.forEach((ele, index) => {
+                            result[ele] = data[index].data;
+                        })
+                        resolve(result)
+                    })
+                }
+            })
+        }
+    },
     mutations: {
         SET_COLLAPSE: (state) => {
             state.isCollapse = !state.isCollapse;

@@ -1,13 +1,13 @@
 <template>
   <div class="top">
     <div class="top-button is-left">
+      <logo></logo>
       <!-- breadcrumb按钮和面包屑 -->
-      <div class="tags-breadcrumb">
+      <!-- <div class="tags-breadcrumb">
         <i class="icon-navicon tag-collapse"
            :class="[{ 'tag-collapse_right': isCollapse }]"
            @click="showCollapse"></i>
-        <!-- <top-breadcrumb class="tags-breadcrumb-list"></top-breadcrumb> -->
-      </div>
+      </div> -->
     </div>
     <h1 class="top-title">
       <topMenu></topMenu>
@@ -19,6 +19,14 @@
                   placement="bottom">
         <span class="top-item">
           <top-color></top-color>
+        </span>
+      </el-tooltip>
+      <el-tooltip class="item"
+                  effect="dark"
+                  :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
+                  placement="bottom">
+        <span class="top-item">
+          <top-logs></top-logs>
         </span>
       </el-tooltip>
       <el-tooltip class="item"
@@ -35,14 +43,6 @@
                   placement="bottom">
         <span class="top-item">
           <top-theme></top-theme>
-        </span>
-      </el-tooltip>
-      <el-tooltip class="item"
-                  effect="dark"
-                  :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
-                  placement="bottom">
-        <span class="top-item">
-          <top-logs></top-logs>
         </span>
       </el-tooltip>
       <el-tooltip class="item"
@@ -97,8 +97,9 @@ import topBreadcrumb from "./top-breadcrumb";
 import topColor from "./top-color";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
+import logo from '../logo'
 export default {
-  components: { topLock, topMenu, topBreadcrumb, topColor, topTheme, topLogs },
+  components: { topLock, topMenu, topBreadcrumb, topColor, topTheme, topLogs, logo },
   name: "top",
   data () {
     return {};
