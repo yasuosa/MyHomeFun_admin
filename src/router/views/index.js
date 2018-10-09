@@ -9,4 +9,14 @@ export default [{
         component: () =>
             import ( /* webpackChunkName: "views" */ '@/page/wel')
     }]
+}, {
+    path: '/info',
+    component: Layout,
+    redirect: '/info/index',
+    children: [{
+        path: 'index',
+        name: '个人信息',
+        component: () =>
+            import ( /* webpackChunkName: "views" */ '@/views/info/index')
+    }]
 }]

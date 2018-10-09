@@ -1,15 +1,14 @@
 <template>
-  <div class="pull-auto top-menu">
+  <div class="top-menu">
     <el-menu :default-active="activeIndex"
              mode="horizontal"
-             text-color="#606266">
+             text-color="#333">
       <template v-for="(item,index) in items">
         <el-menu-item :index="item.parentId+''"
                       @click.native="openMenu(item)"
                       :key="index">
           <template slot="title">
             <i :class="item.icon"></i>
-            <span slot="title">{{item.label}}</span>
           </template>
         </el-menu-item>
       </template>
@@ -46,7 +45,9 @@ export default {
   },
   methods: {
     openMenu (item) {
-      this.$store.dispatch("GetMenu", item.parentId).then(() => {
+      this.$store.dispatch("GetMenu", item.parentId).then((data) => {
+        if (data.length === 0) return
+        this.$router.addRoutes(this.$router.$avueRouter.formatRoutes(data, true))
         let itemActive,
           childItemActive = 0;
         if (item.href) {
@@ -69,10 +70,3 @@ export default {
   }
 };
 </script>
-
-<style scoped="scoped" lang="scss">
-.top-menu {
-  margin-top: -4px;
-  box-sizing: border-box;
-}
-</style>

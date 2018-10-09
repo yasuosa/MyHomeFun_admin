@@ -3,7 +3,8 @@
         background: linear-gradient(120deg, #bc00e3, #4efffb) !important;
     }
     .avue-header,
-    .tags-container {
+    .tags-container,
+    .avue-logo {
         background-color: transparent;
     }
     .el-card {
@@ -25,7 +26,7 @@
     .avue-tabs {
         padding: 0 20px !important;
     }
-    .sidebar-container,
+    .avue-sidebar,
     .logo,
     .el-menu-item,
     .el-submenu__title,
@@ -36,7 +37,7 @@
         color: #ccc !important;
     }
     .logo_title,
-    .tags-breadcrumb,
+    .avue-breadcrumb,
     {
         color: #fff !important;
         i {
@@ -49,8 +50,9 @@
     .top {
         border-bottom: none;
     }
-    .tags-menu {
-        background: linear-gradient(90deg, hsla(0, 0%, 100%, .8), hsla(0, 0%, 100%, 0)) !important;
+    .avue-tags {
+        background-color: transparent;
+        border: none;
     }
     .tag-item {
         color: #fff !important;
@@ -110,6 +112,20 @@
             i {
                 color: #fff !important;
             }
+            &:hover {
+                background: linear-gradient(90deg, hsla(0, 0%, 100%, .28), hsla(0, 0%, 100%, 0)) !important;
+            }
+        }
+    }
+    .top-bar__item {
+        i {
+            color: #fff;
+        }
+    }
+    .el-tabs--card>.el-tabs__header .el-tabs__item {
+        &.is-active {
+            border: 1px solid #fff;
+            color: #fff;
         }
     }
 }

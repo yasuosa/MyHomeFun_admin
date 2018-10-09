@@ -4,6 +4,7 @@
         background-size: 100% 100%;
     }
     .avue-header,
+    .avue-logo,
     .tags-container {
         background-color: transparent;
     }
@@ -26,18 +27,15 @@
     .avue-tabs {
         padding: 0 20px !important;
     }
-    .sidebar-container,
+    .avue-sidebar,
     .logo,
     .el-menu-item,
     .el-submenu__title,
     .el-menu {
         background-color: transparent !important
     }
-    .logo_subtitle {
-        color: #ccc !important;
-    }
     .logo_title,
-    .tags-breadcrumb,
+    .avue-breadcrumb,
     {
         color: #fff !important;
         i {
@@ -50,8 +48,9 @@
     .top {
         border-bottom: none;
     }
-    .tags-menu {
-        background-color: rgba(0, 0, 0, .6) !important;
+    .avue-tags {
+        background-color: transparent;
+        border: none;
     }
     .tag-item {
         color: #fff !important;
@@ -71,6 +70,12 @@
         span {
             color: #fff !important;
         }
+        &:hover {
+            i,
+            span {
+                color: #409eff !important;
+            }
+        }
         &.is-active {
             background-color: rgba(0, 0, 0, .4) !important;
             &:hover {
@@ -83,6 +88,13 @@
         span {
             color: #fff !important;
         }
+        &:hover {
+            i,
+            span {
+                color: #409eff !important;
+            }
+            background-color:transparent !important;
+        }
     }
     .el-submenu .el-menu-item {
         &.is-active {
@@ -91,6 +103,36 @@
             i {
                 color: $mainBg !important;
             }
+            &:hover {
+                background-color: rgba(0, 0, 0, .4) !important;
+            }
+        }
+    }
+    .top-search {
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #fff;
+        }
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #fff;
+        }
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #fff;
+        }
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #fff;
+        }
+    }
+    .top-bar__item {
+        i {
+            color: #fff;
         }
     }
 }

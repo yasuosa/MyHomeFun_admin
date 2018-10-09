@@ -1,19 +1,17 @@
 <template>
-  <el-container class="avue-contail">
-    <el-header height="auto"
-               class="avue-header">
+  <div class="avue-contail"
+       :class="{'avue--collapse':isCollapse}">
+    <div class="avue-header">
       <!-- 顶部导航栏 -->
-      <top class="avue-top" />
-    </el-header>
+      <top />
+    </div>
 
-    <el-container class="avue-layout">
-      <el-aside class="avue-left">
+    <div class="avue-layout">
+      <div class="avue-left">
         <!-- 左侧导航栏 -->
-        <el-scrollbar style="height:100%">
-          <sidebar class="avue-sidebar"></sidebar>
-        </el-scrollbar>
-      </el-aside>
-      <el-main class="avue-main">
+        <sidebar />
+      </div>
+      <div class="avue-main">
         <!-- 顶部标签卡 -->
         <tags />
         <!-- 主体视图层 -->
@@ -25,15 +23,18 @@
           <router-view class="avue-view"
                        v-if="!$route.meta.keepAlive" />
         </el-scrollbar>
-      </el-main>
-    </el-container>
+
+      </div>
+    </div>
     <!-- <el-footer class="avue-footer">
       <img src="/svg/logo.svg"
            alt=""
            class="logo">
       <p class="copyright">© 2018 Avue designed by smallwei</p>
     </el-footer> -->
-  </el-container>
+    <div class="avue-shade"
+         @click="showCollapse"></div>
+  </div>
 </template>
 
 <script>
@@ -41,6 +42,7 @@ import { mapGetters } from 'vuex'
 import tags from './tags'
 import top from './top/'
 import sidebar from './sidebar/'
+import admin from '@/util/admin';
 import { validatenull } from '@/util/validate';
 import { calcDate } from '@/util/date.js';
 import { getStore } from '@/util/store.js';
@@ -63,10 +65,24 @@ export default {
     //实时检测刷新token
     // this.refreshToken();
   },
-  mounted () { },
+  mounted () {
+    this.init();
+  },
   computed: mapGetters(['isLock', 'isCollapse', 'website']),
   props: [],
   methods: {
+    showCollapse () {
+      this.$store.commit("SET_COLLAPSE");
+    },
+    // 屏幕检测
+    init () {
+      this.$store.commit('SET_SCREEN', admin.getScreen());
+      window.onresize = () => {
+        setTimeout(() => {
+          this.$store.commit('SET_SCREEN', admin.getScreen());
+        }, 0);
+      }
+    },
     // 实时检测刷新token
     refreshToken () {
       this.refreshTime = setInterval(() => {
@@ -92,59 +108,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.avue-contail {
-  width: 100%;
-  height: 100%;
-  background-color: #eceef3;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.avue-layout,
-.avue-top {
-  width: 92%;
-  height: 100%;
-  margin: 0 auto;
-}
-.avue-left {
-  width: 220px !important;
-}
-.avue-sidebar {
-  height: 100%;
-}
-.avue-header {
-  background: #fff;
-  width: 100%;
-  box-shadow: 3px 0 3px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-}
-.avue-main {
-  padding: 0;
-  position: relative;
-  height: calc(100% - 8px);
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.avue-view {
-  padding-bottom: 22px;
-  width: 100%;
-  box-sizing: border-box;
-}
-.avue-footer {
-  margin: 0 auto;
-  padding: 0 22px;
-  width: 1300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  .logo {
-    margin-left: -50px;
-  }
-  .copyright {
-    color: #666;
-    line-height: 1.5;
-    font-size: 12px;
-  }
-}
-</style>

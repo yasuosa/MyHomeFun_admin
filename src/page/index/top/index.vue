@@ -1,64 +1,69 @@
 <template>
-  <div class="top">
-    <div class="top-button is-left">
-      <logo></logo>
-      <!-- breadcrumb按钮和面包屑 -->
-      <!-- <div class="tags-breadcrumb">
-        <i class="icon-navicon tag-collapse"
-           :class="[{ 'tag-collapse_right': isCollapse }]"
-           @click="showCollapse"></i>
-      </div> -->
+  <div class="avue-top">
+    <div class="top-bar__left">
+      <div class="avue-breadcrumb"
+           v-if="showCollapse">
+        <i class="icon-navicon avue-breadcrumb_collapse"
+           :class="[{ 'avue-breadcrumb_collapse--right': isCollapse }]"
+           @click="setCollapse"></i>
+      </div>
     </div>
-    <h1 class="top-title">
-      <topMenu></topMenu>
+    <h1 class="top-bar__title">
+      <div class="top-bar__item top-bar__item--show"
+           v-if="showMenu">
+        <top-menu></top-menu>
+      </div>
+      <span class="top-bar__item"
+            v-if="showSearch">
+        <top-search></top-search>
+      </span>
     </h1>
-    <div class="top-button is-right">
-      <el-tooltip class="item"
+    <div class="top-bar__right">
+      <el-tooltip v-if="showColor"
                   effect="dark"
                   content="主题色"
                   placement="bottom">
-        <span class="top-item">
+        <div class="top-bar__item">
           <top-color></top-color>
-        </span>
+        </div>
       </el-tooltip>
-      <el-tooltip class="item"
+      <el-tooltip v-if="showDebug"
                   effect="dark"
                   :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
                   placement="bottom">
-        <span class="top-item">
+        <div class="top-bar__item">
           <top-logs></top-logs>
-        </span>
+        </div>
       </el-tooltip>
-      <el-tooltip class="item"
+      <el-tooltip v-if="showLock"
                   effect="dark"
                   content="锁屏"
                   placement="bottom">
-        <span class="top-item">
+        <div class="top-bar__item">
           <top-lock></top-lock>
-        </span>
+        </div>
       </el-tooltip>
-      <el-tooltip class="item"
+      <el-tooltip v-if="showTheme"
                   effect="dark"
                   content="特色主题"
                   placement="bottom">
-        <span class="top-item">
+        <div class="top-bar__item top-bar__item--show">
           <top-theme></top-theme>
-        </span>
+        </div>
       </el-tooltip>
-      <el-tooltip class="item"
+      <el-tooltip v-if="showFullScren"
                   effect="dark"
                   :content="isFullScren?'退出全屏':'全屏'"
                   placement="bottom">
-        <span class="top-item">
+        <div class="top-bar__item">
           <i :class="isFullScren?'icon-tuichuquanping':'icon-quanping'"
              @click="handleScreen"></i>
-        </span>
+        </div>
       </el-tooltip>
-      <el-tooltip class="item"
-                  effect="dark"
+      <el-tooltip effect="dark"
                   content="用户头像"
                   placement="bottom">
-        <img class="top-userImg"
+        <img class="top-bar__img"
              :src="userInfo.avatar">
       </el-tooltip>
       <el-dropdown>
@@ -85,24 +90,28 @@
                             divided>退出系统</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <top-setting></top-setting>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
 import topMenu from "./top-menu";
+import topSearch from './top-search';
 import topBreadcrumb from "./top-breadcrumb";
 import topColor from "./top-color";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
-import logo from '../logo'
+import topSetting from "./top-setting";
 export default {
-  components: { topLock, topMenu, topBreadcrumb, topColor, topTheme, topLogs, logo },
+  components: { topLock, topMenu, topSearch, topBreadcrumb, topColor, topTheme, topLogs, topSetting },
   name: "top",
   data () {
-    return {};
+    return {
+
+    };
   },
   filters: {},
   created () { },
@@ -110,6 +119,16 @@ export default {
     listenfullscreen(this.setScreen);
   },
   computed: {
+    ...mapState({
+      showDebug: state => state.common.showDebug,
+      showColor: state => state.common.showColor,
+      showTheme: state => state.common.showTheme,
+      showLock: state => state.common.showLock,
+      showFullScren: state => state.common.showFullScren,
+      showCollapse: state => state.common.showCollapse,
+      showSearch: state => state.common.showSearch,
+      showMenu: state => state.common.showMenu
+    }),
     ...mapGetters([
       "userInfo",
       "isFullScren",
@@ -119,13 +138,13 @@ export default {
       "tag",
       "logsLen",
       "logsFlag"
-    ])
+    ]),
   },
   methods: {
     handleScreen () {
       fullscreenToggel();
     },
-    showCollapse () {
+    setCollapse () {
       this.$store.commit("SET_COLLAPSE");
     },
     setScreen () {

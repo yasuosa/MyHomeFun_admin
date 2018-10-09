@@ -1,26 +1,16 @@
 <template>
-  <div class="logo">
+  <div class="avue-logo">
     <transition name="fade">
-      <span v-if="isCollapse"
-            class="logo_title is-bold "
-            key="0"
-            :class="{'is-text':!type,'is-img':type}">
-        <template v-if="type">
-          <img :src="website.logo"
-               width="40"
-               height="40" />
-        </template>
-        <template v-else>
-          {{website.logo}}
-        </template>
+      <span v-if="keyCollapse"
+            class="avue-logo_subtitle"
+            key="0">
+        {{website.logo}}
       </span>
     </transition>
     <transition-group name="fade">
-      <template v-if="!isCollapse">
-        <span class="logo_title is-bold"
-              key="1">{{website.title}} </span>
-        <span class="logo_subtitle"
-              key="2">{{website.author}}</span>
+      <template v-if="!keyCollapse">
+        <span class="avue-logo_title"
+              key="1">{{website.indexTitle}} </span>
       </template>
     </transition-group>
   </div>
@@ -33,19 +23,16 @@ export default {
   data () {
     return {};
   },
-  props: ["isCollapse"],
-  created () { },
+  created () {
+  },
   computed: {
-    ...mapGetters(["website"]),
-    type () {
-      return this.website.logo.indexOf("img") != -1;
-    }
+    ...mapGetters(["website", 'keyCollapse'])
   },
   methods: {}
 };
 </script>
 
-<style scoped="scoped" lang="scss">
+<style lang="scss">
 .fade-leave-active {
   transition: opacity 0.2s;
 }
@@ -56,41 +43,32 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-.logo {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 64px;
-  line-height: 64px;
-  color: #333;
-  text-align: center;
+.avue-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #20222a;
   font-size: 20px;
-  font-weight: 600;
   overflow: hidden;
   box-sizing: border-box;
-}
-.logo_title {
-  padding: 0 5px 0 0;
-  color: #409eff;
-  font-size: 28px;
-  &.is-bold {
-    font-weight: 700;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 1024;
+  &_title {
+    display: block;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
   }
-}
-.is-text {
-  position: absolute;
-  top: 0;
-  left: 20px;
-}
-.is-img {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-.logo_subtitle {
-  font-size: 16px;
-  padding-top: 5px;
+  &_subtitle {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
 }
 </style>

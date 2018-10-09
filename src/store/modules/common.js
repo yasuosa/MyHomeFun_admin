@@ -3,24 +3,30 @@ import {
     getStore,
     removeStore
 } from '@/util/store'
+import {
+    getDic
+} from '@/api/admin'
 import website from '@/const/website'
 const common = {
 
     state: {
         isCollapse: false,
         isFullScren: false,
-        isLock: getStore({
-            name: 'isLock'
-        }) || false,
-        theme: getStore({
-            name: 'theme'
-        }) || '#409EFF',
-        themeName: getStore({
-            name: 'themeName'
-        }) || '',
-        lockPasswd: getStore({
-            name: 'lockPasswd'
-        }) || '',
+        isShade: false,
+        screen: -1,
+        isLock: getStore({ name: 'isLock' }) || false,
+        showTag: getStore({ name: 'showTag' }),
+        showDebug: getStore({ name: 'showDebug' }),
+        showCollapse: getStore({ name: 'showCollapse' }),
+        showSearch: getStore({ name: 'showSearch' }),
+        showLock: getStore({ name: 'showLock' }),
+        showFullScren: getStore({ name: 'showFullScren' }),
+        showTheme: getStore({ name: 'showTheme' }),
+        showColor: getStore({ name: 'showColor' }),
+        showMenu: getStore({ name: 'showMenu' }),
+        theme: getStore({ name: 'theme' }) || '#409EFF',
+        themeName: getStore({ name: 'themeName' }) || '',
+        lockPasswd: getStore({ name: 'lockPasswd' }) || '',
         website: website,
     },
     actions: {
@@ -28,7 +34,7 @@ const common = {
         GetDic(params, dic) {
             return new Promise((resolve) => {
                 if (dic instanceof Array) {
-                    Promise.all().then(data => {
+                    Promise.all(dic.map(ele => getDic(ele))).then(data => {
                         let result = {};
                         dic.forEach((ele, index) => {
                             result[ele] = data[index].data;
@@ -40,11 +46,77 @@ const common = {
         }
     },
     mutations: {
+        SET_SHADE: (state, active) => {
+            state.isShade = active;
+        },
         SET_COLLAPSE: (state) => {
             state.isCollapse = !state.isCollapse;
         },
         SET_FULLSCREN: (state) => {
             state.isFullScren = !state.isFullScren;
+        },
+        SET_SHOWCOLLAPSE: (state, active) => {
+            state.showCollapse = active;
+            setStore({
+                name: 'showCollapse',
+                content: state.showCollapse
+            })
+        },
+        SET_SHOWTAG: (state, active) => {
+            state.showTag = active;
+            setStore({
+                name: 'showTag',
+                content: state.showTag
+            })
+        },
+        SET_SHOWMENU: (state, active) => {
+            state.showMenu = active;
+            setStore({
+                name: 'showMenu',
+                content: state.showMenu
+            })
+        },
+        SET_SHOWLOCK: (state, active) => {
+            state.showLock = active;
+            setStore({
+                name: 'showLock',
+                content: state.showLock
+            })
+        },
+        SET_SHOWSEARCH: (state, active) => {
+            state.showSearch = active;
+            setStore({
+                name: 'showSearch',
+                content: state.showSearch
+            })
+        },
+        SET_SHOWFULLSCREN: (state, active) => {
+            state.showFullScren = active;
+            setStore({
+                name: 'showFullScren',
+                content: state.showFullScren
+            })
+        },
+        SET_SHOWDEBUG: (state, active) => {
+            state.showDebug = active;
+            setStore({
+                name: 'showDebug',
+                content: state.showDebug
+            })
+        },
+        SET_SHOWTHEME: (state, active) => {
+            state.showTheme = active;
+            setStore({
+                name: 'showTheme',
+                content: state.showTheme
+            })
+        },
+        SET_SHOWCOLOR: (state, active) => {
+            state.showColor = active;
+            setStore({
+                name: 'showColor',
+                content: state.showColor
+            })
         },
         SET_LOCK: (state) => {
             state.isLock = true;
@@ -53,6 +125,9 @@ const common = {
                 content: state.isLock,
                 type: 'session'
             })
+        },
+        SET_SCREEN: (state, screen) => {
+            state.screen = screen;
         },
         SET_THEME: (state, color) => {
             state.theme = color;

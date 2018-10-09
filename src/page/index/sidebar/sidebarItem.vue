@@ -1,34 +1,36 @@
 <template>
   <div class="menu-wrapper">
     <template v-for="(item,index) in menu">
-      <el-menu-item v-if="validatenull(item.children)"
-                    :index="filterPath(item.href,index)"
+      <el-menu-item v-if="validatenull(item[childrenKey])"
+                    :index="filterPath(item[pathKey],index)"
                     @click="open(item)"
-                    :key="item.label">
-        <i :class="item.icon"></i>
-        <span slot="title">{{item.label}}</span>
+                    :key="item[labelKey]">
+        <i :class="item[iconKey]"></i>
+        <span slot="title">{{item[labelKey]}}</span>
       </el-menu-item>
       <el-submenu v-else
-                  :index="filterPath(item.label,index)"
-                  :key="item.label">
+                  :index="filterPath(item[labelKey],index)"
+                  :key="item[labelKey]">
         <template slot="title">
-          <i :class="item.icon"></i>
+          <i :class="item[iconKey]"></i>
           <span slot="title"
-                :class="{'el-menu--display':isCollapse}">{{item.label}}</span>
+                :class="{'el-menu--display':collapse}">{{item[labelKey]}}</span>
         </template>
-        <template v-for="(child,cindex) in item.children">
-          <el-menu-item :class="{'siderbar-active':nowTagValue==child.href}"
-                        :index="filterPath(child.href,cindex)"
+        <template v-for="(child,cindex) in item[childrenKey]">
+          <el-menu-item :class="{'siderbar-active':nowTagValue==child[pathKey]}"
+                        :index="filterPath(child[pathKey],cindex)"
                         @click="open(child)"
-                        v-if="validatenull(child.children)"
-                        :key="child.label">
-            <i :class="child.icon"></i>
-            <span slot="title">{{child.label}}</span>
+                        v-if="validatenull(child[childrenKey])"
+                        :key="child[labelKey]">
+            <i :class="child[iconKey]"></i>
+            <span slot="title">{{child[labelKey]}}</span>
           </el-menu-item>
           <sidebar-item v-else
-                        :menu="[child]"
+                        :menu="child"
                         :key="cindex"
-                        :isCollapse="isCollapse"></sidebar-item>
+                        :props="props"
+                        :screen="screen"
+                        :collapse="collapse"></sidebar-item>
         </template>
       </el-submenu>
     </template>
@@ -36,23 +38,38 @@
 </template>
 <script>
 import { validatenull } from '@/util/validate';
+import config from './config.js'
 export default {
-  name: 'SidebarItem',
+  name: 'sidebarItem',
   data () {
-    return {}
+    return {
+      config: config
+    }
   },
   props: {
     menu: {
       type: Array
     },
-    isCollapse: {
+    screen: {
+      type: Number
+    },
+    props: {
+      type: Object,
+      default: () => { return {} }
+    },
+    collapse: {
       type: Boolean
     }
   },
-  created () { },
+  created () {
+  },
   mounted () { },
   computed: {
-    nowTagValue: function () { return this.$router.$avueRouter.getValue(this.$route) }
+    labelKey () { return this.props.label || this.config.propsDefault.label },
+    pathKey () { return this.props.path || this.config.propsDefault.path },
+    iconKey () { return this.props.icon || this.config.propsDefault.icon },
+    childrenKey () { return this.props.children || this.config.propsDefault.children },
+    nowTagValue () { return this.$router.$avueRouter.getValue(this.$route) }
   },
   methods: {
     validatenull (val) {
@@ -62,10 +79,11 @@ export default {
       return path == null ? index + '' : path
     },
     open (item) {
+      if (this.screen <= 1) this.$store.commit("SET_COLLAPSE");
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
-          name: item.label,
-          src: item.href
+          name: item[this.labelKey],
+          src: item[this.pathKey]
         }),
         query: item.query
       })
