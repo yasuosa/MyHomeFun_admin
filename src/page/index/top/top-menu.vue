@@ -31,9 +31,9 @@ export default {
           parentId: 0
         },
         {
-          label: "文档",
+          label: "官网",
           icon: 'el-icon-document',
-          href: "https://www.kancloud.cn/smallwei/avue/",
+          href: "https://avue.top",
           parentId: 3
         }
       ]
