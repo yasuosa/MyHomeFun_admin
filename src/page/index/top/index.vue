@@ -27,6 +27,9 @@
           <top-color></top-color>
         </div>
       </el-tooltip>
+      <div class="top-bar__item">
+        <top-msg></top-msg>
+      </div>
       <el-tooltip v-if="showDebug"
                   effect="dark"
                   :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
@@ -109,8 +112,9 @@ import topColor from "./top-color";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
 import topSetting from "./top-setting";
+import topMsg from "./top-msg";
 export default {
-  components: { topLock, topMenu, topSearch, topBreadcrumb, topColor, topTheme, topLogs, topSetting },
+  components: { topLock, topMenu, topSearch, topBreadcrumb, topColor, topTheme, topLogs, topSetting, topMsg },
   name: "top",
   data () {
     return {

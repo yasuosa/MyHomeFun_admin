@@ -1,9 +1,27 @@
-import { setToken, removeToken } from '@/util/auth'
-import { setStore, getStore } from '@/util/store'
-import { isURL } from '@/util/validate'
-import { encryption, deepClone } from '@/util/util'
+import {
+    setToken,
+    removeToken
+} from '@/util/auth'
+import {
+    setStore,
+    getStore
+} from '@/util/store'
+import {
+    isURL
+} from '@/util/validate'
+import {
+    encryption,
+    deepClone
+} from '@/util/util'
 import webiste from '@/const/website'
-import { loginByUsername, getUserInfo, getTableData, getMenu, logout, getMenuAll } from '@/api/user'
+import {
+    loginByUsername,
+    getUserInfo,
+    getTableData,
+    getMenu,
+    logout,
+    getMenuAll
+} from '@/api/user'
 
 
 function addPath(ele, first) {
@@ -31,13 +49,19 @@ const user = {
         userInfo: {},
         permission: {},
         roles: [],
-        menu: getStore({ name: 'menu' }) || [],
+        menu: getStore({
+            name: 'menu'
+        }) || [],
         menuAll: [],
-        token: getStore({ name: 'token' }) || '',
+        token: getStore({
+            name: 'token'
+        }) || '',
     },
     actions: {
         //根据用户名登录
-        LoginByUsername({ commit }, userInfo) {
+        LoginByUsername({
+            commit
+        }, userInfo) {
             const user = encryption({
                 data: userInfo,
                 type: 'Aes',
@@ -56,7 +80,9 @@ const user = {
             })
         },
         //根据手机号登录
-        LoginByPhone({ commit }, userInfo) {
+        LoginByPhone({
+            commit
+        }, userInfo) {
             return new Promise((resolve) => {
                 loginByUsername(userInfo.phone, userInfo.code).then(res => {
                     const data = res.data;
@@ -76,19 +102,25 @@ const user = {
                 })
             })
         },
-        GetUserInfo({ commit }) {
-            return new Promise((resolve) => {
+        GetUserInfo({
+            commit
+        }) {
+            return new Promise((resolve, reject) => {
                 getUserInfo().then((res) => {
                     const data = res.data;
                     commit('SET_USERIFNO', data.userInfo);
                     commit('SET_ROLES', data.roles);
                     commit('SET_PERMISSION', data.permission)
                     resolve(data);
+                }).catch(err => {
+                    reject(err);
                 })
             })
         },
         //刷新token
-        RefeshToken({ commit }) {
+        RefeshToken({
+            commit
+        }) {
             return new Promise((resolve, reject) => {
                 logout().then(() => {
                     commit('SET_TOKEN', new Date().getTime());
@@ -100,7 +132,9 @@ const user = {
             })
         },
         // 登出
-        LogOut({ commit }) {
+        LogOut({
+            commit
+        }) {
             return new Promise((resolve, reject) => {
                 logout().then(() => {
                     commit('SET_TOKEN', '')
@@ -116,7 +150,9 @@ const user = {
             })
         },
         //注销session
-        FedLogOut({ commit }) {
+        FedLogOut({
+            commit
+        }) {
             return new Promise(resolve => {
                 commit('SET_TOKEN', '')
                 commit('SET_MENU', [])
@@ -128,7 +164,9 @@ const user = {
             })
         },
         //获取系统菜单
-        GetMenu({ commit }, parentId) {
+        GetMenu({
+            commit
+        }, parentId) {
             return new Promise(resolve => {
                 getMenu(parentId).then((res) => {
                     const data = res.data
@@ -142,7 +180,9 @@ const user = {
             })
         },
         //获取全部菜单
-        GetMenuAll({ commit }) {
+        GetMenuAll({
+            commit
+        }) {
             return new Promise(resolve => {
                 getMenuAll().then((res) => {
                     const data = res.data;
@@ -156,14 +196,22 @@ const user = {
     mutations: {
         SET_TOKEN: (state, token) => {
             state.token = token;
-            setStore({ name: 'token', content: state.token, type: 'session' })
+            setStore({
+                name: 'token',
+                content: state.token,
+                type: 'session'
+            })
         },
         SET_USERIFNO: (state, userInfo) => {
             state.userInfo = userInfo;
         },
         SET_MENU: (state, menu) => {
             state.menu = menu
-            setStore({ name: 'menu', content: state.menu, type: 'session' })
+            setStore({
+                name: 'menu',
+                content: state.menu,
+                type: 'session'
+            })
         },
         SET_MENU_ALL: (state, menuAll) => {
             state.menuAll = menuAll;

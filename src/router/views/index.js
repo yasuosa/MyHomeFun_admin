@@ -18,5 +18,10 @@ export default [{
         name: '个人信息',
         component: () =>
             import ( /* webpackChunkName: "views" */ '@/views/info/index')
+    }, {
+        path: 'message',
+        name: '消息中心',
+        component: () =>
+            import ( /* webpackChunkName: "views" */ '@/views/info/message')
     }]
 }]
