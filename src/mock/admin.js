@@ -1,37 +1,12 @@
 import Mock from 'mockjs'
-import {
-  dateFormat
-} from '@/filters/'
-let userList = []
-for (let i = 0; i < 2; i++) {
-  userList.push(Mock.mock({
-    id: '@increment',
-    name: Mock.mock('@cname'),
-    username: Mock.mock('@last'),
-    ueditor: `<h3>${Mock.mock('@cname')}<h3>`,
-    grade: [0, 1],
-    state: 0,
-    date: dateFormat(new Date()),
-  }))
-}
-export const userTableData = {
-  total: 11,
-  pageSize: 10,
-  tableData: userList
-};
+import { DIC } from '@/const/dic'
 
-
-let roleList = []
-for (let i = 0; i < 2; i++) {
-  roleList.push(Mock.mock({
-    id: '@increment',
-    name: Mock.mock('@cname'),
-    date: dateFormat(new Date()),
-    check: [1, 3, 5]
-  }))
+export default ({ mock }) => {
+    if (!mock) return;
+    Mock.mock('/admin/getDic', 'get', (res) => {
+        let body = JSON.parse(res.body);
+        return {
+            data: DIC[body.type]
+        }
+    })
 }
-export const roleTableData = {
-  total: 11,
-  pageSize: 10,
-  tableData: roleList
-};
