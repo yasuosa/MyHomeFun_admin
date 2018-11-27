@@ -11,6 +11,7 @@
                :collapse="keyCollapse">
         <sidebar-item :menu="menu"
                       :screen="screen"
+                      first
                       :props="website.menu.props"
                       :collapse="keyCollapse"></sidebar-item>
       </el-menu>
