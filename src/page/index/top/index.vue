@@ -27,9 +27,6 @@
           <top-color></top-color>
         </div>
       </el-tooltip>
-      <div class="top-bar__item">
-        <top-msg></top-msg>
-      </div>
       <el-tooltip v-if="showDebug"
                   effect="dark"
                   :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
@@ -54,6 +51,10 @@
           <top-theme></top-theme>
         </div>
       </el-tooltip>
+      <div class="top-bar__item">
+        <top-msg></top-msg>
+      </div>
+
       <el-tooltip v-if="showFullScren"
                   effect="dark"
                   :content="isFullScren?'退出全屏':'全屏'"
@@ -175,4 +176,3 @@ export default {
 
 <style lang="scss" scoped>
 </style>
-
