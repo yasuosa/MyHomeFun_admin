@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<%= BASE_URL %>cdn/element-ui/2.4.0/theme-chalk/index.css">
     <link rel="stylesheet" href="<%= BASE_URL %>cdn/animate/3.5.2/animate.css">
     <link rel="stylesheet" href="<%= BASE_URL %>cdn/iconfont/1.0.0/index.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>cdn/avuex/1.0.0/index.css">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>Avue 通用管理 系统快速开发框架</title>
     <style>
@@ -22,14 +23,14 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .avue-home {
             background-color: #303133;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        
+
         .avue-home__main {
             user-select: none;
             width: 100%;
@@ -39,32 +40,32 @@
             align-items: center;
             flex-direction: column;
         }
-        
+
         .avue-home__footer {
             width: 100%;
             flex-grow: 0;
             text-align: center;
             padding: 1em 0;
         }
-        
+
         .avue-home__footer>a {
             font-size: 12px;
             color: #ABABAB;
             text-decoration: none;
         }
-        
+
         .avue-home__loading {
             height: 32px;
             width: 32px;
             margin-bottom: 20px;
         }
-        
+
         .avue-home__title {
             color: #FFF;
             font-size: 14px;
             margin-bottom: 10px;
         }
-        
+
         .avue-home__sub-title {
             color: #ABABAB;
             font-size: 12px;
@@ -74,10 +75,10 @@
 
 <body>
     <noscript>
-      <strong>
-        很抱歉，如果没有 JavaScript 支持，Avue-cli 将不能正常工作。请启用浏览器的 JavaScript 然后继续。
-      </strong>
-  </noscript>
+        <strong>
+            很抱歉，如果没有 JavaScript 支持，Avue-cli 将不能正常工作。请启用浏览器的 JavaScript 然后继续。
+        </strong>
+    </noscript>
     <div id="app">
         <div class="avue-home">
             <div class="avue-home__main">
@@ -91,7 +92,7 @@
             </div>
             <div class="avue-home__footer">
                 <a href="https://gitee.com/smallweigit/avue" target="_blank">
-                https://gitee.com/smallweigit/avue </a>
+                    https://gitee.com/smallweigit/avue </a>
             </div>
         </div>
     </div>
@@ -102,6 +103,7 @@
     <script src="<%= BASE_URL %>cdn/vue-router/3.0.1/vue-router.min.js" charset="utf-8"></script>
     <script src="<%= BASE_URL %>cdn/axios/1.0.0/axios.min.js" charset="utf-8"></script>
     <script src="<%= BASE_URL %>cdn/element-ui/2.4.0/index.js" charset="utf-8"></script>
+    <script src="<%= BASE_URL %>cdn/avuex/1.0.0/avue.min.js" charset="utf-8"></script>
 </body>
 
 </html>
