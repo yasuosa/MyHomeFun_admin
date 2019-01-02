@@ -1,6 +1,6 @@
 import { setStore, getStore } from '@/util/store'
-import { dateFormat } from '@/filters/'
-import { sendLogs } from '@/api/logs'
+import { dateFormat } from '@/util/date'
+import { sendLogs } from '@/api/user'
 const logs = {
     state: {
         logsList: getStore({ name: 'logsList' }) || [],
@@ -24,11 +24,11 @@ const logs = {
                 url: window.location.href,
                 time: dateFormat(new Date())
             }, {
-                type,
-                message,
-                stack,
-                info: info.toString()
-            }))
+                    type,
+                    message,
+                    stack,
+                    info: info.toString()
+                }))
             setStore({ name: 'logsList', content: state.logsList })
         },
         CLEAR_LOGS: (state) => {

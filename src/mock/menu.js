@@ -1,9 +1,20 @@
 import Mock from 'mockjs'
+const top = [{
+    label: "首页",
+    path: "/wel/index",
+    icon: 'el-icon-menu',
+    parentId: 0
+},
+{
+    label: "官网",
+    icon: 'el-icon-document',
+    path: "https://avue.top",
+    parentId: 1
+}]
 const first = [{
-    id: 33,
-    label: "测试页",
-    path: '/test',
-    component: 'views/test',
+    label: "标签操作",
+    path: '/tags',
+    component: 'views/tags',
     icon: 'icon-canshu',
     children: []
 }]
@@ -14,7 +25,13 @@ export default ({ mock }) => {
     Mock.mock('/user/getMenu', 'get', (res) => {
         let body = JSON.parse(res.body);
         return {
-            data: menu[body.type]
+            data: menu[body.type] || []
         }
     })
+    Mock.mock('/user/getTopMenu', 'get', () => {
+        return {
+            data: top
+        }
+    })
+
 }

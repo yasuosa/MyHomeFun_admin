@@ -51,10 +51,6 @@
           <top-theme></top-theme>
         </div>
       </el-tooltip>
-      <div class="top-bar__item">
-        <top-msg></top-msg>
-      </div>
-
       <el-tooltip v-if="showFullScren"
                   effect="dark"
                   :content="isFullScren?'退出全屏':'全屏'"
@@ -82,23 +78,10 @@
           <el-dropdown-item>
             <router-link to="/info/index">个人信息</router-link>
           </el-dropdown-item>
-          <el-dropdown-item>
-            <a href="https://avue.top"
-               target="_blank">avue官网</a>
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <a href="https://gitee.com/smallweigit/avue"
-               target="_blank">码云地址</a>
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <a href="https://github.com/nmxiaowei/avue"
-               target="_blank">github</a>
-          </el-dropdown-item>
           <el-dropdown-item @click.native="logout"
                             divided>退出系统</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <top-setting></top-setting>
     </div>
   </div>
 </template>
@@ -107,24 +90,26 @@ import { mapGetters, mapState } from "vuex";
 import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
 import topMenu from "./top-menu";
-import topSearch from './top-search';
-import topBreadcrumb from "./top-breadcrumb";
+import topSearch from "./top-search";
 import topColor from "./top-color";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
-import topSetting from "./top-setting";
-import topMsg from "./top-msg";
 export default {
-  components: { topLock, topMenu, topSearch, topBreadcrumb, topColor, topTheme, topLogs, topSetting, topMsg },
+  components: {
+    topLock,
+    topMenu,
+    topSearch,
+    topColor,
+    topTheme,
+    topLogs
+  },
   name: "top",
-  data () {
-    return {
-
-    };
+  data() {
+    return {};
   },
   filters: {},
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     listenfullscreen(this.setScreen);
   },
   computed: {
@@ -147,19 +132,19 @@ export default {
       "tag",
       "logsLen",
       "logsFlag"
-    ]),
+    ])
   },
   methods: {
-    handleScreen () {
+    handleScreen() {
       fullscreenToggel();
     },
-    setCollapse () {
+    setCollapse() {
       this.$store.commit("SET_COLLAPSE");
     },
-    setScreen () {
+    setScreen() {
       this.$store.commit("SET_FULLSCREN");
     },
-    logout () {
+    logout() {
       this.$confirm("是否退出系统, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",

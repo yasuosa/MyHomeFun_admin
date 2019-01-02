@@ -1,6 +1,7 @@
 import request from '@/router/axios';
+import { baseUrl } from '@/config/env';
 export const loginByUsername = (username, password, code, redomStr) => request({
-    url: '/user/login',
+    url: baseUrl + '/user/login',
     method: 'post',
     data: {
         username,
@@ -11,40 +12,35 @@ export const loginByUsername = (username, password, code, redomStr) => request({
 })
 
 export const getUserInfo = () => request({
-    url: '/user/getUserInfo',
+    url: baseUrl + '/user/getUserInfo',
     method: 'get'
 });
 
-export const RefeshToken = () => request({
-    url: '/user/refesh',
+export const refeshToken = () => request({
+    url: baseUrl + '/user/refesh',
     method: 'post'
 })
 
 export const getMenu = (type = 0) => request({
-    url: '/user/getMenu',
+    url: baseUrl + '/user/getMenu',
     method: 'get',
     data: {
         type
     }
 });
 
-export const getMenuAll = () => request({
-    url: '/user/getMenu',
-    method: 'get',
-    data: {
-        type: 0
-    }
+export const getTopMenu = () => request({
+    url: baseUrl + '/user/getTopMenu',
+    method: 'get'
 });
 
-export const getTableData = (page) => request({
-    url: '/user/getTable',
-    method: 'get',
-    data: {
-        page
-    }
-});
+export const sendLogs = (list) => request({
+    url: baseUrl + '/user/logout',
+    method: 'post',
+    data: list
+})
 
 export const logout = () => request({
-    url: '/user/logout',
+    url: baseUrl + '/user/logout',
     method: 'get'
 })

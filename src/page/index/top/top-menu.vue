@@ -9,6 +9,7 @@
                       :key="index">
           <template slot="title">
             <i :class="item.icon"></i>
+            <span>{{item.label}}</span>
           </template>
         </el-menu-item>
       </template>
@@ -20,37 +21,32 @@
 import { mapGetters } from "vuex";
 export default {
   name: "top-menu",
-  data () {
+  data() {
     return {
       activeIndex: "0",
-      items: [
-        {
-          label: "首页",
-          href: "/wel/index",
-          icon: 'el-icon-menu',
-          parentId: 0
-        },
-        {
-          label: "官网",
-          icon: 'el-icon-document',
-          href: "https://avue.top",
-          parentId: 3
-        }
-      ]
+      items: []
     };
   },
-  created () { },
+  created() {
+    this.getMenu();
+  },
   computed: {
     ...mapGetters(["tagCurrent", "menu"])
   },
   methods: {
-    openMenu (item) {
+    getMenu() {
+      this.$store.dispatch("GetTopMenu").then(res => {
+        this.items = res;
+      });
+    },
+    openMenu(item) {
       this.$store.dispatch("GetMenu", item.parentId).then(data => {
-        if (data.length === 0) return
-        this.$router.$avueRouter.formatRoutes(data, true);
+        if (data.length !== 0) {
+          this.$router.$avueRouter.formatRoutes(data, true);
+        }
         let itemActive,
           childItemActive = 0;
-        if (item.href) {
+        if (item.path) {
           itemActive = item;
         } else {
           if (this.menu[childItemActive].length == 0) {
@@ -62,10 +58,10 @@ export default {
         this.$router.push({
           path: this.$router.$avueRouter.getPath({
             name: itemActive.label,
-            src: itemActive.href
+            src: itemActive.path
           })
         });
-      })
+      });
     }
   }
 };

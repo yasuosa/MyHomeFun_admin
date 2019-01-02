@@ -1,6 +1,5 @@
 import user from './user';
 import menu from './menu';
-import admin from './admin';
 
 /**
  * 模拟数据mock
@@ -11,5 +10,3 @@ import admin from './admin';
 user({ mock: true });
 
 menu({ mock: true });
-
-admin({ mock: true });

@@ -1,9 +1,9 @@
-let RouterPlugin = function() {
+let RouterPlugin = function () {
     this.$router = null;
     this.$store = null;
 
 };
-RouterPlugin.install = function(router, store) {
+RouterPlugin.install = function (router, store) {
     this.$router = router;
     this.$store = store;
 
@@ -21,16 +21,19 @@ RouterPlugin.install = function(router, store) {
         group: '',
         safe: this,
         // 设置标题
-        setTitle: function(title) {
+        setTitle: function (title) {
             title = title ? `${title}——Avue 通用管理 系统快速开发框架` : 'Avue 通用管理 系统快速开发框架';
             document.title = title;
         },
         closeTag: (value) => {
-            const tag = value || this.$store.getters.tag;
+            let tag = value || this.$store.getters.tag;
+            if (typeof value === 'string') {
+                tag = this.$store.getters.tagList.filter(ele => ele.value === value)[0]
+            }
             this.$store.commit('DEL_TAG', tag)
         },
         //处理路由
-        getPath: function(params) {
+        getPath: function (params) {
             let { src } = params;
             let result = src || '/';
             if (src.includes("http") || src.includes("https")) {
@@ -39,7 +42,7 @@ RouterPlugin.install = function(router, store) {
             return result;
         },
         //正则处理路由
-        vaildPath: function(list, path) {
+        vaildPath: function (list, path) {
             let result = false;
             list.forEach(ele => {
                 if (new RegExp("^" + ele + ".*", "g").test(path)) {
@@ -50,7 +53,7 @@ RouterPlugin.install = function(router, store) {
             return result;
         },
         //设置路由值
-        getValue: function(route) {
+        getValue: function (route) {
             let value = "";
             if (route.query.src) {
                 value = route.query.src;
@@ -60,7 +63,7 @@ RouterPlugin.install = function(router, store) {
             return value;
         },
         //动态路由
-        formatRoutes: function(aMenu = [], first) {
+        formatRoutes: function (aMenu = [], first) {
             const aRouter = []
             const propsConfig = this.$website.menu.props;
             const propsDefault = {
@@ -75,12 +78,12 @@ RouterPlugin.install = function(router, store) {
                 const oMenu = aMenu[i];
                 if (this.routerList.includes(oMenu[propsDefault.path])) return;
                 const path = (() => {
-                        if (first) {
-                            return oMenu[propsDefault.path].replace('/index', '')
-                        } else {
-                            return oMenu[propsDefault.path]
-                        }
-                    })(),
+                    if (first) {
+                        return oMenu[propsDefault.path].replace('/index', '')
+                    } else {
+                        return oMenu[propsDefault.path]
+                    }
+                })(),
                     component = oMenu.component,
                     name = oMenu[propsDefault.label],
                     icon = oMenu[propsDefault.icon],

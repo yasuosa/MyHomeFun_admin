@@ -10,46 +10,45 @@
 </template>
 
 <script>
-import option from '@/const/info/form'
+import option from "@/const/user/info";
 export default {
-  data () {
+  data() {
     return {
-      type: 'info',
+      type: "info",
       option: option,
-      form: {},
-    }
+      form: {}
+    };
   },
-  created () {
+  created() {
     this.handleWitch();
   },
   methods: {
-    handleSubmit () {
+    handleSubmit() {
       this.$message({
         message: this.form,
         type: "success"
       });
     },
-    handleWitch () {
-      if (this.type === 'info') {
+    handleWitch() {
+      if (this.type === "info") {
         this.form = {
-          username: 'smallwei',
-          name: 'smallwei',
-          phone: '1888888888888',
-          detail: '这是一个个性签名'
-        }
-
-      } else if (this.type === 'password') {
+          username: "smallwei",
+          name: "smallwei",
+          phone: "1888888888888",
+          detail: "这是一个个性签名"
+        };
+      } else if (this.type === "password") {
         this.form = {
           oldpassword: 11111111,
           newpassword: 22222222,
           newpasswords: 22222222
-        }
+        };
       }
     },
-    handleChange (item) {
+    handleChange(item) {
       this.type = item.prop;
       this.handleWitch();
-    },
+    }
   }
 };
 </script>

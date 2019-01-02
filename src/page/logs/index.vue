@@ -27,57 +27,98 @@
 
 <script>
 import { mapGetters } from "vuex";
-import option from '@/const/logs/index'
 export default {
   name: "errLogs",
-  data () {
+  data() {
     return {
-      option: option
+      option: {
+        menu: false,
+        addBtn: false,
+        page: false,
+        border: true,
+        expand: true,
+        refreshBtn: false,
+        headerAlign: "center",
+        column: [
+          {
+            label: "类型",
+            prop: "type",
+            width: 80,
+            align: "center",
+            solt: true,
+            dicData: [
+              {
+                label: "bug",
+                value: "error"
+              }
+            ]
+          },
+          {
+            label: "地址",
+            width: 200,
+            prop: "url",
+            overHidden: true
+          },
+          {
+            label: "内容",
+            prop: "message",
+            overHidden: true
+          },
+          {
+            label: "错误堆栈",
+            prop: "stack",
+            hide: true
+          },
+          {
+            label: "时间",
+            align: "center",
+            prop: "time",
+            width: 200
+          }
+        ]
+      }
     };
   },
-  created () {
-
-  },
-  mounted () { },
+  created() {},
+  mounted() {},
   computed: {
     ...mapGetters(["logsList"])
   },
   props: [],
   methods: {
-    send () {
-      this.$confirm('确定上传本地日志到服务器?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.$store.dispatch('SendLogs').then(() => {
+    send() {
+      this.$confirm("确定上传本地日志到服务器?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$store.dispatch("SendLogs").then(() => {
+            this.$parent.$parent.box = false;
+            this.$message({
+              type: "success",
+              message: "发送成功!"
+            });
+          });
+        })
+        .catch(() => {});
+    },
+    clear() {
+      this.$confirm("确定清空本地日志记录?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$store.commit("CLEAR_LOGS");
+          console.log(this);
           this.$parent.$parent.box = false;
           this.$message({
-            type: 'success',
-            message: '发送成功!'
+            type: "success",
+            message: "清空成功!"
           });
-        });
-
-      }).catch(() => {
-
-      });
-    },
-    clear () {
-      this.$confirm('确定清空本地日志记录?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.$store.commit('CLEAR_LOGS');
-        console.log(this);
-        this.$parent.$parent.box = false;
-        this.$message({
-          type: 'success',
-          message: '清空成功!'
-        });
-      }).catch(() => {
-
-      });
+        })
+        .catch(() => {});
     }
   }
 };

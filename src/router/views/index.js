@@ -7,7 +7,17 @@ export default [{
         path: 'index',
         name: '首页',
         component: () =>
-            import ( /* webpackChunkName: "views" */ '@/page/wel')
+            import( /* webpackChunkName: "views" */ '@/views/wel')
+    }]
+}, {
+    path: '/test',
+    component: Layout,
+    redirect: '/test/index',
+    children: [{
+        path: 'index',
+        name: '测试页',
+        component: () =>
+            import( /* webpackChunkName: "views" */ '@/views/test')
     }]
 }, {
     path: '/info',
@@ -17,11 +27,6 @@ export default [{
         path: 'index',
         name: '个人信息',
         component: () =>
-            import ( /* webpackChunkName: "views" */ '@/views/info/index')
-    }, {
-        path: 'message',
-        name: '消息中心',
-        component: () =>
-            import ( /* webpackChunkName: "views" */ '@/views/info/message')
+            import( /* webpackChunkName: "views" */ '@/views/user/info')
     }]
 }]

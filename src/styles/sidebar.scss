@@ -1,10 +1,25 @@
 .avue-sidebar {
+    position: relative;
     padding-top: 60px;
     height: 100%;
     position: relative;
     background-color: #20222a;
     transition: width .6s;
     box-sizing: border-box;
+    &--tip{
+        width:92%;
+        height: 140px;
+        line-height: 140px;
+        border-radius: 5px;
+        position: absolute;
+        top:0;
+        left:4%;
+        color:#ccc;
+        z-index: 2;
+        text-align: center;
+        font-size: 14px;
+        background-color: rgba(0,0,0,.4);
+    }
     .el-menu-item,
     .el-submenu__title {
         font-size: 14px;

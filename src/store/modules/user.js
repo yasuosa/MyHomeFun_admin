@@ -2,8 +2,8 @@ import { setToken, removeToken } from '@/util/auth'
 import { setStore, getStore } from '@/util/store'
 import { isURL } from '@/util/validate'
 import { encryption, deepClone } from '@/util/util'
-import webiste from '@/const/website'
-import { loginByUsername, getUserInfo, getMenu, logout, getMenuAll, RefeshToken } from '@/api/user'
+import webiste from '@/config/website'
+import { loginByUsername, getUserInfo, getMenu, getTopMenu, logout, refeshToken } from '@/api/user'
 
 
 function addPath(ele, first) {
@@ -21,7 +21,7 @@ function addPath(ele, first) {
     }
     ele[propsDefault.children].forEach(child => {
         if (!isURL(child[propsDefault.path])) {
-            child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path]?child[propsDefault.path]:'index'}`
+            child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path] ? child[propsDefault.path] : 'index'}`
         }
         addPath(child);
     })
@@ -82,9 +82,9 @@ const user = {
             })
         },
         //刷新token
-        RefeshToken({ commit }) {
+        RefeshToken({ state, commit }) {
             return new Promise((resolve, reject) => {
-                RefeshToken().then(res => {
+                refeshToken(state.refeshToken).then(res => {
                     const data = res.data.data;
                     commit('SET_TOKEN', data);
                     setToken(data);
@@ -122,6 +122,14 @@ const user = {
                 resolve()
             })
         },
+        GetTopMenu() {
+            return new Promise(resolve => {
+                getTopMenu().then((res) => {
+                    const data = res.data.data || []
+                    resolve(data)
+                })
+            })
+        },
         //获取系统菜单
         GetMenu({ commit }, parentId) {
             return new Promise(resolve => {
@@ -136,17 +144,6 @@ const user = {
                 })
             })
         },
-        //获取全部菜单
-        GetMenuAll({ commit }) {
-            return new Promise(resolve => {
-                getMenuAll().then((res) => {
-                    const data = res.data.data;
-                    commit('SET_MENU_ALL', data);
-                    resolve(data);
-                })
-            })
-        },
-
     },
     mutations: {
         SET_TOKEN: (state, token) => {
