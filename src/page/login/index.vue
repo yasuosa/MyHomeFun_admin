@@ -16,9 +16,11 @@
               <i class="el-icon-check"></i>&nbsp;{{item}}
             </li>
           </ul>
-          <el-button type="primary"
-                     size="small"
-                     class="login-index">首页</el-button>
+          <a href="https://avuex.avue.top">
+            <el-button type="primary"
+                       size="small"
+                       class="login-index">首页</el-button>
+          </a>
         </div>
       </div>
       <div class="login-border  animated fadeInRight">

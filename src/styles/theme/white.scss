@@ -37,6 +37,21 @@
       }
     }
   }
+  .el-menu--popup{
+    background-color: #fff !important;
+    .el-menu-item{
+      background-color: #fff !important;
+      span,i {
+        color:#666 !important;
+      }
+      &.is-active{
+        background-image: linear-gradient(90deg,#1861d5,#3080fe);
+        span,i {
+          color:#fff !important;
+        }
+      }
+    }
+  }
   .avue-sidebar{
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
     .el-menu{
