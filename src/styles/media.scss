@@ -102,7 +102,7 @@
 }
 
 @media screen and (max-width: 992px) {
-    $width: 220px;
+    $width: 240px;
     // ele的自适应
     .el-dialog,
     .el-message-box {
@@ -142,13 +142,6 @@
     }
     .top-bar__item {
         display: none;
-    }
-    .avue-top {
-        .top-menu {
-            .el-menu-item {
-                padding: 0 2px;
-            }
-        }
     }
     .avue--collapse {
         .avue-left,

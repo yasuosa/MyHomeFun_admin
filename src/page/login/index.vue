@@ -93,15 +93,14 @@ export default {
 .login-container {
   position: relative;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
 }
 .login-weaper {
   position: absolute;
-  top: 50%;
+  top: 150px;
   left: 0;
   width: 100%;
-  height: 500px;
-  margin-top: -200px;
 }
 .login-container::before {
   z-index: -1024;

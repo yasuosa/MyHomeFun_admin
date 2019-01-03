@@ -8,7 +8,7 @@
            @click="setCollapse"></i>
       </div>
     </div>
-    <h1 class="top-bar__title">
+    <div class="top-bar__title">
       <div class="top-bar__item top-bar__item--show"
            v-if="showMenu">
         <top-menu></top-menu>
@@ -17,7 +17,7 @@
             v-if="showSearch">
         <top-search></top-search>
       </span>
-    </h1>
+    </div>
     <div class="top-bar__right">
       <el-tooltip v-if="showDebug"
                   effect="dark"
