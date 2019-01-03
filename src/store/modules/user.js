@@ -15,16 +15,17 @@ function addPath(ele, first) {
         children: propsConfig.children || 'children'
     }
     const isChild = ele[propsDefault.children] && ele[propsDefault.children].length !== 0;
-    if (!isChild && first) {
+    if (!isChild && first && !isURL(ele[propsDefault.path])) {
         ele[propsDefault.path] = ele[propsDefault.path] + '/index'
-        return
+    } else {
+        ele[propsDefault.children].forEach(child => {
+            if (!isURL(child[propsDefault.path])) {
+                child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path] ? child[propsDefault.path] : 'index'}`
+            }
+            addPath(child);
+        })
     }
-    ele[propsDefault.children].forEach(child => {
-        if (!isURL(child[propsDefault.path])) {
-            child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path] ? child[propsDefault.path] : 'index'}`
-        }
-        addPath(child);
-    })
+
 }
 const user = {
     state: {
@@ -50,7 +51,6 @@ const user = {
                     commit('SET_TOKEN', data);
                     commit('DEL_ALL_TAG');
                     commit('CLEAR_LOCK');
-                    setToken(data);
                     resolve();
                 })
             })
@@ -63,7 +63,6 @@ const user = {
                     commit('SET_TOKEN', data);
                     commit('DEL_ALL_TAG');
                     commit('CLEAR_LOCK');
-                    setToken(data);
                     resolve();
                 })
             })
@@ -87,7 +86,6 @@ const user = {
                 refeshToken(state.refeshToken).then(res => {
                     const data = res.data.data;
                     commit('SET_TOKEN', data);
-                    setToken(data);
                     resolve(data);
                 }).catch(error => {
                     reject(error)
@@ -147,6 +145,7 @@ const user = {
     },
     mutations: {
         SET_TOKEN: (state, token) => {
+            setToken(token)
             state.token = token;
             setStore({ name: 'token', content: state.token, type: 'session' })
         },

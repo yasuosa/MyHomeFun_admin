@@ -17,7 +17,7 @@ export default [{
         path: 'index',
         name: '测试页',
         component: () =>
-            import( /* webpackChunkName: "views" */ '@/views/test')
+            import( /* webpackChunkName: "views" */ '@/views/util/test')
     }]
 }, {
     path: '/info',

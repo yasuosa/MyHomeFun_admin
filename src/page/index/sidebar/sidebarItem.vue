@@ -7,7 +7,8 @@
                     :key="item[labelKey]"
                     :class="{'is-active':vaildAvtive(item)}">
         <i :class="item[iconKey]"></i>
-        <span slot="title">{{item[labelKey]}}</span>
+        <span slot="title"
+              :alt="item[pathKey]">{{item[labelKey]}}</span>
       </el-menu-item>
       <el-submenu v-else-if="!validatenull(item[childrenKey])&&vaildRoles(item)"
                   :index="item[pathKey]"
@@ -38,15 +39,15 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
-import { validatenull } from '@/util/validate';
-import config from './config.js'
+import { mapGetters } from "vuex";
+import { validatenull } from "@/util/validate";
+import config from "./config.js";
 export default {
-  name: 'sidebarItem',
-  data () {
+  name: "sidebarItem",
+  data() {
     return {
       config: config
-    }
+    };
   },
   props: {
     menu: {
@@ -61,36 +62,49 @@ export default {
     },
     props: {
       type: Object,
-      default: () => { return {} }
+      default: () => {
+        return {};
+      }
     },
     collapse: {
       type: Boolean
     }
   },
-  created () {
-  },
-  mounted () { },
+  created() {},
+  mounted() {},
   computed: {
-    ...mapGetters(['roles']),
-    labelKey () { return this.props.label || this.config.propsDefault.label },
-    pathKey () { return this.props.path || this.config.propsDefault.path },
-    iconKey () { return this.props.icon || this.config.propsDefault.icon },
-    childrenKey () { return this.props.children || this.config.propsDefault.children },
-    nowTagValue () { return this.$router.$avueRouter.getValue(this.$route) }
+    ...mapGetters(["roles"]),
+    labelKey() {
+      return this.props.label || this.config.propsDefault.label;
+    },
+    pathKey() {
+      return this.props.path || this.config.propsDefault.path;
+    },
+    iconKey() {
+      return this.props.icon || this.config.propsDefault.icon;
+    },
+    childrenKey() {
+      return this.props.children || this.config.propsDefault.children;
+    },
+    nowTagValue() {
+      return this.$router.$avueRouter.getValue(this.$route);
+    }
   },
   methods: {
-    vaildAvtive (item) {
-      const groupFlag = (item['group'] || []).some(ele => this.$route.path.includes(ele));
-      return this.nowTagValue === item[this.pathKey] || groupFlag
+    vaildAvtive(item) {
+      const groupFlag = (item["group"] || []).some(ele =>
+        this.$route.path.includes(ele)
+      );
+      return this.nowTagValue === item[this.pathKey] || groupFlag;
     },
-    vaildRoles (item) {
+    vaildRoles(item) {
       item.meta = item.meta || {};
-      return item.meta.roles ? item.meta.roles.includes(this.roles) : true
+      return item.meta.roles ? item.meta.roles.includes(this.roles) : true;
     },
-    validatenull (val) {
+    validatenull(val) {
       return validatenull(val);
     },
-    open (item) {
+    open(item) {
       if (this.screen <= 1) this.$store.commit("SET_COLLAPSE");
       this.$router.$avueRouter.group = item.group;
       this.$router.push({
@@ -99,9 +113,9 @@ export default {
           src: item[this.pathKey]
         }),
         query: item.query
-      })
+      });
     }
   }
-}
+};
 </script>
 

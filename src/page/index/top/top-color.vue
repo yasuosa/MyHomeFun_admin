@@ -1,5 +1,5 @@
 <template>
-  <el-color-picker size="small"
+  <el-color-picker size="mini"
                    class="theme-picker"
                    popper-class="theme-picker-dropdown"
                    v-model="themeVal"></el-color-picker>
@@ -11,7 +11,7 @@ import color from "@/mixins/color";
 export default {
   name: "topColor",
   mixins: [color()],
-  data () {
+  data() {
     return {
       chalk: ""
     };

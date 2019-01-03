@@ -1,3 +1,4 @@
+
 let RouterPlugin = function () {
     this.$router = null;
     this.$store = null;
@@ -6,7 +7,9 @@ let RouterPlugin = function () {
 RouterPlugin.install = function (router, store) {
     this.$router = router;
     this.$store = store;
-
+    function isURL(s) {
+        return /^http[s]?:\/\/.*/.test(s)
+    }
     function objToform(obj) {
         let result = [];
         Object.keys(obj).forEach(ele => {
@@ -17,12 +20,13 @@ RouterPlugin.install = function (router, store) {
     this.$router.$avueRouter = {
         //全局配置
         $website: this.$store.getters.website,
+        $defaultTitle: 'Avuex 通用管理 系统快速开发框架',
         routerList: [],
         group: '',
         safe: this,
         // 设置标题
         setTitle: function (title) {
-            title = title ? `${title}——Avue 通用管理 系统快速开发框架` : 'Avue 通用管理 系统快速开发框架';
+            title = title ? `${title}——${this.$defaultTitle}` : this.$defaultTitle;
             document.title = title;
         },
         closeTag: (value) => {
@@ -111,13 +115,13 @@ RouterPlugin.install = function (router, store) {
                     icon: icon,
                     meta: meta,
                     redirect: (() => {
-                        if (!isChild && first) return `${path}/index`
+                        if (!isChild && first && !isURL(path)) return `${path}/index`
                         else return '';
                     })(),
                     // 处理是否为一级路由
                     children: !isChild ? (() => {
                         if (first) {
-                            oMenu[propsDefault.path] = `${path}/index`;
+                            if (!isURL(path)) oMenu[propsDefault.path] = `${path}/index`;
                             return [{
                                 component(resolve) { require([`../${component}.vue`], resolve) },
                                 icon: icon,

@@ -8,13 +8,24 @@ const top = [{
 {
     label: "官网",
     icon: 'el-icon-document',
-    path: "https://avue.top",
+    path: "https://avuex.avue.top",
     parentId: 1
 }]
 const first = [{
-    label: "标签操作",
+    label: "标签",
     path: '/tags',
-    component: 'views/tags',
+    component: 'views/util/tags',
+    icon: 'icon-canshu',
+    children: []
+}, {
+    label: "存储",
+    path: '/store',
+    component: 'views/util/store',
+    icon: 'icon-canshu',
+    children: []
+}, {
+    label: "全局函数",
+    path: 'https://avuex.avue.top/$/doc/api',
     icon: 'icon-canshu',
     children: []
 }]
