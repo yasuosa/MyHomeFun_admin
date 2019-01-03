@@ -26,51 +26,50 @@
 </template>
 
 <script>
-import { setTheme } from '@/util/util'
-import { mapGetters } from 'vuex';
+import { setTheme } from "@/util/util";
+import { mapGetters } from "vuex";
 export default {
-  data () {
+  data() {
     return {
       box: false,
-      text: '',
+      text: "",
       list: [
         {
-          name: '默认主题',
-          value: '',
-        }, {
-          name: '炫彩主题',
-          value: 'theme-star'
-        }, {
-          name: '黑色主题',
-          value: 'theme-black'
-        }, {
-          name: '渐变主题',
-          value: 'theme-gradual'
+          name: "默认主题",
+          value: ""
+        },
+        {
+          name: "白色主题",
+          value: "theme-white"
+        },
+        {
+          name: "炫彩主题",
+          value: "theme-star"
         }
       ]
-    }
+    };
   },
   watch: {
-    text: function (val) {
-      this.$store.commit('SET_THEME_NAME', val);
+    text: function(val) {
+      this.$store.commit("SET_THEME_NAME", val);
       setTheme(val);
     }
   },
   computed: {
     ...mapGetters(["themeName"])
   },
-  mounted () {
+  mounted() {
     this.text = this.themeName;
     if (!this.text) {
-      this.text = '';
+      this.text = "";
     }
   },
   methods: {
-    open () {
+    open() {
       this.box = true;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

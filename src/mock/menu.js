@@ -28,6 +28,35 @@ const first = [{
     path: 'https://avuex.avue.top/$/doc/api',
     icon: 'icon-canshu',
     children: []
+}, {
+    label: "日志监控",
+    path: '/logs',
+    component: 'views/util/logs',
+    icon: 'icon-canshu',
+    children: []
+}, {
+    label: "异常页",
+    path: '/error',
+    icon: 'icon-canshu',
+    children: [{
+        label: "403",
+        path: '/error',
+        component: 'components/error-page/403',
+        icon: 'icon-canshu',
+        children: []
+    }, {
+        label: "404",
+        path: '/404',
+        component: 'components/error-page/404',
+        icon: 'icon-canshu',
+        children: []
+    }, {
+        label: "500",
+        path: '/500',
+        component: 'components/error-page/500',
+        icon: 'icon-canshu',
+        children: []
+    }]
 }]
 const second = []
 export default ({ mock }) => {

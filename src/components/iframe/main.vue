@@ -96,6 +96,7 @@ export default {
       const iframe = this.$refs.iframe;
       const clientHeight =
         document.documentElement.clientHeight - (screen > 1 ? 200 : 130);
+      if (!iframe) return;
       iframe.style.height = `${clientHeight}px`;
       if (iframe.attachEvent) {
         iframe.attachEvent("onload", () => {

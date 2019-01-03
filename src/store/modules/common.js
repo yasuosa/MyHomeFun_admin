@@ -19,10 +19,8 @@ const common = {
         showLock: true,
         showFullScren: true,
         showTheme: true,
-        showColor: true,
         showMenu: true,
-        theme: getStore({ name: 'theme' }) || '#409EFF',
-        themeName: getStore({ name: 'themeName' }) || '',
+        themeName: getStore({ name: 'themeName' }) || 'theme-white',
         lockPasswd: getStore({ name: 'lockPasswd' }) || '',
         website: website,
     },
@@ -46,13 +44,6 @@ const common = {
         },
         SET_SCREEN: (state, screen) => {
             state.screen = screen;
-        },
-        SET_THEME: (state, color) => {
-            state.theme = color;
-            setStore({
-                name: 'theme',
-                content: state.theme,
-            })
         },
         SET_THEME_NAME: (state, themeName) => {
             state.themeName = themeName;

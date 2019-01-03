@@ -44,44 +44,41 @@
 import userLogin from "./userlogin";
 import codeLogin from "./codelogin";
 import thirdLogin from "./thirdlogin";
-import topColor from "../index/top/top-color";
-import color from "@/mixins/color";
 import { mapGetters } from "vuex";
-import { validatenull } from '@/util/validate'
+import { validatenull } from "@/util/validate";
 export default {
   name: "login",
-  mixins: [color()],
   components: {
-    topColor,
     userLogin,
     codeLogin,
     thirdLogin
   },
-  data () {
+  data() {
     return {
       activeName: "user"
     };
   },
   watch: {
-    $route () {
-      const params = this.$route.query
-      this.socialForm.state = params.state
-      this.socialForm.code = params.code
+    $route() {
+      const params = this.$route.query;
+      this.socialForm.state = params.state;
+      this.socialForm.code = params.code;
       if (!validatenull(this.socialForm.state)) {
         const loading = this.$loading({
           lock: true,
-          text: `${this.socialForm.state === 'WX' ? '微信' : 'QQ'}登录中,请稍后。。。`,
-          spinner: 'el-icon-loading'
-        })
+          text: `${
+            this.socialForm.state === "WX" ? "微信" : "QQ"
+          }登录中,请稍后。。。`,
+          spinner: "el-icon-loading"
+        });
         setTimeout(() => {
-          loading.close()
-        }, 2000)
-
+          loading.close();
+        }, 2000);
       }
     }
   },
-  created () { },
-  mounted () { },
+  created() {},
+  mounted() {},
   computed: {
     ...mapGetters(["website"])
   },

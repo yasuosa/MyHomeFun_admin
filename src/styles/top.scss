@@ -1,11 +1,16 @@
 .avue-top {
     position: relative;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
     color: rgba(0, 0, 0, .65);
     font-size: 18px;
     padding: 0 10px;
     box-sizing: border-box;
     white-space: nowrap;
+    .el-menu-item{
+        i,span{
+            font-size: 13px;
+        }
+    }
 }
 
 .top-menu {
@@ -26,6 +31,7 @@
     left: 20px;
     width: 400px !important;
     .el-input__inner {
+        font-size: 13px;
         border: none;
         background-color: transparent;
     }
@@ -49,16 +55,16 @@
 }
 
 .top-bar__left {
-    left: 15px;
+    padding: 6px 6px;
 }
 
 .top-bar__right {
-    padding: 5px 10px;
+    padding: 12px 10px;
     right: 0;
 }
 
 .top-bar__title {
-    padding-left: 40px;
+    padding:6px 40px;
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -20,13 +20,12 @@
 import { mapGetters } from "vuex";
 export default {
   name: "logo",
-  data () {
+  data() {
     return {};
   },
-  created () {
-  },
+  created() {},
   computed: {
-    ...mapGetters(["website", 'keyCollapse'])
+    ...mapGetters(["website", "keyCollapse"])
   },
   methods: {}
 };
@@ -47,9 +46,9 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
-  height: 50px;
-  line-height: 50px;
+  width: 240px;
+  height: 64px;
+  line-height: 64px;
   background-color: #20222a;
   font-size: 20px;
   overflow: hidden;

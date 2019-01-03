@@ -1,0 +1,105 @@
+.theme-white {
+  .avue-header,
+  .avue-logo,
+  .tags-container {
+      background-color: #0079f2;
+  }
+  .avue-sidebar--tip{
+    background-color:transparent;
+    color:#333;
+  }
+  .el-dropdown{
+    color:#fff;
+  }
+  .avue-logo_title{
+    font-weight: 400;
+    color:#fff;
+  }
+  .logo_title,
+  .avue-breadcrumb,
+  {
+      color: #fff !important;
+      i {
+          color: #fff;
+      }
+  }
+  .avue-top{
+    .el-menu-item {
+      i,
+      span {
+          color: #fff !important;
+      }
+      &:hover {
+          i,
+          span {
+              color: #fff !important;
+          }
+      }
+    }
+  }
+  .avue-sidebar{
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
+    .el-menu{
+      background-color: #fff !important;
+    }
+    background-color:#fff !important;
+    .el-menu-item,.el-submenu__title{
+      i,span{
+        color:#666 !important;
+      }
+      background-color:#fff !important;
+    }
+    .el-menu-item,.el-submenu__title{
+      &:hover{
+        background-color: transparent !important;
+        i,span{
+          color:#666 !important;
+        }
+      }
+    }
+    .el-menu-item.is-active,.el-submenu__title.is-active{
+      background-image: linear-gradient(90deg,#1861d5,#3080fe);
+      i,span{
+        color:#fff !important;
+      }
+      &::before{
+        display: none;
+      }
+      &:hover{
+        i,span{
+          color:#fff !important;
+        }
+      }
+    }
+  }
+  .top-search {
+      .el-input__inner{
+        color: #fff;
+      }
+      input::-webkit-input-placeholder,
+      textarea::-webkit-input-placeholder {
+          /* WebKit browsers */
+          color: #fff;
+      }
+      input:-moz-placeholder,
+      textarea:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 */
+          color: #fff;
+      }
+      input::-moz-placeholder,
+      textarea::-moz-placeholder {
+          /* Mozilla Firefox 19+ */
+          color: #fff;
+      }
+      input:-ms-input-placeholder,
+      textarea:-ms-input-placeholder {
+          /* Internet Explorer 10+ */
+          color: #fff;
+      }
+  }
+  .top-bar__item {
+      i {
+          color: #fff;
+      }
+  }
+}

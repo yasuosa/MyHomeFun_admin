@@ -19,14 +19,6 @@
       </span>
     </h1>
     <div class="top-bar__right">
-      <el-tooltip v-if="showColor"
-                  effect="dark"
-                  content="主题色"
-                  placement="bottom">
-        <div class="top-bar__item">
-          <top-color></top-color>
-        </div>
-      </el-tooltip>
       <el-tooltip v-if="showDebug"
                   effect="dark"
                   :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
@@ -91,7 +83,6 @@ import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
 import topMenu from "./top-menu";
 import topSearch from "./top-search";
-import topColor from "./top-color";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
 export default {
@@ -99,7 +90,6 @@ export default {
     topLock,
     topMenu,
     topSearch,
-    topColor,
     topTheme,
     topLogs
   },
@@ -115,7 +105,6 @@ export default {
   computed: {
     ...mapState({
       showDebug: state => state.common.showDebug,
-      showColor: state => state.common.showColor,
       showTheme: state => state.common.showTheme,
       showLock: state => state.common.showLock,
       showFullScren: state => state.common.showFullScren,

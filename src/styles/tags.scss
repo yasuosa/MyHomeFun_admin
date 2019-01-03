@@ -8,9 +8,10 @@
     }
 }
 
+
 .avue-tags {
     position: relative;
-    padding: 5px 10px;
+    padding: 0 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
     overflow: hidden;
@@ -30,16 +31,14 @@
     }
     .el-tabs--card>.el-tabs__header .el-tabs__item {
         margin: 0 3px;
-        height: 30px;
-        line-height: 30px;
+        height: 40px;
+        line-height:40px;
         font-size: 13px;
         font-weight: normal;
-        border: 1px solid #eee;
         color: #ccc;
-        border-radius: 3px;
         &.is-active {
-            border: 1px solid #409EFF;
             color: #409EFF;
+            border-bottom: 3px solid #409EFF;
         }
     }
     .el-tabs__nav-prev,
@@ -67,9 +66,9 @@
     }
     &__menu {
         position: absolute !important;
-        top: 0;
+        top: 3px;
         right: 0;
-        padding: 1px 15px;
+        padding: 1px 0 0 15px;
         box-sizing: border-box;
     }
 }
