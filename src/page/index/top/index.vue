@@ -2,9 +2,9 @@
   <div class="avue-top">
     <div class="top-bar__left">
       <div class="avue-breadcrumb"
+           :class="[{ 'avue-breadcrumb--active': isCollapse }]"
            v-if="showCollapse">
-        <i class="icon-navicon avue-breadcrumb_collapse"
-           :class="[{ 'avue-breadcrumb_collapse--right': isCollapse }]"
+        <i class="icon-navicon"
            @click="setCollapse"></i>
       </div>
     </div>

@@ -1,54 +1,54 @@
 <template>
-  <div>
-    <basic-container>
-      <el-tag class="title"
-              size="small">基本读写删(持久化存储)</el-tag>
-      <div class="box">
-        <el-button type="primary"
-                   size="small"
-                   @click="setItem({name:'username', value:'avuex'});">set('username', 'avuex')</el-button>
+  <basic-container>
+    <h3>存储</h3>
+    <el-tag class="title"
+            size="small">基本读写删(持久化存储)</el-tag>
+    <div class="box">
+      <el-button type="primary"
+                 size="small"
+                 @click="setItem({name:'username', value:'avuex'});">set('username', 'avuex')</el-button>
 
-        <el-button type="success"
-                   size="small"
-                   @click="getItem({name:'username'});">get('username')</el-button>
+      <el-button type="success"
+                 size="small"
+                 @click="getItem({name:'username'});">get('username')</el-button>
 
-        <el-button type="danger"
-                   size="small"
-                   @click="delItem({name:'username'});">remove('username')</el-button>
-      </div>
-      <el-tag class="title"
-              size="small">设置session(session存储)</el-tag>
-      <div class="box">
-        <el-button type="primary"
-                   size="small"
-                   @click="setItem({name:'username', value:'avuex',type:'session'});">set('username', 'avuex')</el-button>
+      <el-button type="danger"
+                 size="small"
+                 @click="delItem({name:'username'});">remove('username')</el-button>
+    </div>
+    <el-tag class="title"
+            size="small">设置session(session存储)</el-tag>
+    <div class="box">
+      <el-button type="primary"
+                 size="small"
+                 @click="setItem({name:'username', value:'avuex',type:'session'});">set('username', 'avuex')</el-button>
 
-        <el-button type="success"
-                   size="small"
-                   @click="getItem({name:'username',type:'session'});">get('username')</el-button>
+      <el-button type="success"
+                 size="small"
+                 @click="getItem({name:'username',type:'session'});">get('username')</el-button>
 
-        <el-button type="danger"
-                   size="small"
-                   @click="delItem({name:'username',type:'session'});">remove('username')</el-button>
-      </div>
-      <el-tag class="title"
-              size="small">获取所有可以获得的数据</el-tag>
-      <div class="box">
-        <el-button type="success"
-                   size="small"
-                   @click="getAll()">getAll(持久化存储)</el-button>
-        <el-button type="success"
-                   size="small"
-                   @click="getAll({type:'session'})">getAll(session存储)</el-button>
-        <el-button type="danger"
-                   size="small"
-                   @click="clearAll()">delAll(持久化存储)</el-button>
-        <el-button type="danger"
-                   size="small"
-                   @click="clearAll({type:'session'})">delAll(session存储)</el-button>
-      </div>
-    </basic-container>
-  </div>
+      <el-button type="danger"
+                 size="small"
+                 @click="delItem({name:'username',type:'session'});">remove('username')</el-button>
+    </div>
+    <el-tag class="title"
+            size="small">获取所有可以获得的数据</el-tag>
+    <div class="box">
+      <el-button type="success"
+                 size="small"
+                 @click="getAll()">getAll(持久化存储)</el-button>
+      <el-button type="success"
+                 size="small"
+                 @click="getAll({type:'session'})">getAll(session存储)</el-button>
+      <el-button type="danger"
+                 size="small"
+                 @click="clearAll()">delAll(持久化存储)</el-button>
+      <el-button type="danger"
+                 size="small"
+                 @click="clearAll({type:'session'})">delAll(session存储)</el-button>
+    </div>
+  </basic-container>
+
 </template>
 
 <script>

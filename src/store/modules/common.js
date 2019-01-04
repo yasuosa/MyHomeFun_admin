@@ -64,10 +64,12 @@ const common = {
             state.isLock = false;
             state.lockPasswd = '';
             removeStore({
-                name: 'lockPasswd'
+                name: 'lockPasswd',
+                type: 'session'
             });
             removeStore({
-                name: 'isLock'
+                name: 'isLock',
+                type: 'session'
             });
         },
     }

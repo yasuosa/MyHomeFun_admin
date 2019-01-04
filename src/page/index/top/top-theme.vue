@@ -6,7 +6,6 @@
       <el-radio-group v-model="text"
                       class="list">
         <el-row :span="24">
-
           <el-col v-for="(item,index) in list"
                   :key="index"
                   :md="4"

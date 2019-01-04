@@ -12,61 +12,73 @@ const top = [{
     parentId: 1
 }]
 const first = [{
+    label: "首页",
+    path: '/wel',
+    component: 'views/wel',
+    icon: 'icon-caidan',
+    children: []
+}, {
     label: "标签",
     path: '/tags',
     component: 'views/util/tags',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "存储",
     path: '/store',
     component: 'views/util/store',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "全局函数",
     path: 'https://avuex.avue.top/$/doc/api',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "日志监控",
     path: '/logs',
     component: 'views/util/logs',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "表格",
     path: '/table',
     component: 'views/util/table',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "表单",
     path: '/form',
     component: 'views/util/form',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
+    children: []
+}, {
+    label: "数据展示",
+    path: '/data',
+    component: 'views/util/data',
+    icon: 'icon-caidan',
     children: []
 }, {
     label: "异常页",
     path: '/error',
-    icon: 'icon-canshu',
+    icon: 'icon-caidan',
     children: [{
         label: "403",
         path: '/error',
         component: 'components/error-page/403',
-        icon: 'icon-canshu',
+        icon: 'icon-caidan',
         children: []
     }, {
         label: "404",
         path: '/404',
         component: 'components/error-page/404',
-        icon: 'icon-canshu',
+        icon: 'icon-caidan',
         children: []
     }, {
         label: "500",
         path: '/500',
         component: 'components/error-page/500',
-        icon: 'icon-canshu',
+        icon: 'icon-caidan',
         children: []
     }]
 }]

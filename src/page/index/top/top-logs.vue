@@ -1,6 +1,7 @@
 <template>
   <span @click="logsFlag?'':handleOpen()">
-    <el-badge :value="logsFlag?'':logsLen">
+    <el-badge :value="logsFlag?'':logsLen"
+              :max="99">
       <i class="icon-rizhi1"></i>
     </el-badge>
     <el-dialog title="日志"

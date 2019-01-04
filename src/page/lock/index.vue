@@ -1,5 +1,5 @@
 <template>
-  <div class="lock-container pull-height">
+  <div class="lock-container">
     <div class="lock-form animated bounceInDown">
       <div class="animated"
            :class="{'shake':passwdError,'bounceOut':pass}">
@@ -25,15 +25,15 @@
 import { mapGetters, mapState } from "vuex";
 export default {
   name: "lock",
-  data () {
+  data() {
     return {
       passwd: "",
       passwdError: false,
       pass: false
     };
   },
-  created () { },
-  mounted () { },
+  created() {},
+  mounted() {},
   computed: {
     ...mapState({
       userInfo: state => state.user.userInfo
@@ -42,7 +42,7 @@ export default {
   },
   props: [],
   methods: {
-    handleLogout () {
+    handleLogout() {
       this.$confirm("是否退出系统, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
@@ -53,7 +53,7 @@ export default {
         });
       });
     },
-    handleLogin () {
+    handleLogin() {
       if (this.passwd != this.lockPasswd) {
         this.passwd = "";
         this.$message({
@@ -69,7 +69,9 @@ export default {
       this.pass = true;
       setTimeout(() => {
         this.$store.commit("CLEAR_LOCK");
-        this.$router.push({ path: this.$router.$avueRouter.getPath({ src: this.tag.value }) });
+        this.$router.push({
+          path: this.$router.$avueRouter.getPath({ src: this.tag.value })
+        });
       }, 1000);
     }
   },
@@ -79,6 +81,7 @@ export default {
 
 <style lang="scss">
 .lock-container {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,13 +93,13 @@ export default {
 }
 .lock-container::before {
   z-index: -999;
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/img/login.png');
+  background-image: url("/img/bg/login.png");
   background-size: cover;
 }
 .lock-form {

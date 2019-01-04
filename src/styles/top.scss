@@ -5,7 +5,6 @@
     color: rgba(0, 0, 0, .65);
     font-size: 28px;
     height: 64px;
-    line-height: 64px;
     box-sizing: border-box;
     white-space: nowrap;
     .el-menu-item{
@@ -16,11 +15,11 @@
 }
 .avue-breadcrumb {
     height: 100%;
-    &_collapse {
+    i{
         font-size: 30px !important;
-        &--right {
-            transform: rotate(90deg);
-        }
+    }
+    &--active {
+        transform:rotate(90deg);
     }
 }
 
@@ -28,13 +27,12 @@
     box-sizing: border-box;
     .el-menu-item {
         padding: 0 10px;
-    }
-    .el-menu--horizontal>.el-menu-item.is-active {
-        border: 0;
+        border:none !important;
     }
 }
 
 .top-search {
+    line-height: 64px;
     position: absolute !important;
     left: 20px;
     top:0;
@@ -60,9 +58,11 @@
 .top-bar__left,
 .top-bar__right {
     height: 64px;
-    line-height: 64px;
     position: absolute;
     top: 0;
+    i{
+        line-height: 64px;
+    }
 }
 
 .top-bar__left {
@@ -83,6 +83,10 @@
     font-size: 16px;
     &--show {
         display: inline-block !important;
+    }
+    .el-badge__content.is-fixed{
+        top:12px;
+        right: 5px;
     }
 }
 

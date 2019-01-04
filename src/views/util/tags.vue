@@ -1,5 +1,6 @@
 <template>
   <basic-container>
+    <h3>标签</h3>
     <el-button type="primary"
                size="small"
                @click="$router.push('/test/index')">打开一个页面</el-button>
