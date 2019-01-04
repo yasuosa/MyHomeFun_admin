@@ -15,6 +15,7 @@
     }
 }
 .avue-breadcrumb {
+    height: 100%;
     &_collapse {
         font-size: 30px !important;
         &--right {
@@ -58,6 +59,8 @@
 
 .top-bar__left,
 .top-bar__right {
+    height: 64px;
+    line-height: 64px;
     position: absolute;
     top: 0;
 }
@@ -68,6 +71,19 @@
 
 .top-bar__right {
     right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar__item {
+    position: relative;
+    display: inline-block;
+    height: 64px;
+    margin:0 10px;
+    font-size: 16px;
+    &--show {
+        display: inline-block !important;
+    }
 }
 
 .top-bar__title {
@@ -79,15 +95,4 @@
     white-space: nowrap;
     font-size: inherit;
     font-weight: 400;
-}
-
-.top-bar__item {
-    position: relative;
-    display: inline-block;
-    margin-right: 18px;
-    height: 100%;
-    font-size: 18px;
-    &--show {
-        display: inline-block !important;
-    }
 }

@@ -1,6 +1,6 @@
 <template>
   <span>
-    <i class="icon-bofangqi-suoping"
+    <i class="icon-suoping"
        @click="handleLock"></i>
     <el-dialog title="设置锁屏密码"
                :visible.sync="box"
@@ -30,7 +30,7 @@ import { validatenull } from "@/util/validate";
 import { mapGetters } from "vuex";
 export default {
   name: "top-lock",
-  data () {
+  data() {
     return {
       box: false,
       form: {
@@ -38,14 +38,14 @@ export default {
       }
     };
   },
-  created () { },
-  mounted () { },
+  created() {},
+  mounted() {},
   computed: {
     ...mapGetters(["lockPasswd"])
   },
   props: [],
   methods: {
-    handleSetLock () {
+    handleSetLock() {
       this.$refs["form"].validate(valid => {
         if (valid) {
           this.$store.commit("SET_LOCK_PASSWD", this.form.passwd);
@@ -53,7 +53,7 @@ export default {
         }
       });
     },
-    handleLock () {
+    handleLock() {
       if (validatenull(this.lockPasswd)) {
         this.box = true;
         return;

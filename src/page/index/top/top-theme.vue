@@ -19,7 +19,7 @@
     </el-dialog>
 
     <span>
-      <i class="el-icon-view"
+      <i class="icon-zhuti"
          @click="open"></i>
     </span>
   </div>
