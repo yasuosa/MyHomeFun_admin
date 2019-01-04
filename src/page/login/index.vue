@@ -98,7 +98,7 @@ export default {
 }
 .login-weaper {
   position: absolute;
-  top: 150px;
+  top: 180px;
   left: 0;
   width: 100%;
 }

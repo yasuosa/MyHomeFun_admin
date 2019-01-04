@@ -2,7 +2,7 @@
   .avue-header,
   .avue-logo,
   .tags-container {
-      background-color: #0079f2;
+      background-color: #409EFF;
   }
   .avue-sidebar--tip{
     background-color:transparent;
@@ -45,7 +45,7 @@
         color:#666 !important;
       }
       &.is-active{
-        background-image: linear-gradient(90deg,#1861d5,#3080fe)  !important;
+        background-color:#409EFF !important;
         span,i {
           color:#fff !important;
         }
@@ -73,7 +73,7 @@
       }
     }
     .el-menu-item.is-active,.el-submenu__title.is-active{
-      background-image: linear-gradient(90deg,#1861d5,#3080fe) !important;
+      background-color:#409EFF !important;
       i,span{
         color:#fff !important;
       }
@@ -81,7 +81,7 @@
         display: none;
       }
       &:hover{
-        background-image: linear-gradient(90deg,#1861d5,#3080fe) !important;
+        background-color: #409EFF !important;
         i,span{
           color:#fff !important;
         }

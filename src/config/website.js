@@ -10,8 +10,8 @@ export default {
     info: {
         title: "Avuex-cli 通用管理系统快速开发框架",
         list: [
-            'Avuex-cli 是一个基于vue+vuex+vue-router快速后台管理模板，采用token交互验证方式。',
-            '您可以 Avuex-cli 为基础，不只限制于vue的页面，你可以嵌入第三方网站，基于iframe框架。',
+            'Avuex-cli 是一个基于vue全家桶采用token交互快速后台管理模板',
+            '您可以 Avuex-cli 为基础，不只限制于vue的页面，基于iframe嵌入任何第三方网站',
             'Avuex-cli 构建简单上手快，最大程度上帮助企业节省时间成本和费用开支。',
         ]
     },

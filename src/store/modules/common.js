@@ -20,6 +20,8 @@ const common = {
         showFullScren: true,
         showTheme: true,
         showMenu: true,
+        showColor: true,
+        colorName: getStore({ name: 'colorName' }) || '#409EFF',
         themeName: getStore({ name: 'themeName' }) || 'theme-white',
         lockPasswd: getStore({ name: 'lockPasswd' }) || '',
         website: website,
@@ -44,6 +46,13 @@ const common = {
         },
         SET_SCREEN: (state, screen) => {
             state.screen = screen;
+        },
+        SET_COLOR_NAME: (state, colorName) => {
+            state.colorName = colorName;
+            setStore({
+                name: 'colorName',
+                content: state.colorName,
+            })
         },
         SET_THEME_NAME: (state, themeName) => {
             state.themeName = themeName;

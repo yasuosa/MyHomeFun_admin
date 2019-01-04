@@ -19,6 +19,14 @@
       </span>
     </div>
     <div class="top-bar__right">
+      <el-tooltip v-if="showColor"
+                  effect="dark"
+                  content="主题色"
+                  placement="bottom">
+        <div class="top-bar__item">
+          <top-color></top-color>
+        </div>
+      </el-tooltip>
       <el-tooltip v-if="showDebug"
                   effect="dark"
                   :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
@@ -85,13 +93,15 @@ import topMenu from "./top-menu";
 import topSearch from "./top-search";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
+import topColor from "./top-color";
 export default {
   components: {
     topLock,
     topMenu,
     topSearch,
     topTheme,
-    topLogs
+    topLogs,
+    topColor
   },
   name: "top",
   data() {
@@ -110,7 +120,8 @@ export default {
       showFullScren: state => state.common.showFullScren,
       showCollapse: state => state.common.showCollapse,
       showSearch: state => state.common.showSearch,
-      showMenu: state => state.common.showMenu
+      showMenu: state => state.common.showMenu,
+      showColor: state => state.common.showColor
     }),
     ...mapGetters([
       "userInfo",
