@@ -1,9 +1,11 @@
 .avue-top {
+    padding: 0 20px;
     position: relative;
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
     color: rgba(0, 0, 0, .65);
-    font-size: 18px;
-    padding: 0 10px;
+    font-size: 28px;
+    height: 64px;
+    line-height: 64px;
     box-sizing: border-box;
     white-space: nowrap;
     .el-menu-item{
@@ -12,13 +14,19 @@
         }
     }
 }
+.avue-breadcrumb {
+    &_collapse {
+        font-size: 30px !important;
+        &--right {
+            transform: rotate(90deg);
+        }
+    }
+}
 
 .top-menu {
     box-sizing: border-box;
     .el-menu-item {
         padding: 0 10px;
-        height: 50px !important;
-        line-height: 50px !important;
     }
     .el-menu--horizontal>.el-menu-item.is-active {
         border: 0;
@@ -27,8 +35,8 @@
 
 .top-search {
     position: absolute !important;
-    top: 5px;
     left: 20px;
+    top:0;
     width: 400px !important;
     .el-input__inner {
         font-size: 13px;
@@ -55,16 +63,16 @@
 }
 
 .top-bar__left {
-    padding: 6px 6px;
+    left: 20px;
 }
 
 .top-bar__right {
-    padding: 12px 10px;
-    right: 0;
+    right: 20px;
 }
 
 .top-bar__title {
-    padding:6px 40px;
+    height: 100%;
+    padding:0 40px;
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -76,8 +84,9 @@
 .top-bar__item {
     position: relative;
     display: inline-block;
-    margin-right: 15px;
-    height: 50px;
+    margin-right: 18px;
+    height: 100%;
+    font-size: 18px;
     &--show {
         display: inline-block !important;
     }

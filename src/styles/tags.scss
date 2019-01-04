@@ -1,15 +1,7 @@
-.avue-breadcrumb {
-    &_collapse {
-        line-height: 55px;
-        font-size: 30px !important;
-        &--right {
-            transform: rotate(90deg);
-        }
-    }
-}
 
 
 .avue-tags {
+    user-select: none; 
     position: relative;
     padding: 0 10px;
     margin-bottom: 10px;

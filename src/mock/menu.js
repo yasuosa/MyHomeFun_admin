@@ -35,6 +35,18 @@ const first = [{
     icon: 'icon-canshu',
     children: []
 }, {
+    label: "表格",
+    path: '/table',
+    component: 'views/util/table',
+    icon: 'icon-canshu',
+    children: []
+}, {
+    label: "表单",
+    path: '/form',
+    component: 'views/util/form',
+    icon: 'icon-canshu',
+    children: []
+}, {
     label: "异常页",
     path: '/error',
     icon: 'icon-canshu',
