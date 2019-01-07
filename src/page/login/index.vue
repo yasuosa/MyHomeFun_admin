@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container pull-height"
+  <div class="login-container"
        @keyup.enter.native="handleLogin">
     <div class="login-logo animated fadeIn">
       <img src="/svg/logo.svg"
@@ -98,7 +98,7 @@ export default {
 }
 .login-weaper {
   position: absolute;
-  top: 180px;
+  top: 22%;
   left: 0;
   width: 100%;
 }
