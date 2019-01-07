@@ -2,10 +2,19 @@
   <div class="avue-tags"
        v-if="showTag">
     <!-- tag盒子 -->
+    <div v-if="contextmenuFlag"
+         class="avue-tags__contentmenu"
+         :style="{left:contentmenuX+'px',top:contentmenuY+'px'}">
+      <div class="item"
+           @click="closeOthersTags">关闭其他</div>
+      <div class="item"
+           @click="closeAllTags">关闭全部</div>
+    </div>
     <div class="avue-tags__box"
          :class="{'avue-tags__box--close':!website.isFirstPage}">
       <el-tabs v-model="active"
                type="card"
+               @contextmenu.native="handleContextmenu"
                :closable="tagLen!==1"
                @tab-click="openTag"
                @edit="menuTag">
@@ -14,6 +23,7 @@
                      :label="item.label"
                      :name="item.value">
         </el-tab-pane>
+
       </el-tabs>
       <el-dropdown class="avue-tags__menu">
         <el-button type="primary"
@@ -31,49 +41,79 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapState } from 'vuex'
-
+import { mapGetters, mapState } from "vuex";
 export default {
-  name: 'tags',
-  data () {
+  name: "tags",
+  data() {
     return {
-      active: '',
-    }
+      active: "",
+      contentmenuX: "",
+      contentmenuY: "",
+      contextmenuFlag: false
+    };
   },
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     this.setActive();
   },
   watch: {
-    tag () {
+    tag() {
       this.setActive();
+    },
+    contextmenuFlag() {
+      window.addEventListener("mousedown", this.watchContextmenu);
     }
   },
   computed: {
-    ...mapGetters(['tagWel', 'tagList', 'tag', 'website']),
+    ...mapGetters(["tagWel", "tagList", "tag", "website"]),
     ...mapState({
-      showTag: state => state.common.showTag,
+      showTag: state => state.common.showTag
     }),
-    tagLen () {
+    tagLen() {
       return this.tagList.length || 0;
     }
   },
   methods: {
+    watchContextmenu() {
+      if (!this.$el.contains(event.target) || event.button !== 0) {
+        this.contextmenuFlag = false;
+      }
+
+      window.removeEventListener("mousedown", this.watchContextmenu);
+    },
+    handleContextmenu(event) {
+      let target = event.target;
+      // 解决 https://github.com/d2-projects/d2-admin/issues/54
+      let flag = false;
+      if (target.className.indexOf("el-tabs__item") > -1) flag = true;
+      else if (target.parentNode.className.indexOf("el-tabs__item") > -1) {
+        target = target.parentNode;
+        flag = true;
+      }
+      if (flag) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.contentmenuX = event.clientX;
+        this.contentmenuY = event.clientY;
+        this.tagName = target.getAttribute("aria-controls").slice(5);
+        this.contextmenuFlag = true;
+      }
+    },
     //激活当前选项
-    setActive () {
+    setActive() {
       this.active = this.tag.value;
     },
-    menuTag (value, action) {
-      if (action === 'remove') {
+    menuTag(value, action) {
+      if (action === "remove") {
         let { tag, key } = this.findTag(value);
-        this.$store.commit('DEL_TAG', tag)
+        this.$store.commit("DEL_TAG", tag);
         if (tag.value === this.tag.value) {
-          tag = this.tagList[key === 0 ? key : key - 1] //如果关闭本标签让前推一个
-          this.openTag(tag)
+          tag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
+          this.openTag(tag);
         }
       }
     },
-    openTag (item) {
+    openTag(item) {
       let tag;
       if (item.name) {
         tag = this.findTag(item.name).tag;
@@ -86,12 +126,13 @@ export default {
           src: tag.value
         }),
         query: tag.query
-      })
+      });
     },
-    closeOthersTags () {
-      this.$store.commit('DEL_TAG_OTHER')
+    closeOthersTags() {
+      this.contextmenuFlag = false;
+      this.$store.commit("DEL_TAG_OTHER");
     },
-    findTag (value) {
+    findTag(value) {
       let tag, key;
       this.tagList.map((item, index) => {
         if (item.value === value) {
@@ -101,17 +142,18 @@ export default {
       });
       return { tag: tag, key: key };
     },
-    closeAllTags () {
-      this.$store.commit('DEL_ALL_TAG')
+    closeAllTags() {
+      this.contextmenuFlag = false;
+      this.$store.commit("DEL_ALL_TAG");
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           src: this.tagWel.value
         }),
         query: this.tagWel.query
-      })
-    },
+      });
+    }
   }
-}
+};
 </script>
 
 
