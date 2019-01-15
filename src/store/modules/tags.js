@@ -56,7 +56,13 @@ const navs = {
             setStore({ name: 'tagList', content: state.tagList, type: 'session' })
         },
         DEL_TAG_OTHER: (state) => {
-            state.tagList = state.tagList.filter(item => item.value === state.tag.value)
+            state.tagList = state.tagList.filter(item => {
+                if (item.value === state.tag.value) {
+                    return true;
+                } else if (!website.isFirstPage && item.value === website.fistPage.value) {
+                    return true;
+                }
+            })
             setFistTag(state.tagList);
             setStore({ name: 'tagList', content: state.tagList, type: 'session' })
         },

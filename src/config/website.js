@@ -4,6 +4,7 @@
 export default {
     title: "Avuex",
     logo: "A",
+    key: 'avuex',//配置主键,目前用于存储
     indexTitle: 'avue-cli By smallwei',
     lockPage: '/lock',
     tokenTime: 6000,

@@ -1,6 +1,9 @@
 import {
     validatenull
 } from '@/util/validate';
+import website from '@/config/website'
+
+const keyName = website.key + '-';
 /**
  * 存储localStorage
  */
@@ -10,6 +13,7 @@ export const setStore = (params) => {
         content,
         type,
     } = params;
+    name = keyName + name
     let obj = {
         dataType: typeof (content),
         content: content,
@@ -28,6 +32,7 @@ export const getStore = (params) => {
         name,
         debug
     } = params;
+    name = keyName + name
     let obj = {},
         content;
     obj = window.sessionStorage.getItem(name);
@@ -60,6 +65,7 @@ export const removeStore = params => {
         name,
         type
     } = params;
+    name = keyName + name
     if (type) {
         window.sessionStorage.removeItem(name);
     } else {
