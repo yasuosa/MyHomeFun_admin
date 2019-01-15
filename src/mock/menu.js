@@ -10,6 +10,12 @@ const top = [{
     icon: 'el-icon-document',
     path: "https://avuex.avue.top",
     parentId: 1
+},
+{
+    label: "测试",
+    icon: 'el-icon-document',
+    path: "https://avuex.avue.top",
+    parentId: 2
 }]
 const first = [{
     label: "首页",
@@ -83,9 +89,16 @@ const first = [{
     }]
 }]
 const second = []
+const third = [{
+    label: "测试页面",
+    path: '/test',
+    component: 'views/test',
+    icon: 'icon-caidan',
+    children: []
+}]
 export default ({ mock }) => {
     if (!mock) return;
-    let menu = [first, second];
+    let menu = [first, second, third];
     Mock.mock('/user/getMenu', 'get', (res) => {
         let body = JSON.parse(res.body);
         return {
