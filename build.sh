@@ -3,8 +3,5 @@
 echo "打包文件"
 yarn build
 echo "传输文件"
-sftp root@fengniaoai.com << EOM
-  put -r ./dist/** /mnt/website/avue-cli1
-  bey
-EOM
+scp -r ./dist/** pig@139.224.200.249:/data/avue/avue-cli1
 echo "部署成功"

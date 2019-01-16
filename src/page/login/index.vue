@@ -2,7 +2,7 @@
   <div class="login-container"
        @keyup.enter.native="handleLogin">
 
-    <div class="login-weaper  animated fadeInTop">
+    <div class="login-weaper animated bounceInDown">
       <div class="login-left">
         <div class="login-time">
           {{time}}
@@ -105,6 +105,7 @@ export default {
 .login-weaper {
   margin: 0 auto;
   width: 1000px;
+  box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .login-left,
