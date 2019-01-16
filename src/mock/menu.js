@@ -70,19 +70,19 @@ const first = [{
     icon: 'icon-caidan',
     children: [{
         label: "403",
-        path: '/error',
+        path: 'error',
         component: 'components/error-page/403',
         icon: 'icon-caidan',
         children: []
     }, {
         label: "404",
-        path: '/404',
+        path: '404',
         component: 'components/error-page/404',
         icon: 'icon-caidan',
         children: []
     }, {
         label: "500",
-        path: '/500',
+        path: '500',
         component: 'components/error-page/500',
         icon: 'icon-caidan',
         children: []

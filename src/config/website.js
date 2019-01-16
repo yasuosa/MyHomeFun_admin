@@ -8,14 +8,7 @@ export default {
     indexTitle: 'avue-cli By smallwei',
     lockPage: '/lock',
     tokenTime: 6000,
-    info: {
-        title: "Avuex-cli 通用管理系统快速开发框架",
-        list: [
-            'Avuex-cli 是一个基于vue全家桶采用token交互快速后台管理模板',
-            '您可以 Avuex-cli 为基础，不只限制于vue的页面，基于iframe嵌入任何第三方网站',
-            'Avuex-cli 构建简单上手快，最大程度上帮助企业节省时间成本和费用开支。',
-        ]
-    },
+    infoTitle: '通用管理系统快速开发框架',
     //http的status默认放行不才用统一处理的,
     statusWhiteList: [400],
     //配置首页不可关闭
