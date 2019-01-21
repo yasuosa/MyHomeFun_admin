@@ -3,70 +3,97 @@ const top = [{
     label: "首页",
     path: "/wel/index",
     icon: 'el-icon-menu',
+    meta: {
+        i18n: 'dashboard',
+    },
     parentId: 0
 },
 {
     label: "官网",
     icon: 'el-icon-document',
+    meta: {
+        i18n: 'website',
+    },
     path: "https://avuex.avue.top",
     parentId: 1
 },
 {
     label: "测试",
     icon: 'el-icon-document',
-    path: "https://avuex.avue.top",
+    path: "/test/index",
+    meta: {
+        i18n: 'test',
+    },
     parentId: 2
 }]
 const first = [{
-    label: "首页",
-    path: '/wel',
-    component: 'views/wel',
-    icon: 'icon-caidan',
-    children: []
-}, {
     label: "标签",
     path: '/tags',
     component: 'views/util/tags',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'tags',
+    },
     children: []
 }, {
     label: "存储",
     path: '/store',
     component: 'views/util/store',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'store',
+    },
     children: []
 }, {
     label: "全局函数",
     path: 'https://avuex.avue.top/$/doc/api',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'api',
+    },
     children: []
 }, {
     label: "日志监控",
     path: '/logs',
     component: 'views/util/logs',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'logs',
+    },
     children: []
 }, {
     label: "表格",
     path: '/table',
     component: 'views/util/table',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'table',
+    },
     children: []
 }, {
     label: "表单",
     path: '/form',
     component: 'views/util/form',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'form',
+    },
     children: []
 }, {
     label: "数据展示",
     path: '/data',
     component: 'views/util/data',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'data',
+    },
     children: []
 }, {
     label: "异常页",
     path: '/error',
+    meta: {
+        i18n: 'error',
+    },
     icon: 'icon-caidan',
     children: [{
         label: "403",
@@ -94,6 +121,9 @@ const third = [{
     path: '/test',
     component: 'views/test',
     icon: 'icon-caidan',
+    meta: {
+        i18n: 'test',
+    },
     children: []
 }]
 export default ({ mock }) => {

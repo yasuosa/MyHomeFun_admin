@@ -7,6 +7,7 @@ import website from '@/config/website'
 const common = {
 
     state: {
+        language: getStore({ name: 'language' }) || 'en',
         isCollapse: false,
         isFullScren: false,
         isShade: false,
@@ -27,6 +28,13 @@ const common = {
         website: website,
     },
     mutations: {
+        SET_LANGUAGE: (state, language) => {
+            state.language = language
+            setStore({
+                name: 'language',
+                content: state.language
+            })
+        },
         SET_SHADE: (state, active) => {
             state.isShade = active;
         },

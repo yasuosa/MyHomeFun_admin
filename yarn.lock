@@ -7816,13 +7816,6 @@ uuid@^3.0.1, uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-v-contextmenu@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.npmjs.org/v-contextmenu/-/v-contextmenu-2.8.0.tgz#ee930c974d7a7282451583889ab70c3db03098ad"
-  integrity sha512-Cj5iYDI4R4cwjLKF0vSJChVrQNWUjgV780Fc0gPwZNUxa3ZsRh94whhSOUdGVEURQaapNQ/4RXTqrKB310eGuw==
-  dependencies:
-    vue "^2.5.16"
-
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
   resolved "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
@@ -7878,6 +7871,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
   integrity sha512-AA86yKZ5uOKz87/q1UpngEXhbRkaYg1b7HMMVRobNV1IVKqZe8oLIzo6iMocVwZXnYitlGwf2k4ZRLOZlS8oPQ==
+
+vue-i18n@^8.7.0:
+  version "8.7.0"
+  resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-8.7.0.tgz#846269ad9d9c40c77479a540398d4024356fa4e1"
+  integrity sha512-qey+OyZSUIje0xJW8HZrvpIss1jW8yBBRe+0QlUn7HENU31m/+Med/u4pcwjoeCaErHU9WMscBEhqK5aAvvEEQ==
 
 vue-loader@^15.4.2:
   version "15.4.2"

@@ -1,7 +1,6 @@
 <template>
   <div class="login-container"
        @keyup.enter.native="handleLogin">
-
     <div class="login-weaper animated bounceInDown">
       <div class="login-left">
         <div class="login-time">
@@ -10,21 +9,24 @@
         <img class="img"
              src="https://avuex.avue.top/images/logo.png"
              alt="">
-        <p class="title">{{website.infoTitle}}</p>
+        <p class="title">{{ $t('login.info') }}</p>
       </div>
       <div class="login-border">
         <div class="login-main">
-          <h4 class="login-title">登录 {{website.title}}</h4>
+          <h4 class="login-title">
+            {{ $t('login.title') }}{{website.title}}
+            <top-lang></top-lang>
+          </h4>
           <userLogin v-if="activeName==='user'"></userLogin>
           <codeLogin v-else-if="activeName==='code'"></codeLogin>
           <thirdLogin v-else-if="activeName==='third'"></thirdLogin>
           <div class="login-menu">
             <a href="#"
-               @click.stop="activeName='user'">账号密码</a>
+               @click.stop="activeName='user'">{{ $t('login.userLogin') }}</a>
             <a href="#"
-               @click.stop="activeName='code'">手机号登录</a>
+               @click.stop="activeName='code'">{{ $t('login.phoneLogin') }}</a>
             <a href="#"
-               @click.stop="activeName='third'">第三方登录</a>
+               @click.stop="activeName='third'">{{ $t('login.thirdLogin') }}</a>
           </div>
         </div>
 
@@ -39,12 +41,14 @@ import thirdLogin from "./thirdlogin";
 import { mapGetters } from "vuex";
 import { dateFormat } from "@/util/date";
 import { validatenull } from "@/util/validate";
+import topLang from "@/page/index/top/top-lang";
 export default {
   name: "login",
   components: {
     userLogin,
     codeLogin,
-    thirdLogin
+    thirdLogin,
+    topLang
   },
   data() {
     return {
@@ -106,6 +110,9 @@ export default {
   margin: 0 auto;
   width: 1000px;
   box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
+  .el-input-group__append {
+    border: none;
+  }
 }
 
 .login-left,

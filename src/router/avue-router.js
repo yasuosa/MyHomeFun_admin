@@ -23,6 +23,7 @@ RouterPlugin.install = function (router, store) {
         $defaultTitle: 'Avuex 通用管理 系统快速开发框架',
         routerList: [],
         group: '',
+        meta: {},
         safe: this,
         // 设置标题
         setTitle: function (title) {
@@ -35,6 +36,17 @@ RouterPlugin.install = function (router, store) {
                 tag = this.$store.getters.tagList.filter(ele => ele.value === value)[0]
             }
             this.$store.commit('DEL_TAG', tag)
+        },
+        generateTitle(title, key, safe) {
+            if (!key) return title;
+            const hasKey = safe.$te('route.' + key)
+            if (hasKey) {
+                // $t :this method from vue-i18n, inject in @/lang/index.js
+                const translatedTitle = safe.$t('route.' + key)
+
+                return translatedTitle
+            }
+            return title
         },
         //处理路由
         getPath: function (params) {
@@ -92,7 +104,7 @@ RouterPlugin.install = function (router, store) {
                     name = oMenu[propsDefault.label],
                     icon = oMenu[propsDefault.icon],
                     children = oMenu[propsDefault.children],
-                    meta = oMenu[propsDefault.meta];
+                    meta = oMenu[propsDefault.meta] || {};
 
                 const isChild = children.length !== 0;
                 const oRouter = {

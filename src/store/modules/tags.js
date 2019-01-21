@@ -8,6 +8,7 @@ const tagObj = {
     value: '', //标题的路径
     params: '', //标题的路径参数
     query: '', //标题的参数
+    meta: {},//额外参数
     group: [], //分组
 }
 //处理首个标签

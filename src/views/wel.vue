@@ -7,17 +7,17 @@
              class="wel__info-img">
         <div class="wel__info-content">
           <div class="wel__info-title">
-            早安，Smallwei，Avuex一款超乎你想象的框架！
+            {{$t('wel.info')}}
           </div>
           <div class="wel__info-subtitle">
-            avue技术专家 |avue－某某某事业群－某某平台部－某某技术部－光头董事长
+            {{$t('wel.dept')}}
           </div>
         </div>
       </div>
       <div class="wel__extra">
         <div class="wel__extra-item">
           <p class="wel__extra-title">
-            项目数
+            {{ $t('wel.count')}}
           </p>
           <p class="wel__extra-subtitle">
             56
@@ -25,7 +25,7 @@
         </div>
         <div class="wel__extra-item">
           <p class="wel__extra-title">
-            团队内排名
+            {{ $t('wel.team')}}
           </p>
           <p class="wel__extra-subtitle">
             8 <span>/ 24</span>
@@ -33,7 +33,8 @@
         </div>
         <div class="wel__extra-item">
           <p class="wel__extra-title">
-            项目访问
+
+            {{ $t('wel.project')}}
           </p>
           <p class="wel__extra-subtitle">
             2,223

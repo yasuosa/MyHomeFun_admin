@@ -9,7 +9,7 @@
                       :key="index">
           <template slot="title">
             <i :class="item.icon"></i>
-            <span>{{item.label}}</span>
+            <span>{{generateTitle(item)}}</span>
           </template>
         </el-menu-item>
       </template>
@@ -38,6 +38,13 @@ export default {
       this.$store.dispatch("GetTopMenu").then(res => {
         this.items = res;
       });
+    },
+    generateTitle(item) {
+      return this.$router.$avueRouter.generateTitle(
+        item.label,
+        (item.meta || {}).i18n,
+        this
+      );
     },
     openMenu(item) {
       this.$store.dispatch("GetMenu", item.parentId).then(data => {

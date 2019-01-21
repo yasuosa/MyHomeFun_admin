@@ -18,6 +18,9 @@ export default {
         value: "/wel/index",
         params: {},
         query: {},
+        meta: {
+            i18n: 'dashboard',
+        },
         group: [],
         close: false
     },

@@ -8,7 +8,7 @@
                     :class="{'is-active':vaildAvtive(item)}">
         <i :class="item[iconKey]"></i>
         <span slot="title"
-              :alt="item[pathKey]">{{item[labelKey]}}</span>
+              :alt="item[pathKey]">{{generateTitle(item)}}</span>
       </el-menu-item>
       <el-submenu v-else-if="!validatenull(item[childrenKey])&&vaildRoles(item)"
                   :index="item[pathKey]"
@@ -16,7 +16,7 @@
         <template slot="title">
           <i :class="item[iconKey]"></i>
           <span slot="title"
-                :class="{'el-menu--display':collapse && first}">{{item[labelKey]}}</span>
+                :class="{'el-menu--display':collapse && first}">{{generateTitle(item)}}</span>
         </template>
         <template v-for="(child,cindex) in item[childrenKey]">
           <el-menu-item :index="child[pathKey],cindex"
@@ -25,7 +25,7 @@
                         v-if="validatenull(child[childrenKey])"
                         :key="child[labelKey]">
             <i :class="child[iconKey]"></i>
-            <span slot="title">{{child[labelKey]}}</span>
+            <span slot="title">{{generateTitle(child)}}</span>
           </el-menu-item>
           <sidebar-item v-else
                         :menu="[child]"
@@ -91,6 +91,13 @@ export default {
     }
   },
   methods: {
+    generateTitle(item) {
+      return this.$router.$avueRouter.generateTitle(
+        item[this.labelKey],
+        (item.meta || {}).i18n,
+        this
+      );
+    },
     vaildAvtive(item) {
       const groupFlag = (item["group"] || []).some(ele =>
         this.$route.path.includes(ele)
@@ -107,6 +114,7 @@ export default {
     open(item) {
       if (this.screen <= 1) this.$store.commit("SET_COLLAPSE");
       this.$router.$avueRouter.group = item.group;
+      this.$router.$avueRouter.meta = item.meta;
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           name: item[this.labelKey],

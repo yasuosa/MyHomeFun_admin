@@ -21,7 +21,7 @@
     <div class="top-bar__right">
       <el-tooltip v-if="showColor"
                   effect="dark"
-                  content="主题色"
+                  :content="$t('navbar.color')"
                   placement="bottom">
         <div class="top-bar__item">
           <top-color></top-color>
@@ -29,7 +29,7 @@
       </el-tooltip>
       <el-tooltip v-if="showDebug"
                   effect="dark"
-                  :content="logsFlag?'没有错误日志':`${logsLen}条错误日志`"
+                  :content="logsFlag?$t('navbar.bug'):logsLen+$t('navbar.bugs')"
                   placement="bottom">
         <div class="top-bar__item">
           <top-logs></top-logs>
@@ -37,7 +37,7 @@
       </el-tooltip>
       <el-tooltip v-if="showLock"
                   effect="dark"
-                  content="锁屏"
+                  :content="$t('navbar.lock')"
                   placement="bottom">
         <div class="top-bar__item">
           <top-lock></top-lock>
@@ -45,27 +45,30 @@
       </el-tooltip>
       <el-tooltip v-if="showTheme"
                   effect="dark"
-                  content="特色主题"
+                  :content="$t('navbar.theme')"
                   placement="bottom">
         <div class="top-bar__item top-bar__item--show">
           <top-theme></top-theme>
         </div>
       </el-tooltip>
+      <el-tooltip effect="dark"
+                  :content="$t('navbar.language')"
+                  placement="bottom">
+        <div class="top-bar__item top-bar__item--show">
+          <top-lang></top-lang>
+        </div>
+      </el-tooltip>
       <el-tooltip v-if="showFullScren"
                   effect="dark"
-                  :content="isFullScren?'退出全屏':'全屏'"
+                  :content="isFullScren?$t('navbar.screenfullF'):$t('navbar.screenfull')"
                   placement="bottom">
         <div class="top-bar__item">
           <i :class="isFullScren?'icon-tuichuquanping':'icon-quanping'"
              @click="handleScreen"></i>
         </div>
       </el-tooltip>
-      <el-tooltip effect="dark"
-                  content="用户头像"
-                  placement="bottom">
-        <img class="top-bar__img"
-             :src="userInfo.avatar">
-      </el-tooltip>
+      <img class="top-bar__img"
+           :src="userInfo.avatar">
       <el-dropdown>
         <span class="el-dropdown-link">
           {{userInfo.username}}
@@ -73,13 +76,13 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>
-            <router-link to="/">首页</router-link>
+            <router-link to="/">{{$t('navbar.dashboard')}}</router-link>
           </el-dropdown-item>
           <el-dropdown-item>
-            <router-link to="/info/index">个人信息</router-link>
+            <router-link to="/info/index">{{$t('navbar.userinfo')}}</router-link>
           </el-dropdown-item>
           <el-dropdown-item @click.native="logout"
-                            divided>退出系统</el-dropdown-item>
+                            divided>{{$t('navbar.logOut')}}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -94,6 +97,7 @@ import topSearch from "./top-search";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
 import topColor from "./top-color";
+import topLang from "./top-lang";
 export default {
   components: {
     topLock,
@@ -101,7 +105,8 @@ export default {
     topSearch,
     topTheme,
     topLogs,
-    topColor
+    topColor,
+    topLang
   },
   name: "top",
   data() {
@@ -145,9 +150,9 @@ export default {
       this.$store.commit("SET_FULLSCREN");
     },
     logout() {
-      this.$confirm("是否退出系统, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      this.$confirm(this.$t("logoutTip"), this.$t("tip"), {
+        confirmButtonText: this.$t("submitText"),
+        cancelButtonText: this.$t("cancelText"),
         type: "warning"
       }).then(() => {
         this.$store.dispatch("LogOut").then(() => {

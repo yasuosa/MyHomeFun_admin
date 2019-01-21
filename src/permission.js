@@ -13,8 +13,8 @@ const lockPage = store.getters.website.lockPage; //锁屏页
 router.beforeEach((to, from, next) => {
     //缓冲设置
     if (to.meta.keepAlive === true && store.state.tags.tagList.some(ele => {
-            return ele.value === to.fullPath;
-        })) {
+        return ele.value === to.fullPath;
+    })) {
         to.meta.$keepAlive = true;
     } else {
         NProgress.start()
@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
             //如果用户信息为空则获取用户信息，获取用户信息失败，跳转到登录页
             if (store.getters.roles.length === 0) {
                 store.dispatch('GetUserInfo').then(() => {
-                    next({...to, replace: true })
+                    next({ ...to, replace: true })
                 }).catch(() => {
                     store.dispatch('FedLogOut').then(() => {
                         next({ path: '/login' })
@@ -49,6 +49,7 @@ router.beforeEach((to, from, next) => {
                         value: value,
                         params: to.params,
                         query: to.query,
+                        meta: router.$avueRouter.meta || {},
                         group: router.$avueRouter.group || []
                     });
                 }

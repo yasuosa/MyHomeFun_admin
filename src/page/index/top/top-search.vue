@@ -3,7 +3,7 @@
                    popper-class="my-autocomplete"
                    v-model="value"
                    :fetch-suggestions="querySearch"
-                   placeholder="请输入搜索内容"
+                   :placeholder="$t('search')"
                    @select="handleSelect">
 
     <template slot-scope="{ item }">
