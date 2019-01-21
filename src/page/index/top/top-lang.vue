@@ -21,14 +21,20 @@ export default {
   created() {},
   mounted() {},
   computed: {
-    ...mapGetters(["language"])
+    ...mapGetters(["language", "tag"])
   },
   props: [],
   methods: {
     handleSetLanguage(lang) {
       this.$i18n.locale = lang;
       this.$store.commit("SET_LANGUAGE", lang);
-      window.location.reload();
+      let tag = this.tag;
+      let title = this.$router.$avueRouter.generateTitle(
+        tag.label,
+        tag.meta.i18n
+      );
+      //根据当前的标签也获取label的值动态设置浏览器标题
+      this.$router.$avueRouter.setTitle(title);
     }
   }
 };
