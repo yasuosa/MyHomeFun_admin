@@ -6,7 +6,7 @@ export default {
   search: '请输入搜索内容',
   wel: {
     info: '早安，Smallwei，Avuex一款超乎你想象的框架！',
-    dept: 'Avue technical expert | Avue - a certain industry group - a certain Platform Department - a certain technology department - skinhead Chairman',
+    dept: '我是avue团队下的一个部门-哈皮部门-哈皮职位',
     team: '团队内排名',
     project: '项目访问',
     count: '项目数'

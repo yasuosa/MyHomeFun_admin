@@ -7,7 +7,7 @@ import website from '@/config/website'
 const common = {
 
     state: {
-        language: getStore({ name: 'language' }) || 'en',
+        language: getStore({ name: 'language' }),
         isCollapse: false,
         isFullScren: false,
         isShade: false,
