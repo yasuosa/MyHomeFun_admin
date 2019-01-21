@@ -7,8 +7,15 @@ export default {
             column: [{
                 label: '头像',
                 type: 'upload',
-                showFileList: false,
                 listType: 'picture-img',
+                propsHttp: {
+                    res: 'data.0'
+                },
+                canvasOption: {
+                    text: 'avue',
+                    ratio: 0.1
+                },
+                action: 'https://avueupload.91eic.com/upload/list',
                 tip: '只能上传jpg/png用户头像，且不超过500kb',
                 span: 12,
                 row: true,

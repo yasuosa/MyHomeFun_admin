@@ -4,6 +4,7 @@ export default {
   submitText: 'submit',
   cancelText: 'cancel',
   search: 'Please input search content',
+  menuTip: 'none menu list',
   wel: {
     info: 'Good morning, Smallwei, Avuex is a framework',
     dept: 'a certain technology department',
@@ -12,6 +13,7 @@ export default {
     count: 'Item number'
   },
   route: {
+    info: 'info',
     website: 'website',
     dashboard: 'dashboard',
     tags: 'tags',
@@ -41,6 +43,7 @@ export default {
     msgSuccess: 'reissued code',
   },
   navbar: {
+    info: 'info',
     logOut: 'logout',
     userinfo: 'userinfo',
     dashboard: 'dashboard',

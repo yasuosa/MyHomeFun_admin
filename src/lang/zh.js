@@ -4,6 +4,7 @@ export default {
   submitText: '确定',
   cancelText: '取消',
   search: '请输入搜索内容',
+  menuTip: '没有发现菜单',
   wel: {
     info: '早安，Smallwei，Avuex一款超乎你想象的框架！',
     dept: '我是avue团队下的一个部门-哈皮部门-哈皮职位',
@@ -12,6 +13,7 @@ export default {
     count: '项目数'
   },
   route: {
+    info: '个人信息',
     website: '官网',
     dashboard: '首页',
     tags: '标签',

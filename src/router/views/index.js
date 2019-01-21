@@ -6,6 +6,9 @@ export default [{
     children: [{
         path: 'index',
         name: '首页',
+        meta: {
+            i18n: 'dashboard'
+        },
         component: () =>
             import( /* webpackChunkName: "views" */ '@/views/wel')
     }]
@@ -16,6 +19,9 @@ export default [{
     children: [{
         path: 'index',
         name: '测试页',
+        meta: {
+            i18n: 'test'
+        },
         component: () =>
             import( /* webpackChunkName: "views" */ '@/views/util/test')
     }]
@@ -26,6 +32,9 @@ export default [{
     children: [{
         path: 'index',
         name: '个人信息',
+        meta: {
+            i18n: 'info'
+        },
         component: () =>
             import( /* webpackChunkName: "views" */ '@/views/user/info')
     }]

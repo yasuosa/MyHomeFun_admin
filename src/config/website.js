@@ -19,7 +19,7 @@ export default {
         params: {},
         query: {},
         meta: {
-            i18n: 'dashboard',
+            i18n: 'dashboard'
         },
         group: [],
         close: false
