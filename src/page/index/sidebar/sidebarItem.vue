@@ -94,8 +94,7 @@ export default {
     generateTitle(item) {
       return this.$router.$avueRouter.generateTitle(
         item[this.labelKey],
-        (item.meta || {}).i18n,
-        this
+        (item.meta || {}).i18n
       );
     },
     vaildAvtive(item) {

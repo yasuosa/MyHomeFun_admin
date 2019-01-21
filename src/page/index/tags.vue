@@ -77,8 +77,7 @@ export default {
     generateTitle(item) {
       return this.$router.$avueRouter.generateTitle(
         item.label,
-        (item.meta || {}).i18n,
-        this
+        (item.meta || {}).i18n
       );
     },
     watchContextmenu(event) {
@@ -129,7 +128,8 @@ export default {
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           name: tag.label,
-          src: tag.value
+          src: tag.value,
+          i18n: tag.meta.i18n
         }),
         query: tag.query
       });

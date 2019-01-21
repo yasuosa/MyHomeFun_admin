@@ -4,9 +4,10 @@ let RouterPlugin = function () {
     this.$store = null;
 
 };
-RouterPlugin.install = function (router, store) {
+RouterPlugin.install = function (vue, router, store, i18n) {
     this.$router = router;
     this.$store = store;
+    this.$vue = new vue({ i18n });
     function isURL(s) {
         return /^http[s]?:\/\/.*/.test(s)
     }
@@ -20,14 +21,14 @@ RouterPlugin.install = function (router, store) {
     this.$router.$avueRouter = {
         //全局配置
         $website: this.$store.getters.website,
-        $defaultTitle: 'Avuex 通用管理 系统快速开发框架',
         routerList: [],
         group: '',
         meta: {},
         safe: this,
         // 设置标题
-        setTitle: function (title) {
-            title = title ? `${title}——${this.$defaultTitle}` : this.$defaultTitle;
+        setTitle: (title) => {
+            const defaultTitle = this.$vue.$t('title');
+            title = title ? `${title}——${defaultTitle}` : defaultTitle;
             document.title = title;
         },
         closeTag: (value) => {
@@ -37,12 +38,12 @@ RouterPlugin.install = function (router, store) {
             }
             this.$store.commit('DEL_TAG', tag)
         },
-        generateTitle(title, key, safe) {
+        generateTitle: (title, key) => {
             if (!key) return title;
-            const hasKey = safe.$te('route.' + key)
+            const hasKey = this.$vue.$te('route.' + key)
             if (hasKey) {
                 // $t :this method from vue-i18n, inject in @/lang/index.js
-                const translatedTitle = safe.$t('route.' + key)
+                const translatedTitle = this.$vue.$t('route.' + key)
 
                 return translatedTitle
             }

@@ -85,7 +85,8 @@ export default {
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           name: item[this.labelKey],
-          src: item[this.pathKey]
+          src: item[this.pathKey],
+          i18n: item.meta.i18n
         }),
         query: item.query
       });

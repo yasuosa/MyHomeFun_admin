@@ -8,7 +8,6 @@ export default {
     indexTitle: 'avue-cli By smallwei',
     lockPage: '/lock',
     tokenTime: 6000,
-    infoTitle: '通用管理系统快速开发框架',
     //http的status默认放行不才用统一处理的,
     statusWhiteList: [400],
     //配置首页不可关闭
