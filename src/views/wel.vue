@@ -74,25 +74,6 @@ export default {
   name: "wel",
   data() {
     return {
-      option4: {
-        index: true,
-        column: [
-          {
-            label: "工作任务",
-            prop: "rw"
-          },
-          {
-            width: 500,
-            label: "工作内容",
-            prop: "nr",
-            overHidden: true
-          },
-          {
-            label: "工作时间",
-            prop: "sj"
-          }
-        ]
-      },
       data: [
         {
           rw: "这是一条工作任务",
@@ -114,71 +95,17 @@ export default {
           nr: "这是一条很长很长很长很长很长很长很长很长很长的工作内容",
           sj: "2019-01-01"
         }
-      ],
-      option3: {
-        span: 8,
-        data: [
-          {
-            title: "转化率（日同比 28%）",
-            color: "rgb(178, 159, 255)",
-            count: 32,
-            href: "https://avue.top",
-            target: "_blank"
-          },
-          {
-            title: "签到率（日同比 11%）",
-            color: "rgb(230, 71, 88)",
-            count: 32,
-            href: "https://avue.top",
-            target: "_blank"
-          },
-          {
-            title: "签到率（日同比 11%）",
-            color: "rgb(230, 71, 88)",
-            count: 32,
-            href: "https://avue.top",
-            target: "_blank"
-          }
-        ]
-      },
-      option2: {
-        span: 12,
-        data: [
-          {
-            title: "今日注册",
-            count: 12678,
-            icon: "el-icon-tickets",
-            href: "https://avue.top",
-            target: "_blank"
-          },
-          {
-            title: "今日登录",
-            count: 22139,
-            icon: "el-icon-success",
-            href: "https://avue.top",
-            target: "_blank"
-          },
-          {
-            title: "今日订阅",
-            count: 35623,
-            icon: "el-icon-info",
-            href: "https://avue.top",
-            target: "_blank"
-          },
-          {
-            title: "今日评论",
-            count: 16826,
-            icon: "el-icon-message",
-            href: "https://avue.top",
-            target: "_blank"
-          }
-        ]
-      },
-      option1: {
+      ]
+    };
+  },
+  computed: {
+    ...mapGetters(["userInfo"]),
+    option1() {
+      return {
         span: 6,
         data: [
           {
-            title: "错误日志",
+            title: this.$t("wel.data4.column1"),
             count: 12332,
             icon: "el-icon-warning",
             color: "rgb(49, 180, 141)",
@@ -186,7 +113,7 @@ export default {
             target: "_blank"
           },
           {
-            title: "数据展示",
+            title: this.$t("wel.data4.column2"),
             count: 33,
             icon: "el-icon-view",
             color: "rgb(56, 161, 242)",
@@ -194,7 +121,7 @@ export default {
             target: "_blank"
           },
           {
-            title: "权限管理",
+            title: this.$t("wel.data4.column3"),
             count: 2223,
             icon: "el-icon-setting",
             color: "rgb(117, 56, 199)",
@@ -202,7 +129,7 @@ export default {
             target: "_blank"
           },
           {
-            title: "用户管理",
+            title: this.$t("wel.data4.column4"),
             count: 2223,
             icon: "el-icon-setting",
             color: "rgb(230, 71, 88)",
@@ -210,43 +137,126 @@ export default {
             target: "_blank"
           }
         ]
-      },
-      option: {
+      };
+    },
+    option3() {
+      return {
         span: 8,
         data: [
           {
-            title: "分类统计",
-            subtitle: "实时",
-            count: 7993,
-            allcount: 10222,
-            text: "当前分类总记录数",
-            color: "rgb(27, 201, 142)",
-            key: "类"
+            title: this.$t("wel.data3.column1"),
+            color: "rgb(178, 159, 255)",
+            count: 32,
+            href: "https://avue.top",
+            target: "_blank"
           },
           {
-            title: "附件统计",
-            subtitle: "实时",
-            count: 3112,
-            allcount: 10222,
-            text: "当前上传的附件数",
+            title: this.$t("wel.data3.column2"),
             color: "rgb(230, 71, 88)",
-            key: "附"
+            count: 32,
+            href: "https://avue.top",
+            target: "_blank"
           },
           {
-            title: "文章统计",
-            subtitle: "实时",
-            count: 908,
-            allcount: 10222,
-            text: "评论次数",
-            color: "rgb(56, 161, 242)",
-            key: "评"
+            title: this.$t("wel.data3.column3"),
+            color: "rgb(230, 71, 88)",
+            count: 32,
+            href: "https://avue.top",
+            target: "_blank"
           }
         ]
-      }
-    };
-  },
-  computed: {
-    ...mapGetters(["userInfo"])
+      };
+    },
+    option2() {
+      return {
+        span: 12,
+        data: [
+          {
+            title: this.$t("wel.data2.column1"),
+            count: 12678,
+            icon: "el-icon-tickets",
+            href: "https://avue.top",
+            target: "_blank"
+          },
+          {
+            title: this.$t("wel.data2.column2"),
+            count: 22139,
+            icon: "el-icon-success",
+            href: "https://avue.top",
+            target: "_blank"
+          },
+          {
+            title: this.$t("wel.data2.column3"),
+            count: 35623,
+            icon: "el-icon-info",
+            href: "https://avue.top",
+            target: "_blank"
+          },
+          {
+            title: this.$t("wel.data2.column4"),
+            count: 16826,
+            icon: "el-icon-message",
+            href: "https://avue.top",
+            target: "_blank"
+          }
+        ]
+      };
+    },
+    option() {
+      return {
+        span: 8,
+        data: [
+          {
+            title: this.$t("wel.data.column1"),
+            subtitle: this.$t("wel.data.subtitle"),
+            count: 7993,
+            allcount: 10222,
+            text: this.$t("wel.data.text1"),
+            color: "rgb(27, 201, 142)",
+            key: this.$t("wel.data.key1")
+          },
+          {
+            title: this.$t("wel.data.column2"),
+            subtitle: this.$t("wel.data.subtitle"),
+            count: 3112,
+            allcount: 10222,
+            text: this.$t("wel.data.text2"),
+            color: "rgb(230, 71, 88)",
+            key: this.$t("wel.data.key2")
+          },
+          {
+            title: this.$t("wel.data.column3"),
+            subtitle: this.$t("wel.data.subtitle"),
+            count: 908,
+            allcount: 10222,
+            text: this.$t("wel.data.text3"),
+            color: "rgb(56, 161, 242)",
+            key: this.$t("wel.data.key3")
+          }
+        ]
+      };
+    },
+    option4() {
+      return {
+        index: true,
+        column: [
+          {
+            label: this.$t("wel.table.rw"),
+            prop: "rw"
+          },
+          {
+            width: 500,
+            label: this.$t("wel.table.nr"),
+            prop: "nr",
+            overHidden: true
+          },
+          {
+            label: this.$t("wel.table.sj"),
+            prop: "sj"
+          }
+        ]
+      };
+    }
   },
   created() {},
   methods: {}

@@ -11,7 +11,41 @@ export default {
     dept: '我是avue团队下的一个部门-哈皮部门-哈皮职位',
     team: '团队内排名',
     project: '项目访问',
-    count: '项目数'
+    count: '项目数',
+    data: {
+      subtitle: '实时',
+      column1: '分类统计',
+      column2: '附件统计',
+      column3: '文章统计',
+      key1: '分',
+      key2: '附',
+      key3: '评',
+      text1: '当前分类总记录数',
+      text2: '当前上传的附件数',
+      text3: '评论次数'
+    },
+    data2: {
+      column1: '今日注册',
+      column2: '今日登录',
+      column3: '今日订阅',
+      column4: '今日评论'
+    },
+    data3: {
+      column1: '转化率（日同比 28%）',
+      column2: '签到率（日同比 11%）',
+      column3: '签到率（日同比 11%）'
+    },
+    data4: {
+      column1: '错误日志',
+      column2: '数据展示',
+      column3: '权限管理',
+      column4: '用户管理'
+    },
+    table: {
+      rw: '工作任务',
+      nr: '工作内容',
+      sj: '工作时间'
+    }
   },
   route: {
     info: '个人信息',
