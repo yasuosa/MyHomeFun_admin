@@ -118,7 +118,7 @@ export default {
         path: this.$router.$avueRouter.getPath({
           name: item[this.labelKey],
           src: item[this.pathKey],
-          i18n: item.meta.i18n
+          i18n: (item.meta || {}).i18n
         }),
         query: item.query
       });
