@@ -1,6 +1,4 @@
-import {
-  mapGetters
-} from "vuex";
+import { mapGetters } from "vuex";
 const version = require("element-ui/package.json").version; // element-ui version from node_modules
 const ORIGINAL_THEME = "#409EFF"; // default color
 export default function () {
@@ -61,9 +59,9 @@ export default function () {
         const link = [].slice.call(
           document.getElementsByTagName("head")[0].getElementsByTagName("link")
         );
-        for (let i = link.length - 3; i < link.length; i++) {
+        for (let i = 0; i < link.length; i++) {
           const style = link[i];
-          if (style.href.indexOf('app') != -1) {
+          if (style.href.includes('css')) {
             this.getCSSString(style.href, innerText => {
               const originalCluster = this.getThemeCluster(
                 ORIGINAL_THEME.replace("#", "")
@@ -82,17 +80,10 @@ export default function () {
               }
             });
           }
-
         }
 
-        const styles = [].slice
-          .call(document.querySelectorAll("style"))
-          .filter(style => {
-            const text = style.innerText;
-            return (
-              new RegExp(oldVal, "i").test(text) && !/Chalk Variables/.test(text)
-            );
-          });
+        const styles = [].slice.call(document.querySelectorAll("style"))
+
         styles.forEach(style => {
           const {
             innerText
