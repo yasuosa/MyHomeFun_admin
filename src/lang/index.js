@@ -6,15 +6,17 @@ import enLocale from './en'
 import zhLocale from './zh'
 import { getStore } from '@/util/store'
 Vue.use(VueI18n)
-
+const Avue = window.AVUE;
 const messages = {
   en: {
     ...enLocale,
-    ...elementEnLocale
+    ...elementEnLocale,
+    ...Avue.locale.en,
   },
   zh: {
     ...zhLocale,
-    ...elementZhLocale
+    ...elementZhLocale,
+    ...Avue.locale.zh,
   }
 }
 

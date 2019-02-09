@@ -23,6 +23,9 @@ Vue.use(VueAxios, axios)
 Vue.use(Element, {
     i18n: (key, value) => i18n.t(key, value)
 })
+Vue.use(window.AVUE, {
+    i18n: (key, value) => i18n.t(key, value)
+})
 //注册全局容器
 Vue.component('basicContainer', basicContainer)
 // 加载相关url地址

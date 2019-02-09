@@ -58,6 +58,7 @@ export default {
     table: '表格',
     form: '表单',
     data: '数据展示',
+    permission: '权限',
     error: '异常页面',
     test: '测试页面'
   },

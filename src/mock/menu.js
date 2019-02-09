@@ -80,6 +80,15 @@ const first = [{
     },
     children: []
 }, {
+    label: "权限",
+    path: '/permission',
+    component: 'views/util/permission',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'permission',
+    },
+    children: []
+}, {
     label: "数据展示",
     path: '/data',
     component: 'views/util/data',

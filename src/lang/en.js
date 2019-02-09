@@ -31,9 +31,9 @@ export default {
       column4: 'Todays review'
     },
     data3: {
-      column1: 'Conversion rate（Day to year 28%）',
-      column2: 'Attendance rate（Day to year 11%）',
-      column3: 'Attendance rate（Day to year 11%）'
+      column1: 'Conversion rate（Day 28%）',
+      column2: 'Attendance rate（Day 11%）',
+      column3: 'Attendance rate（Day 33%）'
     },
     data4: {
       column1: 'Error log',
@@ -53,6 +53,7 @@ export default {
     dashboard: 'dashboard',
     tags: 'tags',
     store: 'store',
+    permission: 'permission',
     api: 'api',
     logs: 'logs',
     table: 'table',
