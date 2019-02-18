@@ -1,3 +1,17 @@
+
+.el-menu--popup{
+    background-color:#20222a;
+    .el-menu-item{
+        color:rgba(255, 255, 255, 0.7);
+        &:hover{
+            color:#fff;
+        }
+    }
+    
+    .el-menu-item:focus, .el-menu-item:hover {
+        background-color:transparent;
+    }
+}
 .avue-sidebar {
     user-select: none; 
     position: relative;

@@ -1,4 +1,13 @@
 .theme-star {
+    .el-menu--popup{
+        background-color:rgba(0,0,0,.4) !important;
+        .el-menu-item{
+            color:rgba(255, 255, 255, 0.7);
+            &:hover{
+                color: #409EFF;
+            }
+        }
+    }
     .avue-contail {
         background-image: url("/img/bg/star-squashed.jpg");
         background-size: 100% 100%;
@@ -35,7 +44,7 @@
         background-color: transparent 
     }
     .logo_title,
-    .avue-breadcrumb,
+    .avue-breadcrumb
     {
         color: #fff ;
         i {
