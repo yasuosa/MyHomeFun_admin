@@ -25,6 +25,7 @@ export default {
     },
     //配置菜单的属性
     menu: {
+        iconDefault: 'icon-caidan',
         props: {
             label: 'label',
             path: 'path',
