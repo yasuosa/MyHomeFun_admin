@@ -60,7 +60,7 @@ export default {
     display: block;
     text-align: center;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 20px;
   }
   &_subtitle {
     display: block;

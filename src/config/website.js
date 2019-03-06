@@ -5,7 +5,7 @@ export default {
     title: "Avuex",
     logo: "A",
     key: 'avuex',//配置主键,目前用于存储
-    indexTitle: 'avuex-cli web',
+    indexTitle: '后台快速开发模版',
     lockPage: '/lock',
     tokenTime: 6000,
     //http的status默认放行不才用统一处理的,

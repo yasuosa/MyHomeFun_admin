@@ -56,6 +56,10 @@ export default {
         {
           name: "hey主题",
           value: "theme-hey"
+        },
+        {
+          name: "renren主题",
+          value: "theme-renren"
         }
       ]
     };
