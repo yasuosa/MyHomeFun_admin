@@ -1,16 +1,33 @@
 
+
 .el-menu--popup{
-    background-color:#20222a;
     .el-menu-item{
-        color:rgba(255, 255, 255, 0.7);
+        background-color: #20222a;
+        i,span{
+            color:hsla(0,0%,100%,.7);
+        }
         &:hover{
-            color:#fff;
+            i,span{
+                color:#fff;
+            }
+        }
+        &.is-active {
+            background-color: rgba(0,0,0,.8);
+            &:before {
+                content: '';
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 4px;
+                background: #409eff;
+                position: absolute;
+            }
+            i,span{
+                color:#fff;
+            }
         }
     }
     
-    .el-menu-item:focus, .el-menu-item:hover {
-        background-color:transparent;
-    }
 }
 .avue-sidebar {
     user-select: none; 
@@ -38,77 +55,29 @@
         font-size: 14px;
         background-color: rgba(0,0,0,.4);
     }
-    .el-menu-item,
-    .el-submenu__title {
-        font-size: 14px;
-        height: 56px;
-        line-height: 56px;
-    }
-    .el-menu-item {
-        span,i{
-            color:rgba(255, 255, 255, 0.7);
+    .el-menu-item,.el-submenu__title{
+        i,span{
+            color:hsla(0,0%,100%,.7);
         }
-        &:hover {
-            background-color: transparent;
-            color: #fff;
-            span,
-            i {
-                color: #fff;
+        &:hover{
+            background: transparent;
+            i,span{
+               color:#fff;
             }
         }
         &.is-active {
-            background-color: rgba(0, 0, 0, .8);
-            span,
-            i {
-                color: #fff;
-            }
-            &:hover {
-                background-color: rgba(0, 0, 0, .8);
-            }
-            &::before {
-                content: " ";
+            &:before {
+                content: '';
                 top: 0;
                 left: 0;
                 bottom: 0;
                 width: 4px;
-                background: $mainBg;
-                position: absolute
+                background: #409eff;
+                position: absolute;
             }
-        }
-    }
-    .el-submenu__title {
-        span,i{
-            color:rgba(255, 255, 255, 0.7);
-        }
-        &:hover {
-            i,
-            span {
-                color: #fff;
-            }
-            background-color:transparent ;
-        }
-    }
-    .el-submenu .el-menu-item {
-        height: 50px;
-        line-height: 50px;
-        span,i{
-            color:rgba(255, 255, 255, 0.7);
-        }
-        &.is-active {
-            background-color: rgba(0, 0, 0, .8);
-            span,
-            i {
-                color: #fff
-            }
-            &:hover {
-                background-color: rgba(0, 0, 0, .8);
-            }
-        }
-        &:hover {
-            background-color: transparent;
-            span,
-            i {
-                color: #fff;
+            background-color: rgba(0,0,0,.8);
+            i,span{
+                color:#fff;
             }
         }
     }
