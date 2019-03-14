@@ -59,6 +59,7 @@ export default {
     form: '表单',
     data: '数据展示',
     permission: '权限',
+    top: '返回顶部',
     error: '异常页面',
     test: '测试页面'
   },

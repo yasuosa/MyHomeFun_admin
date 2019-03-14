@@ -89,6 +89,15 @@ const first = [{
     },
     children: []
 }, {
+    label: "返回顶部",
+    path: '/top',
+    component: 'views/util/top',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'top',
+    },
+    children: []
+}, {
     label: "数据展示",
     path: '/data',
     component: 'views/util/data',

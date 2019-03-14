@@ -26,6 +26,9 @@ export const getObjType = obj => {
     }
     return map[toString.call(obj)];
 };
+export const getViewDom = () => {
+    return window.document.getElementById('avue-view').getElementsByClassName('el-scrollbar__wrap')[0]
+}
 /**
  * 对象深拷贝
  */
