@@ -8,9 +8,7 @@
 * 3.vue-ui 运行管理工具，导入avue-cli项目
 * 4.剩下的自己摸索吧，下面时图示
 
-![图例1](https://gitee.wang/avue/avue-cli/raw/master/public/img/mock/cli/1.png)  
-![图例2](https://gitee.wang/avue/avue-cli/raw/master/public/img/mock/cli/2.png)  
-![图例3](https://gitee.wang/avue/avue-cli/raw/master/public/img/mock/cli/3.png)  
+[参考博客](https://segmentfault.com/a/1190000015366009)
 
 ## Run setup
 ```
