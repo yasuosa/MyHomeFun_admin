@@ -98,6 +98,17 @@ const first = [{
     },
     children: []
 }, {
+    label: "图钉",
+    path: '/affix',
+    component: 'views/util/affix',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'affix',
+    },
+    children: []
+},
+
+{
     label: "数据展示",
     path: '/data',
     component: 'views/util/data',

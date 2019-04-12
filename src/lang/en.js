@@ -59,6 +59,7 @@ export default {
     table: 'table',
     form: 'form',
     top: 'backtop',
+    affix: 'affix',
     data: 'data',
     error: 'error',
     test: 'test'

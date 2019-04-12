@@ -60,6 +60,7 @@ export default {
     data: '数据展示',
     permission: '权限',
     top: '返回顶部',
+    affix: '图钉',
     error: '异常页面',
     test: '测试页面'
   },
