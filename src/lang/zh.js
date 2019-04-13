@@ -48,6 +48,7 @@ export default {
     }
   },
   route: {
+    detail: '详情页',
     info: '个人信息',
     website: '官网',
     dashboard: '首页',
@@ -61,6 +62,7 @@ export default {
     permission: '权限',
     top: '返回顶部',
     affix: '图钉',
+    crudForm: '表格表单',
     error: '异常页面',
     test: '测试页面'
   },

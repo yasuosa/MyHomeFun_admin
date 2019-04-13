@@ -13,6 +13,18 @@ export default [{
             import( /* webpackChunkName: "views" */ '@/views/wel')
     }]
 }, {
+    path: '/form-detail',
+    component: Layout,
+    children: [{
+        path: 'index',
+        name: '详情页',
+        meta: {
+            i18n: 'detail'
+        },
+        component: () =>
+            import( /* webpackChunkName: "views" */ '@/views/util/form-detail')
+    }]
+}, {
     path: '/test',
     component: Layout,
     redirect: '/test/index',

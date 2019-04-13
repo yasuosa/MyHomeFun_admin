@@ -48,6 +48,7 @@ export default {
     }
   },
   route: {
+    detail: 'detail',
     info: 'info',
     website: 'website',
     dashboard: 'dashboard',
@@ -60,6 +61,7 @@ export default {
     form: 'form',
     top: 'backtop',
     affix: 'affix',
+    crudForm: 'crudForm',
     data: 'data',
     error: 'error',
     test: 'test'

@@ -98,6 +98,15 @@ const first = [{
     },
     children: []
 }, {
+    label: "表格表单",
+    path: '/crud-form',
+    component: 'views/util/crud-form',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'crudForm',
+    },
+    children: []
+}, {
     label: "图钉",
     path: '/affix',
     component: 'views/util/affix',
