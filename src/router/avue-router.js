@@ -94,7 +94,7 @@ RouterPlugin.install = function (vue, router, store, i18n) {
             for (let i = 0; i < aMenu.length; i++) {
                 const oMenu = aMenu[i];
                 if (this.routerList.includes(oMenu[propsDefault.path])) return;
-                const path = (() => {
+                let path = (() => {
                     if (first) {
                         return oMenu[propsDefault.path].replace('/index', '')
                     } else {
@@ -107,6 +107,13 @@ RouterPlugin.install = function (vue, router, store, i18n) {
                     children = oMenu[propsDefault.children],
                     meta = oMenu[propsDefault.meta] || {};
 
+                meta = Object.assign(meta, (function () {
+                    if (meta.keepAlive === true) {
+                        return {
+                            $keepAlive: true
+                        }
+                    }
+                })());
                 const isChild = children.length !== 0;
                 const oRouter = {
                     path: path,
