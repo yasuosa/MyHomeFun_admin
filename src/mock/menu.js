@@ -27,6 +27,16 @@ const top = [{
     parentId: 2
 }]
 const first = [{
+    label: "缓冲",
+    path: '/cache',
+    component: 'views/util/cache',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'cache',
+        keepAlive: true
+    },
+    children: []
+}, {
     label: "标签",
     path: '/tags',
     component: 'views/util/tags',
@@ -77,16 +87,6 @@ const first = [{
     icon: 'icon-caidan',
     meta: {
         i18n: 'form'
-    },
-    children: []
-}, {
-    label: "缓冲",
-    path: '/cache',
-    component: 'views/util/cache',
-    icon: 'icon-caidan',
-    meta: {
-        i18n: 'cache',
-        keepAlive: true
     },
     children: []
 }, {

@@ -13,18 +13,20 @@ import AvueRouter from './avue-router';
 import Vue from 'vue';
 import i18n from '@/lang' // Internationalization
 import Store from '../store/';
+
 let Router = new VueRouter({
     scrollBehavior(to, from, savedPosition) {
+        const avueView = document.getElementById('avue-view');
         if (savedPosition) {
             return savedPosition
         } else {
             if (from.meta.keepAlive) {
-                from.meta.savedPosition = document.body.scrollTop;
+                from.meta.savedPosition = avueView.scrollTop
+            } else {
+                from.meta.savedPosition = 0;
             }
-            return {
-                x: 0,
-                y: to.meta.savedPosition || 0
-            }
+            avueView.scrollTop = to.meta.savedPosition
+
         }
     },
     routes: []
