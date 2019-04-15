@@ -76,7 +76,17 @@ const first = [{
     component: 'views/util/form',
     icon: 'icon-caidan',
     meta: {
-        i18n: 'form',
+        i18n: 'form'
+    },
+    children: []
+}, {
+    label: "缓冲",
+    path: '/cache',
+    component: 'views/util/cache',
+    icon: 'icon-caidan',
+    meta: {
+        i18n: 'cache',
+        keepAlive: true
     },
     children: []
 }, {

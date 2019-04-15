@@ -63,6 +63,7 @@ export default {
     affix: 'affix',
     crudForm: 'crudForm',
     data: 'data',
+    cache: 'cache',
     error: 'error',
     test: 'test'
   },

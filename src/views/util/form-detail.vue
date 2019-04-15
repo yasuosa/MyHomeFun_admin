@@ -1,6 +1,6 @@
 <template>
   <basic-container>
-    <h3>{{$route.query.index?'编辑':'新增'}}</h3>
+    <h3>{{$route.query.id?'编辑':'新增'}}</h3>
     <avue-form :option="option"
                v-model="form">
       <template slot="menuForm">
