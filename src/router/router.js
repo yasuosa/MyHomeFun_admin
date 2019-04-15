@@ -17,6 +17,12 @@ import Store from '../store/';
 let Router = new VueRouter({
     scrollBehavior(to, from, savedPosition) {
         const avueView = document.getElementById('avue-view');
+        if (!avueView) {
+            return {
+                x: 0,
+                y: 0
+            }
+        }
         if (savedPosition) {
             return savedPosition
         } else {
