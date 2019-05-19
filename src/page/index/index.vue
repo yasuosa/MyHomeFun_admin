@@ -93,7 +93,7 @@ export default {
         });
         const date = calcDate(token.datetime, new Date().getTime());
         if (validatenull(date)) return;
-        if (!(date.seconds >= this.website.tokenTime) && !this.refreshLock) {
+        if (date.seconds >= this.website.tokenTime && !this.refreshLock) {
           this.refreshLock = true;
           this.$store
             .dispatch("RefeshToken")
@@ -104,7 +104,7 @@ export default {
               this.refreshLock = false;
             });
         }
-      }, 10000);
+      }, 1000);
     }
   }
 };

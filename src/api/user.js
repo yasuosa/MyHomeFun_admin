@@ -3,6 +3,9 @@ import { baseUrl } from '@/config/env';
 export const loginByUsername = (username, password, code, redomStr) => request({
     url: baseUrl + '/user/login',
     method: 'post',
+    meta: {
+        isToken: false
+    },
     data: {
         username,
         password,
@@ -42,5 +45,8 @@ export const sendLogs = (list) => request({
 
 export const logout = () => request({
     url: baseUrl + '/user/logout',
+    meta: {
+        isToken: false
+    },
     method: 'get'
 })
