@@ -16,7 +16,7 @@ import {
 } from '@/config/env';
 import i18n from './lang' // Internationalization
 import './styles/common.scss';
-import AVUE from '@smallwei/avue/lib/avue.js';
+import AVUE from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 
 import basicContainer from './components/basic-container/main'

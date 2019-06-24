@@ -11,7 +11,7 @@
         "test:e2e": "vue-cli-service test:e2e"
     },
     "dependencies": {
-        "@smallwei/avue": "^2.0.1",
+        "@smallwei/avue": "^2.0.3",
         "axios": "^0.18.0",
         "babel-polyfill": "^6.26.0",
         "classlist-polyfill": "^1.2.0",
@@ -20,6 +20,7 @@
         "mockjs": "^1.0.1-beta3",
         "nprogress": "^0.2.0",
         "script-loader": "^0.7.2",
+        "sortablejs": "^1.10.0-rc2",
         "vue": "^2.5.16",
         "vue-axios": "^2.1.2",
         "vue-i18n": "^8.7.0",
