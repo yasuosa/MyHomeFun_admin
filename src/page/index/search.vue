@@ -18,7 +18,7 @@
         <el-scrollbar class="avue-searchs__scrollbar">
           <div class="avue-searchs__item"
                v-for="(item,index) in menus"
-               :key="index">
+               :key="index" @click="handleSelect(item)">
             <i :class="[item[iconKey],'avue-searchs__item-icon']"></i>
             <span class="avue-searchs__item-title">{{item[labelKey]}}</span>
             <div class="avue-searchs__item-path">
@@ -106,6 +106,7 @@ export default {
       };
     },
     handleSelect (item) {
+      this.handleEsc();
       this.value = "";
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
