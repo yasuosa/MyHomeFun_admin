@@ -17,14 +17,19 @@
         <!-- 主体视图层 -->
         <div style="height:100%;overflow-y:auto;overflow-x:hidden;"
              id="avue-view">
-          <keep-alive>
+          <transition name="fade-scale">
+            <search class="avue-view"
+                    v-show="isSearch"></search>
+          </transition>
+          <template v-show="!isSearch">
+            <keep-alive>
+              <router-view class="avue-view"
+                           v-if="$route.meta.$keepAlive" />
+            </keep-alive>
             <router-view class="avue-view"
-                         v-if="$route.meta.$keepAlive" />
-          </keep-alive>
-          <router-view class="avue-view"
-                       v-if="!$route.meta.$keepAlive" />
+                         v-if="!$route.meta.$keepAlive" />
+          </template>
         </div>
-
       </div>
     </div>
     <!-- <el-footer class="avue-footer">
@@ -41,6 +46,7 @@
 <script>
 import { mapGetters } from "vuex";
 import tags from "./tags";
+import search from "./search";
 import top from "./top/";
 import sidebar from "./sidebar/";
 import admin from "@/util/admin";
@@ -51,32 +57,35 @@ export default {
   components: {
     top,
     tags,
+    search,
     sidebar
   },
   name: "index",
-  data() {
+  data () {
     return {
+      //搜索控制
+      isSearch: false,
       //刷新token锁
       refreshLock: false,
       //刷新token的时间
       refreshTime: ""
     };
   },
-  created() {
+  created () {
     //实时检测刷新token
     this.refreshToken();
   },
-  mounted() {
+  mounted () {
     this.init();
   },
   computed: mapGetters(["isLock", "isCollapse", "website"]),
   props: [],
   methods: {
-    showCollapse() {
+    showCollapse () {
       this.$store.commit("SET_COLLAPSE");
     },
     // 屏幕检测
-    init() {
+    init () {
       this.$store.commit("SET_SCREEN", admin.getScreen());
       window.onresize = () => {
         setTimeout(() => {
@@ -85,7 +94,7 @@ export default {
       };
     },
     // 10分钟检测一次token
-    refreshToken() {
+    refreshToken () {
       this.refreshTime = setInterval(() => {
         const token = getStore({
           name: "token",

@@ -32,6 +32,7 @@
           <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item @click.native="$parent.isSearch=true">{{$t('tagsView.search')}}</el-dropdown-item>
           <el-dropdown-item @click.native="closeOthersTags">{{$t('tagsView.closeOthers')}}</el-dropdown-item>
           <el-dropdown-item @click.native="closeAllTags">{{$t('tagsView.closeAll')}}</el-dropdown-item>
         </el-dropdown-menu>
@@ -44,7 +45,7 @@
 import { mapGetters, mapState } from "vuex";
 export default {
   name: "tags",
-  data() {
+  data () {
     return {
       active: "",
       contentmenuX: "",
@@ -52,15 +53,15 @@ export default {
       contextmenuFlag: false
     };
   },
-  created() {},
-  mounted() {
+  created () { },
+  mounted () {
     this.setActive();
   },
   watch: {
-    tag() {
+    tag () {
       this.setActive();
     },
-    contextmenuFlag() {
+    contextmenuFlag () {
       window.addEventListener("mousedown", this.watchContextmenu);
     }
   },
@@ -69,24 +70,24 @@ export default {
     ...mapState({
       showTag: state => state.common.showTag
     }),
-    tagLen() {
+    tagLen () {
       return this.tagList.length || 0;
     }
   },
   methods: {
-    generateTitle(item) {
+    generateTitle (item) {
       return this.$router.$avueRouter.generateTitle(
         item.label,
         (item.meta || {}).i18n
       );
     },
-    watchContextmenu(event) {
+    watchContextmenu (event) {
       if (!this.$el.contains(event.target) || event.button !== 0) {
         this.contextmenuFlag = false;
       }
       window.removeEventListener("mousedown", this.watchContextmenu);
     },
-    handleContextmenu(event) {
+    handleContextmenu (event) {
       let target = event.target;
       // 解决 https://github.com/d2-projects/d2-admin/issues/54
       let flag = false;
@@ -105,10 +106,10 @@ export default {
       }
     },
     //激活当前选项
-    setActive() {
+    setActive () {
       this.active = this.tag.value;
     },
-    menuTag(value, action) {
+    menuTag (value, action) {
       if (action === "remove") {
         let { tag, key } = this.findTag(value);
         this.$store.commit("DEL_TAG", tag);
@@ -118,7 +119,7 @@ export default {
         }
       }
     },
-    openTag(item) {
+    openTag (item) {
       let tag;
       if (item.name) {
         tag = this.findTag(item.name).tag;
@@ -134,11 +135,11 @@ export default {
         query: tag.query
       });
     },
-    closeOthersTags() {
+    closeOthersTags () {
       this.contextmenuFlag = false;
       this.$store.commit("DEL_TAG_OTHER");
     },
-    findTag(value) {
+    findTag (value) {
       let tag, key;
       this.tagList.map((item, index) => {
         if (item.value === value) {
@@ -148,7 +149,7 @@ export default {
       });
       return { tag: tag, key: key };
     },
-    closeAllTags() {
+    closeAllTags () {
       this.contextmenuFlag = false;
       this.$store.commit("DEL_ALL_TAG");
       this.$router.push({

@@ -52,6 +52,7 @@ export default {
     info: '个人信息',
     website: '官网',
     dashboard: '首页',
+    datascreen: '数据大屏',
     tags: '标签',
     store: '本地存储',
     api: '全局函数',
@@ -97,6 +98,7 @@ export default {
     color: '换色'
   },
   tagsView: {
+    search: '搜索',
     menu: '更多',
     closeOthers: '关闭其它',
     closeAll: '关闭所有'

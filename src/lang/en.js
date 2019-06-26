@@ -52,6 +52,7 @@ export default {
     info: 'info',
     website: 'website',
     dashboard: 'dashboard',
+    datascreen: 'datascreen',
     tags: 'tags',
     store: 'store',
     permission: 'permission',
@@ -98,6 +99,7 @@ export default {
     color: 'color'
   },
   tagsView: {
+    search: 'search',
     menu: 'menu',
     closeOthers: 'Close Others',
     closeAll: 'Close All'
