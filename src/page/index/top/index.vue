@@ -81,6 +81,9 @@
           <el-dropdown-item>
             <router-link to="/info/index">{{$t('navbar.userinfo')}}</router-link>
           </el-dropdown-item>
+          <el-dropdown-item>
+            <router-link to="/info/setting">{{$t('navbar.setting')}}</router-link>
+          </el-dropdown-item>
           <el-dropdown-item @click.native="logout"
                             divided>{{$t('navbar.logOut')}}</el-dropdown-item>
         </el-dropdown-menu>
@@ -109,12 +112,12 @@ export default {
     topLang
   },
   name: "top",
-  data() {
+  data () {
     return {};
   },
   filters: {},
-  created() {},
-  mounted() {
+  created () { },
+  mounted () {
     listenfullscreen(this.setScreen);
   },
   computed: {
@@ -140,16 +143,16 @@ export default {
     ])
   },
   methods: {
-    handleScreen() {
+    handleScreen () {
       fullscreenToggel();
     },
-    setCollapse() {
+    setCollapse () {
       this.$store.commit("SET_COLLAPSE");
     },
-    setScreen() {
+    setScreen () {
       this.$store.commit("SET_FULLSCREN");
     },
-    logout() {
+    logout () {
       this.$confirm(this.$t("logoutTip"), this.$t("tip"), {
         confirmButtonText: this.$t("submitText"),
         cancelButtonText: this.$t("cancelText"),

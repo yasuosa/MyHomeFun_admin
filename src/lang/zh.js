@@ -48,6 +48,7 @@ export default {
     }
   },
   route: {
+    setting: '个人设置',
     detail: '详情页',
     info: '个人信息',
     website: '官网',
@@ -85,6 +86,7 @@ export default {
     msgSuccess: '秒后重发',
   },
   navbar: {
+    setting: '个人设置',
     logOut: '退出登录',
     userinfo: '个人信息',
     dashboard: '首页',

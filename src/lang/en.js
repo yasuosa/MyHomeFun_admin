@@ -48,6 +48,7 @@ export default {
     }
   },
   route: {
+    setting: 'setting',
     detail: 'detail',
     info: 'info',
     website: 'website',
@@ -85,6 +86,7 @@ export default {
     msgSuccess: 'reissued code',
   },
   navbar: {
+    setting: 'setting',
     info: 'info',
     logOut: 'logout',
     userinfo: 'userinfo',
