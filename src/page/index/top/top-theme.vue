@@ -28,7 +28,7 @@
 import { setTheme } from "@/util/util";
 import { mapGetters } from "vuex";
 export default {
-  data() {
+  data () {
     return {
       box: false,
       text: "",
@@ -44,6 +44,10 @@ export default {
         {
           name: "炫彩主题",
           value: "theme-star"
+        },
+        {
+          name: "vip尊贵主题",
+          value: "theme-vip"
         },
         {
           name: "iview主题",
@@ -65,7 +69,7 @@ export default {
     };
   },
   watch: {
-    text: function(val) {
+    text: function (val) {
       this.$store.commit("SET_THEME_NAME", val);
       setTheme(val);
     }
@@ -73,14 +77,14 @@ export default {
   computed: {
     ...mapGetters(["themeName"])
   },
-  mounted() {
+  mounted () {
     this.text = this.themeName;
     if (!this.text) {
       this.text = "";
     }
   },
   methods: {
-    open() {
+    open () {
       this.box = true;
     }
   }
