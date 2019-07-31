@@ -55,6 +55,13 @@
     height: calc(100% - 70px);
     box-sizing: border-box;
     overflow: hidden;
+    transition: all 0.5s;
+    background: #f0f2f5;
+    z-index:1026;
+    &--fullscreen{
+      width: 100%;
+      left:0;
+    }
 }
 
 .avue-view {

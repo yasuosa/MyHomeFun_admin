@@ -50,6 +50,10 @@ export default {
           value: "theme-vip"
         },
         {
+          name: "智能工厂主题",
+          value: "theme-bule"
+        },
+        {
           name: "iview主题",
           value: "theme-iview"
         },

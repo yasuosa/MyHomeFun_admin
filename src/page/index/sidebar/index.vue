@@ -2,7 +2,7 @@
   <div class="avue-sidebar">
     <logo></logo>
     <el-scrollbar style="height:100%">
-      <div v-if="validatenull(menu)"
+      <div v-if="isMenu"
            class="avue-sidebar--tip">{{$t('menuTip')}}</div>
       <el-menu unique-opened
                :default-active="nowTagValue"
@@ -26,22 +26,22 @@ import sidebarItem from "./sidebarItem";
 export default {
   name: "sidebar",
   components: { sidebarItem, logo },
-  data() {
+  data () {
     return {};
   },
-  created() {
+  created () {
     this.$store.dispatch("GetMenu").then(data => {
       if (data.length === 0) return;
       this.$router.$avueRouter.formatRoutes(data, true);
     });
   },
   computed: {
-    ...mapGetters(["website", "menu", "tag", "keyCollapse", "screen"]),
-    nowTagValue: function() {
+    ...mapGetters(["website", 'isMenu', "menu", "tag", "keyCollapse", "screen"]),
+    nowTagValue: function () {
       return this.$router.$avueRouter.getValue(this.$route);
     }
   },
-  mounted() {},
+  mounted () { },
   methods: {}
 };
 </script>

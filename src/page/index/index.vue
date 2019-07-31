@@ -11,7 +11,8 @@
         <!-- 左侧导航栏 -->
         <sidebar />
       </div>
-      <div class="avue-main">
+      <div class="avue-main"
+           :class="{'avue-main--fullscreen':!isMenu}">
         <!-- 顶部标签卡 -->
         <tags />
         <transition name="fade-scale">
@@ -77,7 +78,7 @@ export default {
   mounted () {
     this.init();
   },
-  computed: mapGetters(["isLock", "isCollapse", "website"]),
+  computed: mapGetters(["isMenu", "isLock", "isCollapse", "website"]),
   props: [],
   methods: {
     showCollapse () {
