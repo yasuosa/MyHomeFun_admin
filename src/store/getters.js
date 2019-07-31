@@ -1,4 +1,3 @@
-import { validatenull } from '@/util/validate'
 const getters = {
   tag: state => state.tags.tag,
   language: state => state.common.language,
@@ -12,7 +11,7 @@ const getters = {
   screen: state => state.common.screen,
   isLock: state => state.common.isLock,
   isFullScren: state => state.common.isFullScren,
-  isMenu: (state, getters) => !validatenull(getters.menu),
+  isMenu: state => state.common.isMenu,
   lockPasswd: state => state.common.lockPasswd,
   tagList: state => state.tags.tagList,
   tagWel: state => state.tags.tagWel,

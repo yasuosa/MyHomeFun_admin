@@ -12,9 +12,10 @@ const top = [{
   label: "官网",
   icon: 'el-icon-document',
   meta: {
+    menu: false,
     i18n: 'website',
   },
-  path: "https://avuex.avue.top",
+  path: "https://avuejs.com",
   parentId: 1
 },
 {
@@ -31,6 +32,7 @@ const top = [{
   icon: 'el-icon-document',
   path: "http://data.avue.top",
   meta: {
+    menu: false,
     i18n: 'datascreen',
   },
   parentId: 3

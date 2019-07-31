@@ -18,7 +18,8 @@
         <el-scrollbar class="avue-searchs__scrollbar">
           <div class="avue-searchs__item"
                v-for="(item,index) in menus"
-               :key="index" @click="handleSelect(item)">
+               :key="index"
+               @click="handleSelect(item)">
             <i :class="[item[iconKey],'avue-searchs__item-icon']"></i>
             <span class="avue-searchs__item-title">{{item[labelKey]}}</span>
             <div class="avue-searchs__item-path">
@@ -45,7 +46,6 @@ export default {
   },
   created () {
     this.getMenuList();
-    this.menus = this.menuList;
   },
   watch: {
     value () {
@@ -89,6 +89,7 @@ export default {
       };
       this.menuList = [];
       findMenu(this.menu);
+      this.menus = this.menuList;
     },
     querySearch () {
       var restaurants = this.menuList;
@@ -111,9 +112,8 @@ export default {
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           name: item[this.labelKey],
-          src: item[this.pathKey],
-          i18n: (item.meta || {}).i18n
-        }),
+          src: item[this.pathKey]
+        }, item.meta),
         query: item.query
       });
     }

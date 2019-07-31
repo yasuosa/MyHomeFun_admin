@@ -10,7 +10,15 @@ export default [{
       i18n: 'dashboard'
     },
     component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/wel')
+      import( /* webpackChunkName: "views" */ '@/views/wel/index')
+  }, {
+    path: 'dashboard',
+    name: '控制台',
+    meta: {
+      i18n: 'dashboard'
+    },
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/views/wel/dashboard')
   }]
 }, {
   path: '/form-detail',

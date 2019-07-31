@@ -21,31 +21,31 @@
 import { mapGetters } from "vuex";
 export default {
   name: "top-menu",
-  data() {
+  data () {
     return {
       activeIndex: "0",
       items: []
     };
   },
-  created() {
+  created () {
     this.getMenu();
   },
   computed: {
     ...mapGetters(["tagCurrent", "menu"])
   },
   methods: {
-    getMenu() {
+    getMenu () {
       this.$store.dispatch("GetTopMenu").then(res => {
         this.items = res;
       });
     },
-    generateTitle(item) {
+    generateTitle (item) {
       return this.$router.$avueRouter.generateTitle(
         item.label,
         (item.meta || {}).i18n
       );
     },
-    openMenu(item) {
+    openMenu (item) {
       this.$store.dispatch("GetMenu", item.parentId).then(data => {
         if (data.length !== 0) {
           this.$router.$avueRouter.formatRoutes(data, true);
@@ -64,9 +64,8 @@ export default {
         this.$router.push({
           path: this.$router.$avueRouter.getPath({
             name: itemActive.label,
-            src: itemActive.path,
-            i18n: itemActive.meta.i18n
-          })
+            src: itemActive.path
+          }, itemActive.meta)
         });
       });
     }

@@ -52,10 +52,9 @@
     padding: 0;
     padding-bottom: 20px;
     width: calc(100% - 240px);
-    height: calc(100% - 70px);
+    height: calc(100% - 64px);
     box-sizing: border-box;
     overflow: hidden;
-    transition: all 0.5s;
     background: #f0f2f5;
     z-index:1026;
     &--fullscreen{

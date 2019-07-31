@@ -2,7 +2,7 @@
   <div class="avue-sidebar">
     <logo></logo>
     <el-scrollbar style="height:100%">
-      <div v-if="!isMenu"
+      <div v-if="validatenull(menu)"
            class="avue-sidebar--tip">{{$t('menuTip')}}</div>
       <el-menu unique-opened
                :default-active="nowTagValue"
@@ -36,7 +36,7 @@ export default {
     });
   },
   computed: {
-    ...mapGetters(["website", 'isMenu', "menu", "tag", "keyCollapse", "screen"]),
+    ...mapGetters(["website", "menu", "tag", "keyCollapse", "screen"]),
     nowTagValue: function () {
       return this.$router.$avueRouter.getValue(this.$route);
     }

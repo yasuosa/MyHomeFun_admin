@@ -51,11 +51,11 @@ RouterPlugin.install = function (vue, router, store, i18n) {
       return title
     },
     //处理路由
-    getPath: function (params) {
+    getPath: function (params = {}, meta = {}) {
       let { src } = params;
       let result = src || '/';
       if (isURL(src)) {
-        result = `/myiframe/urlPath?${objToform(params)}`;
+        result = `/myiframe/urlPath?${objToform(Object.assign(meta, params))}`;
       }
       return result;
     },

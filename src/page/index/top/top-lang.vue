@@ -15,17 +15,17 @@
 import { mapGetters } from "vuex";
 export default {
   name: "top-lang",
-  data() {
+  data () {
     return {};
   },
-  created() {},
-  mounted() {},
+  created () { },
+  mounted () { },
   computed: {
     ...mapGetters(["language", "tag"])
   },
   props: [],
   methods: {
-    handleSetLanguage(lang) {
+    handleSetLanguage (lang) {
       this.$i18n.locale = lang;
       this.$store.commit("SET_LANGUAGE", lang);
       let tag = this.tag;
