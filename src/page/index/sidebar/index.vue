@@ -2,7 +2,7 @@
   <div class="avue-sidebar">
     <logo></logo>
     <el-scrollbar style="height:100%">
-      <div v-if="isMenu"
+      <div v-if="!isMenu"
            class="avue-sidebar--tip">{{$t('menuTip')}}</div>
       <el-menu unique-opened
                :default-active="nowTagValue"
