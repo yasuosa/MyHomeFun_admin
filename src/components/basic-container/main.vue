@@ -1,5 +1,6 @@
 <template>
   <div class="basic-container"
+       :style="styleName"
        :class="{'basic-container--block':block}">
     <el-card>
       <slot></slot>
@@ -11,9 +12,24 @@
 export default {
   name: "basicContainer",
   props: {
+    radius: {
+      type: [String, Number],
+      default: 10
+    },
+    background: {
+      type: String
+    },
     block: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    styleName () {
+      return {
+        borderRadius: this.setPx(this.radius),
+        background: this.background,
+      }
     }
   }
 };
@@ -21,9 +37,12 @@ export default {
 
 <style lang="scss">
 .basic-container {
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 10px 6px;
-  border-radius: 10px;
   box-sizing: border-box;
+  .el-card {
+    background-color: transparent;
+  }
   &--block {
     height: 100%;
     .el-card {

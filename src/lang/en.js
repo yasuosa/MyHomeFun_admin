@@ -53,7 +53,7 @@ export default {
     info: 'info',
     website: 'website',
     dashboard: 'dashboard',
-    datascreen: 'datascreen',
+    more: 'more',
     tags: 'tags',
     store: 'store',
     permission: 'permission',

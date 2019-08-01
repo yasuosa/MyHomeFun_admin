@@ -28,12 +28,12 @@ const top = [{
   parentId: 2
 },
 {
-  label: "数据大屏",
+  label: "更多",
   icon: 'el-icon-document',
-  path: "http://data.avue.top",
+  path: "/wel/dashboard",
   meta: {
     menu: false,
-    i18n: 'datascreen',
+    i18n: 'more',
   },
   parentId: 3
 }]
