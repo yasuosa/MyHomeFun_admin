@@ -8,7 +8,7 @@
           {{time}}
         </div>
         <img class="img"
-             src="https://avuex.avue.top/images/logo.png"
+             src="https://avuejs.com/images/logo.png"
              alt="">
         <p class="title">{{ $t('login.info') }}</p>
       </div>
@@ -53,14 +53,14 @@ export default {
     topLang,
     topColor
   },
-  data() {
+  data () {
     return {
       time: "",
       activeName: "user"
     };
   },
   watch: {
-    $route() {
+    $route () {
       const params = this.$route.query;
       this.socialForm.state = params.state;
       this.socialForm.code = params.code;
@@ -69,7 +69,7 @@ export default {
           lock: true,
           text: `${
             this.socialForm.state === "WX" ? "微信" : "QQ"
-          }登录中,请稍后。。。`,
+            }登录中,请稍后。。。`,
           spinner: "el-icon-loading"
         });
         setTimeout(() => {
@@ -78,19 +78,19 @@ export default {
       }
     }
   },
-  created() {
+  created () {
     this.getTime();
     setInterval(() => {
       this.getTime();
     }, 1000);
   },
-  mounted() {},
+  mounted () { },
   computed: {
     ...mapGetters(["website"])
   },
   props: [],
   methods: {
-    getTime() {
+    getTime () {
       this.time = dateFormat(new Date());
     }
   }
