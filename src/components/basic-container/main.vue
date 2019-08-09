@@ -37,12 +37,8 @@ export default {
 
 <style lang="scss">
 .basic-container {
-  background-color: rgba(255, 255, 255, 0.7);
   padding: 10px 6px;
   box-sizing: border-box;
-  .el-card {
-    background-color: transparent;
-  }
   &--block {
     height: 100%;
     .el-card {

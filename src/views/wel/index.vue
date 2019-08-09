@@ -50,7 +50,7 @@
       <el-col :span="18">
         <basic-container>
           <avue-data-progress :option="option3"
-                              style="margin-bottom:20px"></avue-data-progress>
+                              style="margin-bottom:35px"></avue-data-progress>
           <avue-data-tabs :option="option"></avue-data-tabs>
         </basic-container>
       </el-col>
@@ -72,7 +72,7 @@
 import { mapGetters } from "vuex";
 export default {
   name: "wel",
-  data() {
+  data () {
     return {
       data: [
         {
@@ -100,7 +100,7 @@ export default {
   },
   computed: {
     ...mapGetters(["userInfo"]),
-    option1() {
+    option1 () {
       return {
         span: 6,
         data: [
@@ -139,7 +139,7 @@ export default {
         ]
       };
     },
-    option3() {
+    option3 () {
       return {
         span: 8,
         data: [
@@ -167,7 +167,7 @@ export default {
         ]
       };
     },
-    option2() {
+    option2 () {
       return {
         span: 12,
         data: [
@@ -202,7 +202,7 @@ export default {
         ]
       };
     },
-    option() {
+    option () {
       return {
         span: 8,
         data: [
@@ -236,7 +236,7 @@ export default {
         ]
       };
     },
-    option4() {
+    option4 () {
       return {
         index: true,
         column: [
@@ -258,7 +258,7 @@ export default {
       };
     }
   },
-  created() {},
+  created () { },
   methods: {}
 };
 </script>
