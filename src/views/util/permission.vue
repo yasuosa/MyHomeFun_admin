@@ -5,8 +5,7 @@
       <avue-crud ref="crud"
                  :permission="permission"
                  :option="option"
-                 :data="data"
-                 @expand-change="expandChange">
+                 :data="data">
         <template slot="expand"
                   slot-scope="scope">
           {{scope}}
@@ -27,7 +26,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       text: false,
       permission: {},
@@ -59,7 +58,7 @@ export default {
     };
   },
   watch: {
-    text() {
+    text () {
       if (this.text === true) {
         this.permission = {
           delBtn: false,
