@@ -2,7 +2,7 @@
 let baseUrl = './'
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
-    baseUrl: baseUrl, // 根据你的实际情况更改这里
+  publicPath: baseUrl, // 根据你的实际情况更改这里
     lintOnSave: true,
     productionSourceMap: false,
     // configureWebpack: config => {

@@ -82,6 +82,7 @@ export default {
     userLogin: 'userLogin',
     phoneLogin: 'phoneLogin',
     thirdLogin: 'thirdLogin',
+    faceLogin: 'faceLogin',
     msgText: 'send code',
     msgSuccess: 'reissued code',
   },
