@@ -6,6 +6,8 @@ export default {
   cancelText: 'cancel',
   search: 'Please input search content',
   menuTip: 'none menu list',
+  feedback: 'feedback',
+  submit: 'submit',
   wel: {
     info: 'Good morning, Smallwei, Avuex is a framework',
     dept: 'a certain technology department',

@@ -6,6 +6,8 @@ export default {
   cancelText: '取消',
   search: '请输入搜索内容',
   menuTip: '没有发现菜单',
+  feedback: '意见反馈',
+  submit: '提交',
   wel: {
     info: '早安，Smallwei，Avuex一款超乎你想象的框架！',
     dept: '我是avue团队下的一个部门-哈皮部门-哈皮职位',

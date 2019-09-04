@@ -1,6 +1,7 @@
 <template>
   <div class="avue-contail"
        :class="{'avue--collapse':isCollapse}">
+    <screenshot></screenshot>
     <div class="avue-header">
       <!-- 顶部导航栏 -->
       <top />
@@ -46,6 +47,7 @@
 <script>
 import { mapGetters } from "vuex";
 import tags from "./tags";
+import screenshot from './screenshot';
 import search from "./search";
 import top from "./top/";
 import sidebar from "./sidebar/";
@@ -58,7 +60,8 @@ export default {
     top,
     tags,
     search,
-    sidebar
+    sidebar,
+    screenshot
   },
   name: "index",
   data () {
