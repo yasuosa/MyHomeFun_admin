@@ -34,8 +34,9 @@
   }
   .avue-tags{
     .el-tabs__item{
-      color: $is_active_color !important;
+      color: rgba(0, 0, 0, 0.4)  !important;
       &.is-active{
+        color:$is_active_color !important;
         border-color: $is_active_color !important;
       }
       &:before{

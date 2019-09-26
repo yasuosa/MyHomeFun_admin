@@ -1,16 +1,22 @@
+$height:64px;
 .avue-top {
     padding: 0 20px;
     position: relative;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
     color: rgba(0, 0, 0, .65);
     font-size: 28px;
-    height: 64px;
+    height: $height;
+    line-height: $height;
     box-sizing: border-box;
     white-space: nowrap;
     .el-menu-item{
         i,span{
             font-size: 13px;
         }
+    }
+    .el-menu--horizontal>.el-menu-item {
+      height: $height;
+      line-height: $height;
     }
 }
 .avue-breadcrumb {
@@ -32,7 +38,7 @@
 }
 
 .top-search {
-    line-height: 64px;
+    line-height: $height;
     position: absolute !important;
     left: 20px;
     top:0;
@@ -57,11 +63,11 @@
 
 .top-bar__left,
 .top-bar__right {
-    height: 64px;
+    height: $height;
     position: absolute;
     top: 0;
     i{
-        line-height: 64px;
+        line-height: $height;
     }
 }
 
@@ -78,7 +84,7 @@
 .top-bar__item {
     position: relative;
     display: inline-block;
-    height: 64px;
+    height: $height;
     margin:0 10px;
     font-size: 16px;
     &--show {

@@ -58,6 +58,10 @@ export default {
           value: "theme-iview"
         },
         {
+          name: "cool主题",
+          value: "theme-cool"
+        },
+        {
           name: "d2主题",
           value: "theme-d2"
         },
