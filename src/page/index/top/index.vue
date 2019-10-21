@@ -92,6 +92,7 @@
   </div>
 </template>
 <script>
+import { resetRouter } from '@/router/router'
 import { mapGetters, mapState } from "vuex";
 import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
@@ -159,6 +160,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$store.dispatch("LogOut").then(() => {
+          resetRouter();
           this.$router.push({ path: "/login" });
         });
       });
