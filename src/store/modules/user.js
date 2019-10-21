@@ -36,7 +36,7 @@ const user = {
     permission: {},
     roles: [],
     menu: getStore({ name: 'menu' }) || [],
-    menuAll: [],
+    menuAll: getStore({ name: 'menuAll' }) || [],
     token: getStore({ name: 'token' }) || '',
   },
   actions: {
@@ -157,10 +157,13 @@ const user = {
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
+      let menuAll = state.menuAll;
+      const obj = menuAll.filter(ele => ele.path === menu[0].path)[0]
+      if (!obj) {
+        menuAll = menuAll.concat(menu);
+      }
+      setStore({ name: 'menuAll', content: menuAll, type: 'session' })
       setStore({ name: 'menu', content: state.menu, type: 'session' })
-    },
-    SET_MENU_ALL: (state, menuAll) => {
-      state.menuAll = menuAll;
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles;

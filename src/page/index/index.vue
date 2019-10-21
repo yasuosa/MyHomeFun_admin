@@ -102,7 +102,7 @@ export default {
         const token = getStore({
           name: "token",
           debug: true
-        });
+        }) || {};
         const date = calcDate(token.datetime, new Date().getTime());
         if (validatenull(date)) return;
         if (date.seconds >= this.website.tokenTime && !this.refreshLock) {

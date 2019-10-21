@@ -34,19 +34,6 @@ export default [{
       import( /* webpackChunkName: "views" */ '@/views/util/form-detail')
   }]
 }, {
-  path: '/test',
-  component: Layout,
-  redirect: '/test/index',
-  children: [{
-    path: 'index',
-    name: '测试页',
-    meta: {
-      i18n: 'test'
-    },
-    component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/util/test')
-  }]
-}, {
   path: '/info',
   component: Layout,
   redirect: '/info/index',

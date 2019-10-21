@@ -33,7 +33,7 @@ export const createRouter = () => new VueRouter({
 })
 const Router = createRouter()
 AvueRouter.install(Vue, Router, Store, i18n);
-Router.$avueRouter.formatRoutes(Store.state.user.menu, true);
+Router.$avueRouter.formatRoutes(Store.state.user.menuAll, true);
 Router.addRoutes([...PageRouter, ...ViewsRouter]);
 export function resetRouter () {
   const newRouter = createRouter()
