@@ -11,7 +11,7 @@
     <div class="top-bar__title">
       <div class="top-bar__item top-bar__item--show"
            v-if="showMenu">
-        <top-menu></top-menu>
+        <top-menu ref="topMenu"></top-menu>
       </div>
       <span class="top-bar__item"
             v-if="showSearch">

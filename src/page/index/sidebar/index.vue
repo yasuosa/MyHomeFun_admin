@@ -26,17 +26,23 @@ import sidebarItem from "./sidebarItem";
 export default {
   name: "sidebar",
   components: { sidebarItem, logo },
+  inject: ["index"],
   data () {
     return {};
   },
   created () {
-    this.$store.dispatch("GetMenu").then(data => {
-      if (data.length === 0) return;
-      this.$router.$avueRouter.formatRoutes(data, true);
-    });
+    if (!this.validatenull(this.menuId)) {
+      //保持缓冲，后期优化下
+      this.index.openMenu(this.menuId)
+    } else {
+      this.$store.dispatch("GetMenu").then(data => {
+        if (data.length === 0) return;
+        this.$router.$avueRouter.formatRoutes(data, true);
+      });
+    }
   },
   computed: {
-    ...mapGetters(["website", "menu", "tag", "keyCollapse", "screen"]),
+    ...mapGetters(["website", "menu", "tag", "keyCollapse", "screen", "menuId"]),
     nowTagValue: function () {
       return this.$router.$avueRouter.getValue(this.$route);
     }

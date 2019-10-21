@@ -1,3 +1,4 @@
+
 const getters = {
   tag: state => state.tags.tag,
   language: state => state.common.language,
@@ -18,6 +19,7 @@ const getters = {
   token: state => state.user.token,
   roles: state => state.user.roles,
   permission: state => state.user.permission,
+  menuId: state => state.user.menuId,
   menu: state => state.user.menu,
   menuAll: state => state.user.menuAll,
   logsList: state => state.logs.logsList,

@@ -4,7 +4,7 @@
     <screenshot></screenshot>
     <div class="avue-header">
       <!-- 顶部导航栏 -->
-      <top />
+      <top ref="top" />
     </div>
 
     <div class="avue-layout">
@@ -64,6 +64,11 @@ export default {
     screenshot
   },
   name: "index",
+  provide () {
+    return {
+      index: this
+    };
+  },
   data () {
     return {
       //搜索控制
@@ -81,7 +86,7 @@ export default {
   mounted () {
     this.init();
   },
-  computed: mapGetters(["isMenu", "isLock", "isCollapse", "website"]),
+  computed: mapGetters(["isMenu", "isLock", "isCollapse", "website", "menu"]),
   props: [],
   methods: {
     showCollapse () {
@@ -95,6 +100,32 @@ export default {
           this.$store.commit("SET_SCREEN", admin.getScreen());
         }, 0);
       };
+    },
+    //打开菜单
+    openMenu (item) {
+      this.$store.dispatch("GetMenu", item.parentId).then(data => {
+        if (data.length !== 0) {
+          this.$router.$avueRouter.formatRoutes(data, true);
+        }
+        let itemActive,
+          childItemActive = 0;
+        if (item.path) {
+          itemActive = item;
+        } else {
+          if (this.menu[childItemActive].length == 0) {
+            itemActive = this.menu[childItemActive];
+          } else {
+            itemActive = this.menu[childItemActive].children[childItemActive];
+          }
+        }
+        this.$store.commit('SET_MENUID', item);
+        this.$router.push({
+          path: this.$router.$avueRouter.getPath({
+            name: itemActive.label,
+            src: itemActive.path
+          }, itemActive.meta)
+        });
+      });
     },
     // 10分钟检测一次token
     refreshToken () {

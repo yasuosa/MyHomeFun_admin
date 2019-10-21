@@ -35,6 +35,7 @@ const user = {
     userInfo: {},
     permission: {},
     roles: [],
+    menuId: getStore({ name: 'menuId' }) || [],
     menu: getStore({ name: 'menu' }) || [],
     menuAll: getStore({ name: 'menuAll' }) || [],
     token: getStore({ name: 'token' }) || '',
@@ -100,6 +101,7 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
+          commit('SET_MENUID', '')
           commit('SET_MENU', [])
           commit('SET_ROLES', [])
           commit('DEL_ALL_TAG');
@@ -115,6 +117,7 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        commit('SET_MENUID', '')
         commit('SET_MENU', [])
         commit('SET_ROLES', [])
         commit('DEL_ALL_TAG');
@@ -152,17 +155,24 @@ const user = {
       state.token = token;
       setStore({ name: 'token', content: state.token, type: 'session' })
     },
+    SET_MENUID (state, menuId) {
+      state.menuId = menuId;
+      setStore({ name: 'menuId', content: state.menuId, type: 'session' })
+    },
     SET_USERIFNO: (state, userInfo) => {
       state.userInfo = userInfo;
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
       let menuAll = state.menuAll;
-      const obj = menuAll.filter(ele => ele.path === menu[0].path)[0]
-      if (!obj) {
-        menuAll = menuAll.concat(menu);
+      if (!validatenull(menu)) {
+        const obj = menuAll.filter(ele => ele.path === menu[0].path)[0]
+        if (!obj) {
+          menuAll = menuAll.concat(menu);
+        }
+        setStore({ name: 'menuAll', content: menuAll, type: 'session' })
       }
-      setStore({ name: 'menuAll', content: menuAll, type: 'session' })
+
       setStore({ name: 'menu', content: state.menu, type: 'session' })
     },
     SET_ROLES: (state, roles) => {
