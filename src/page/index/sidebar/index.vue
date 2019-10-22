@@ -31,15 +31,7 @@ export default {
     return {};
   },
   created () {
-    if (!this.validatenull(this.menuId)) {
-      //保持缓冲，后期优化下
-      this.index.openMenu(this.menuId)
-    } else {
-      this.$store.dispatch("GetMenu").then(data => {
-        if (data.length === 0) return;
-        this.$router.$avueRouter.formatRoutes(data, true);
-      });
-    }
+    this.index.openMenu(this.menuId)
   },
   computed: {
     ...mapGetters(["website", "menu", "tag", "keyCollapse", "screen", "menuId"]),

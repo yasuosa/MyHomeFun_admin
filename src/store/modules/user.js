@@ -101,7 +101,8 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
-          commit('SET_MENUID', '')
+          commit('SET_MENUID', {})
+          commit('SET_MENUALL', []);
           commit('SET_MENU', [])
           commit('SET_ROLES', [])
           commit('DEL_ALL_TAG');
@@ -117,7 +118,8 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
-        commit('SET_MENUID', '')
+        commit('SET_MENUID', {})
+        commit('SET_MENUALL', []);
         commit('SET_MENU', [])
         commit('SET_ROLES', [])
         commit('DEL_ALL_TAG');
@@ -162,6 +164,10 @@ const user = {
     SET_USERIFNO: (state, userInfo) => {
       state.userInfo = userInfo;
     },
+    SET_MENUALL: (state, menuAll) => {
+      state.menuAll = menuAll
+      setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
+    },
     SET_MENU: (state, menu) => {
       state.menu = menu
       let menuAll = state.menuAll;
@@ -169,10 +175,10 @@ const user = {
         const obj = menuAll.filter(ele => ele.path === menu[0].path)[0]
         if (!obj) {
           menuAll = menuAll.concat(menu);
+          state.menuAll = menuAll
         }
-        setStore({ name: 'menuAll', content: menuAll, type: 'session' })
+        setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
       }
-
       setStore({ name: 'menu', content: state.menu, type: 'session' })
     },
     SET_ROLES: (state, roles) => {
