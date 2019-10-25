@@ -52,6 +52,13 @@
         </div>
       </el-tooltip>
       <el-tooltip effect="dark"
+                  :content="$t('navbar.notice')"
+                  placement="bottom">
+        <div class="top-bar__item top-bar__item--show">
+          <top-notice></top-notice>
+        </div>
+      </el-tooltip>
+      <el-tooltip effect="dark"
                   :content="$t('navbar.language')"
                   placement="bottom">
         <div class="top-bar__item top-bar__item--show">
@@ -101,6 +108,7 @@ import topSearch from "./top-search";
 import topTheme from "./top-theme";
 import topLogs from "./top-logs";
 import topColor from "./top-color";
+import topNotice from './top-notice'
 import topLang from "./top-lang";
 export default {
   components: {
@@ -110,6 +118,7 @@ export default {
     topTheme,
     topLogs,
     topColor,
+    topNotice,
     topLang
   },
   name: "top",

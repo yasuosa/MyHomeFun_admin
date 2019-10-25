@@ -100,6 +100,7 @@ export default {
     screenfullF: 'exit screenfull',
     screenfull: 'screenfull',
     language: 'language',
+    notice: 'notice',
     theme: 'theme',
     color: 'color'
   },
