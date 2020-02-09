@@ -109,7 +109,7 @@ export default {
             count: 12332,
             icon: "el-icon-warning",
             color: "rgb(49, 180, 141)",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
@@ -117,7 +117,7 @@ export default {
             count: 33,
             icon: "el-icon-view",
             color: "rgb(56, 161, 242)",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
@@ -125,7 +125,7 @@ export default {
             count: 2223,
             icon: "el-icon-setting",
             color: "rgb(117, 56, 199)",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
@@ -133,7 +133,7 @@ export default {
             count: 2223,
             icon: "el-icon-setting",
             color: "rgb(230, 71, 88)",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           }
         ]
@@ -147,21 +147,21 @@ export default {
             title: this.$t("wel.data3.column1"),
             color: "rgb(178, 159, 255)",
             count: 32,
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
             title: this.$t("wel.data3.column2"),
             color: "rgb(230, 71, 88)",
             count: 32,
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
             title: this.$t("wel.data3.column3"),
             color: "rgb(230, 71, 88)",
             count: 32,
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           }
         ]
@@ -175,28 +175,28 @@ export default {
             title: this.$t("wel.data2.column1"),
             count: 12678,
             icon: "el-icon-tickets",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
             title: this.$t("wel.data2.column2"),
             count: 22139,
             icon: "el-icon-success",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
             title: this.$t("wel.data2.column3"),
             count: 35623,
             icon: "el-icon-info",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           },
           {
             title: this.$t("wel.data2.column4"),
             count: 16826,
             icon: "el-icon-message",
-            href: "https://avue.top",
+            href: "https://avuejs.com",
             target: "_blank"
           }
         ]

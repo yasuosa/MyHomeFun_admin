@@ -1,6 +1,6 @@
 export default {
   tip: '提示',
-  title: 'Avuex 通用管理 系统快速开发框架',
+  title: 'Avue 通用管理 系统快速开发框架',
   logoutTip: '退出系统, 是否继续?',
   submitText: '确定',
   cancelText: '取消',
@@ -9,7 +9,7 @@ export default {
   feedback: '意见反馈',
   submit: '提交',
   wel: {
-    info: '早安，Smallwei，Avuex一款超乎你想象的框架！',
+    info: '早安，Smallwei，Avue一款超乎你想象的框架！',
     dept: '我是avue团队下的一个部门-哈皮部门-哈皮职位',
     team: '团队内排名',
     project: '项目访问',

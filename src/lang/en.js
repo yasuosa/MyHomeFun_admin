@@ -1,5 +1,5 @@
 export default {
-  title: 'Avuex is a framework',
+  title: 'Avue is a framework',
   tip: 'tip',
   logoutTip: 'Exit the system, do you want to continue?',
   submitText: 'submit',
@@ -9,7 +9,7 @@ export default {
   feedback: 'feedback',
   submit: 'submit',
   wel: {
-    info: 'Good morning, Smallwei, Avuex is a framework',
+    info: 'Good morning, Smallwei, Avue is a framework',
     dept: 'a certain technology department',
     team: 'Team ranking',
     project: 'Project access',

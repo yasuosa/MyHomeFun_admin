@@ -67,7 +67,7 @@ const first = [{
   children: []
 }, {
   label: "全局函数",
-  path: 'https://avuex.avue.top/doc/api',
+  path: 'https://avuejs.com/doc/api',
   icon: 'icon-caidan',
   meta: {
     i18n: 'api',
@@ -134,17 +134,6 @@ const first = [{
   icon: 'icon-caidan',
   meta: {
     i18n: 'affix',
-  },
-  children: []
-},
-
-{
-  label: "数据展示",
-  path: '/data',
-  component: 'views/util/data',
-  icon: 'icon-caidan',
-  meta: {
-    i18n: 'data',
   },
   children: []
 }, {
