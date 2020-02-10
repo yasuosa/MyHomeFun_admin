@@ -38,7 +38,7 @@ export default {
     ...mapGetters(["screen"]),
     src () {
       return this.$route.query.src
-        ? this.$route.query.src.replace("$", "#")
+        ? this.$route.query.src.replace("$", "&")
         : this.urlPath;
     }
   },
@@ -60,26 +60,6 @@ export default {
     // 加载组件
     load () {
       this.show();
-      var flag = true; //URL是否包含问号
-      if (this.$route.query.src.indexOf("?") == -1) {
-        flag = false;
-      }
-      var list = [];
-      for (var key in this.$route.query) {
-        if (key != "src" && key != "name" && key != "i18n") {
-          list.push(`${key}= this.$route.query[key]`);
-        }
-      }
-      list = list.join("&").toString();
-      if (flag) {
-        this.$route.query.src = `${this.$route.query.src}${
-          list.length > 0 ? `&list` : ""
-          }`;
-      } else {
-        this.$route.query.src = `${this.$route.query.src}${
-          list.length > 0 ? `?list` : ""
-          }`;
-      }
       //超时3s自动隐藏等待狂，加强用户体验
       let time = 3;
       const timeFunc = setInterval(() => {

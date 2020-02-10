@@ -18,10 +18,13 @@ function addPath (ele, first) {
   const icon = ele[propsDefault.icon];
   ele[propsDefault.icon] = validatenull(icon) ? menu.iconDefault : icon;
   const isChild = ele[propsDefault.children] && ele[propsDefault.children].length !== 0;
+  if (isURL(ele[propsDefault.path])) {
+    ele[propsDefault.path] = ele[propsDefault.path].replace(/&/g, "$")
+  }
   if (!isChild && first && !isURL(ele[propsDefault.path])) {
     ele[propsDefault.path] = ele[propsDefault.path] + '/index'
   } else {
-    ele[propsDefault.children].forEach(child => {
+    ele[propsDefault.children] && ele[propsDefault.children].forEach(child => {
       if (!isURL(child[propsDefault.path])) {
         child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path] ? child[propsDefault.path] : 'index'}`
       }

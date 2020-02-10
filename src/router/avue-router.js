@@ -115,7 +115,7 @@ RouterPlugin.install = function (vue, router, store, i18n) {
             }
           }
         })());
-        const isChild = children.length !== 0;
+        const isChild = children && children.length !== 0;
         const oRouter = {
           path: path,
           component (resolve) {

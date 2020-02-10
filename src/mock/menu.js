@@ -67,12 +67,11 @@ const first = [{
   children: []
 }, {
   label: "全局函数",
-  path: 'https://avuejs.com/doc/api',
+  path: 'https://avuejs.com/doc/api?test1=1&test2=2',
   icon: 'icon-caidan',
   meta: {
     i18n: 'api',
-  },
-  children: []
+  }
 }, {
   label: "日志监控",
   path: '/logs',
