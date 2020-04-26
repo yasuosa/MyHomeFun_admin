@@ -1,6 +1,7 @@
 <template>
   <div class="avue-tags"
-       v-if="showTag">
+       v-if="showTag"
+       @click="contextmenuFlag=false">
     <!-- tag盒子 -->
     <div v-if="contextmenuFlag"
          class="avue-tags__contentmenu"
@@ -130,7 +131,7 @@ export default {
         path: this.$router.$avueRouter.getPath({
           name: tag.label,
           src: tag.value
-        },tag.meta),
+        }, tag.meta),
         query: tag.query
       });
     },
