@@ -173,16 +173,23 @@ const user = {
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
-      let menuAll = state.menuAll;
-      if (!validatenull(menu)) {
-        const obj = menuAll.filter(ele => ele.path === menu[0].path)[0]
-        if (!obj) {
-          menuAll = menuAll.concat(menu);
-          state.menuAll = menuAll
-        }
-        setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
-      }
       setStore({ name: 'menu', content: state.menu, type: 'session' })
+      if (validatenull(menu)) return
+      //合并动态路由去重
+      let menuAll = state.menuAll;
+      menuAll = menuAll.concat(menu).reverse();
+      let newMenu = [];
+      for (let item1 of menuAll) {
+        let flag = true;
+        for (let item2 of newMenu) {
+          if (item1.label == item2.label || item1.path == item2.path) {
+            flag = false;
+          }
+        }
+        if (flag) newMenu.push(item1);
+      }
+      state.menuAll = newMenu
+      setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles;
