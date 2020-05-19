@@ -19,7 +19,9 @@
       <span class="affix-affix">固定在距离顶部 150px 的位置</span>
     </avue-affix>
     <div style="height:2000px;">
-      <div style="padding:15px 20px;font-size:18px;">往下拉就会出现图钉</div>
+      <div style="padding:15px 20px;font-size:18px;">
+        <h2>往下拉就会出现图钉</h2>
+      </div>
     </div>
   </div>
 </template>

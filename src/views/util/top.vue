@@ -1,14 +1,16 @@
 <template>
   <div>
     <div style="height:2000px;background-color:#fff;">
-      <div style="padding:15px 20px;font-size:18px;">往下拉就会出现返回菜单</div>
+      <div style="padding:15px 20px;font-size:18px;">
+        <h3>往下拉就会出现返回菜单</h3>
+      </div>
     </div>
-    <avue-back-top id="avue-view"></avue-back-top>
-    <avue-back-top id="avue-view"
-                   :height="100"
-                   :bottom="200">
+    <el-backtop target="#avue-view"
+                :bottom="200"></el-backtop>
+    <el-backtop target="#avue-view"
+                :bottom="100">
       <div class="top">返回顶端</div>
-    </avue-back-top>
+    </el-backtop>
   </div>
 </template>
 
