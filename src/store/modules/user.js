@@ -107,6 +107,7 @@ const user = {
           commit('SET_MENUID', {})
           commit('SET_MENUALL', []);
           commit('SET_MENU', [])
+          commit('SET_TAG_LIST', [])
           commit('SET_ROLES', [])
           commit('DEL_ALL_TAG');
           commit('CLEAR_LOCK');
@@ -124,6 +125,7 @@ const user = {
         commit('SET_MENUID', {})
         commit('SET_MENUALL', []);
         commit('SET_MENU', [])
+        commit('SET_TAG_LIST', [])
         commit('SET_ROLES', [])
         commit('DEL_ALL_TAG');
         commit('CLEAR_LOCK');
@@ -148,6 +150,7 @@ const user = {
           menu.forEach(ele => {
             addPath(ele, true);
           })
+          commit('SET_MENUALL', menu)
           commit('SET_MENU', menu)
           resolve(menu)
         })
@@ -158,7 +161,7 @@ const user = {
     SET_TOKEN: (state, token) => {
       setToken(token)
       state.token = token;
-      setStore({ name: 'token', content: state.token, type: 'session' })
+      setStore({ name: 'token', content: state.token })
     },
     SET_MENUID (state, menuId) {
       state.menuId = menuId;
@@ -169,11 +172,11 @@ const user = {
     },
     SET_MENUALL: (state, menuAll) => {
       state.menuAll = menuAll
-      setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
+      setStore({ name: 'menuAll', content: state.menuAll })
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
-      setStore({ name: 'menu', content: state.menu, type: 'session' })
+      setStore({ name: 'menu', content: state.menu })
       if (validatenull(menu)) return
       //合并动态路由去重
       let menuAll = state.menuAll;

@@ -7,7 +7,8 @@ export default {
   key: 'avue',//配置主键,目前用于存储
   indexTitle: '后台快速开发模版',
   lockPage: '/lock',
-  tokenTime: 6000,
+  tokenTime: 6000,//token过期时间
+  Authorization: 'Authorization',
   //http的status默认放行不才用统一处理的,
   statusWhiteList: [400],
   //配置首页不可关闭
