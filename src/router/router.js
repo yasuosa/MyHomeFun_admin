@@ -16,6 +16,7 @@ import Store from '../store/';
 Vue.use(VueRouter)
 //创建路由
 export const createRouter = () => new VueRouter({
+  mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
