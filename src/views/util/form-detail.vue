@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       form: {},
       option: {
@@ -27,8 +27,13 @@ export default {
       }
     };
   },
+  watch: {
+    $route () {
+      this.$message.success('路由更新id=' + this.$route.query.id)
+    }
+  },
   methods: {
-    handleBack() {
+    handleBack () {
       this.$router.$avueRouter.closeTag();
       this.$router.back();
     }

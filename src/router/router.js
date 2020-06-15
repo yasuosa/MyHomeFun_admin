@@ -33,12 +33,22 @@ export const createRouter = () => new VueRouter({
   routes: [...PageRouter, ...ViewsRouter]
 })
 const Router = createRouter()
-AvueRouter.install(Vue, Router, Store, i18n);
+AvueRouter.install(Vue, {
+  router: Router,
+  store: Store,
+  i18n: i18n,
+  keepAlive: false,
+});
 Router.$avueRouter.formatRoutes(Store.state.user.menuAll, true);
 Router.addRoutes([...PageRouter, ...ViewsRouter]);
 export function resetRouter () {
   const newRouter = createRouter()
   Router.matcher = newRouter.matcher // reset router
-  AvueRouter.install(Vue, Router, Store, i18n);
+  AvueRouter.install(Vue, {
+    router: Router,
+    store: Store,
+    i18n: i18n,
+    keepAlive: false,
+  });
 }
 export default Router

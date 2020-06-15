@@ -26,10 +26,10 @@
              v-show="!isSearch">
           <keep-alive>
             <router-view class="avue-view"
-                         v-if="$route.meta.$keepAlive" />
+                         v-if="$route.meta.keepAlive" />
           </keep-alive>
           <router-view class="avue-view"
-                       v-if="!$route.meta.$keepAlive" />
+                       v-if="!$route.meta.keepAlive" />
         </div>
       </div>
     </div>
